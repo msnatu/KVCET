@@ -9,7 +9,7 @@ prod:
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
-    web_debug:              true
+    web_debug:              false
     cache:                  false
     no_script_name:         false
     etag:                   false
@@ -33,3 +33,9 @@ all:
 
     # Enable the database manager
     use_database:           true
+    enabled_modules:      [default, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission]
+    login_module:         sfGuardAuth
+    login_action:         login
+    secure_module:        sfGuardAuth
+    secure_action:        secure
+    check_lock:           true

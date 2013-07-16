@@ -6,15 +6,29 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
-    #robots:       index, follow
+    title:        KVCET
+    description:  Karpaga Vinayaga College of Engineering and Technology
+    keywords:     kvcet
+    language:     en
 
-  stylesheets:    [main.css]
+  stylesheets:
+    - main.css
+    - validationEngine.jquery.css
+    - template.css
+    - jquery.ui.all.css
 
-  javascripts:    []
+  javascripts:
+    - lib/jquery-1.5.1.js
+    - lib/jquery.validationEngine.js
+    - lib/jquery.validationEngine-en.js
+    - lib/jquery.ui.core.js
+    - lib/jquery.ui.widget.js
+    - lib/jquery.ui.datepicker.js
+    - lib/jquery.ui.autocomplete.js
+    - lib/jquery.ui.position.js
+    - lib/underscore-min.js
+    - forms/admission_form.js
+
 
   has_layout:     true
-  layout:         layout
+  layout:         dashboardLayout

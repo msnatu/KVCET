@@ -1,0 +1,37 @@
+secure:
+  is_secure: false
+
+signin:
+  is_secure: false
+
+signout:
+  is_secure: false
+  
+changePassword:
+  is_secure: true
+  has_credentials: [[Student,Staff,Admin]]
+  
+requestPassword:
+  is_secure: false
+  
+passwordForm:
+  is_secure: false
+  
+resetPassword:
+  is_secure: false
+
+newPassword:
+  is_secure: false
+  
+updatePassword:
+  is_secure: false
+  
+forgotPassword:
+  is_secure: false
+  
+passwordDetails:
+  is_secure: true
+  has_credentials: [[Student,Advisor]]
+
+homePage:
+  is_secure:  false

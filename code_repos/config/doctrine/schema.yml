@@ -1,0 +1,38 @@
+Student:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    student_id:         { type: integer(64) }
+    first_name:          { type: string(64) }
+    last_name:          { type: string(64) }
+    admission_no:       { type: integer }
+    admission_date:     { type: date }
+    admission_mode:     { type: tinyint(1) }
+    department:         { type: integer }
+    dob:                { type: date }
+    gender:              { type: boolean }
+    address:             { type: string(1000) }
+    city:               { type: string(200) }
+    state:               { type: string(200) }
+    pincode:             { type: integer(10), default: null }
+    mobile:              { type: integer(15), default: null }
+    email:              { type: string(100) }
+    photo_id:            { type: integer(64) }
+    parent_first_name:  { type: string(64) }
+    parent_last_name:   { type: string(64) }
+    parent_gender:      { type: boolean }
+    parent_occupation:  { type: string(100) }
+    parent_email:       { type: string(100) }
+    parent_phone:       { type: integer(20), default: null }
+    parent_mobile:      { type: integer(20), default: null }
+    institution_name:   { type: string(200) }
+    total_percent_marks: { type: float }
+
+  relations:
+    User:                { class: sfGuardUser, local: student_id, foreign: id }
+    StudDepartment:    { class: Department, local: department, foreign: id }
+
+
+Department:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    name:          { type: string(64) }

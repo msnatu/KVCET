@@ -1,0 +1,12 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        KVCET
+    description:  Karpaga Vinayaga College of Engineering and Technology
+    keywords:     kvcet
+    language:     en
+
+  has_layout:     true
+  layout:         login_layout

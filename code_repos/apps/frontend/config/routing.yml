@@ -3,8 +3,8 @@
 
 # default rules
 homepage:
-  url:   /
-  param: { module: default, action: index }
+  url:      /
+  param:    { module: sfGuardAuth, action: homePage }
 
 # generic rules
 # please, remove them by adding more specific rules
@@ -14,3 +14,20 @@ default_index:
 
 default:
   url:   /:module/:action/*
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: login }
+
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+forgot_password:
+  url:   /forgot_password
+  param: { module: sfGuardAuth, action: forgotPassword }
+
