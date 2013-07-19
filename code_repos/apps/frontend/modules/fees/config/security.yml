@@ -1,0 +1,7 @@
+all:
+  is_secure: true
+  credentials: [[DOP, Director]]
+
+feesStructure:
+  is_secure: true
+  credentials: Director

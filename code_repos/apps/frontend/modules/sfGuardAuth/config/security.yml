@@ -28,10 +28,6 @@ updatePassword:
   
 forgotPassword:
   is_secure: false
-  
-passwordDetails:
-  is_secure: true
-  has_credentials: [[Student,Advisor]]
 
 homePage:
   is_secure:  false

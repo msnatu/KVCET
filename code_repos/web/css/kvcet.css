@@ -1,0 +1,153 @@
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, a, img, b, u, i, center, ol, ul, li, fieldset, form, label,
+legend, table, tbody, tfoot, thead, tr, th, td, footer, header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  font-size: 12px;
+  color: #292929;
+  font-family: sans-serif;
+}
+
+input {
+  color: #595959;
+}
+
+.page-body-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.big-hori-space {
+  height: 10px;
+  width: 1px;
+}
+
+.kvcet-page-header-container {
+  background: #0478B3;
+  color: #fff;
+}
+
+.kvcet-page-header-body {
+  width: 1000px;
+  margin: 0px auto;
+  padding: 30px 0;
+}
+
+.kvcet-page-header-text {
+  font-size: 30px;
+  font-family: cursive;
+}
+
+.login-form-container {
+  background: #F3F3F3;
+  margin: 60px auto;
+  border: 1px solid #C9C9C9;
+  padding: 30px;
+  width: 350px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.login-form-header {
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+
+.login-field-label {
+  color: #7D7D7D;
+  font-size: 12px;
+  padding: 8px 0px 5px;
+}
+
+.login-field-icon-container {
+  background: #E8E8E8;
+  border: 1px solid #dcdcdc;
+  border-right: 0;
+  height: 37px;
+  width: 40px;
+  float: left;
+  -webkit-border-radius: 5px 0px 0px 5px;
+  -moz-border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.login-field-container {
+  float: left;
+}
+
+.login-field-container input {
+  float: left;
+  border: 1px solid #dcdcdc;
+  border-left: 0;
+  -webkit-border-radius: 0 5px 5px 0px;
+  -moz-border-radius: 0 5px 5px 0px;
+  border-radius: 0 5px 5px 0px;
+  padding: 10px;
+  width: 288px;
+}
+
+.login-button-container {
+  padding: 20px 0;
+  margin-top: 5px;
+}
+
+.login-forgot-pwd-link {
+  display: block;
+  color: #1177B2;
+  text-decoration: none;
+  float: left;
+  padding-top: 7px;
+}
+
+.login-button {
+  float: right;
+  background: #FFAA44; /* Old browsers */
+  background: -moz-linear-gradient(top,  #FFC175 0%, #FF9923 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFC175), color-stop(100%,#FF9923)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #FFC175 0%,#FF9923 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFC175', endColorstr='#FF9923',GradientType=0 ) !important; /* IE6-9 */
+  border: 1px solid #DA7300;
+  padding: 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #FFAA44; /* Old browsers */
+  background: -moz-linear-gradient(top,  #FF9923 0%, #FFC175 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FF9923), color-stop(100%,#FFC175)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #FF9923 0%,#FFC175 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #FF9923 0%,#FFC175 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #FF9923 0%,#FFC175 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #FF9923 0%,#FFC175 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF9923', endColorstr='#FFC175',GradientType=0 ) !important; /* IE6-9 */
+}
+
+.login-form-error {
+  background: #F7E58B;
+  border: 2px solid #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 8px;
+  padding: 7px;
+  color: #595959;
+}

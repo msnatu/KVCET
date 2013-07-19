@@ -38,6 +38,8 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 
   public function executeLogin($request)
   {
+    $this->getUser()->signOut();
+
     $this->form = new sfGuardFormSignin();
     $this->form_submit_route = '@sf_guard_signin';
 

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * dashboard actions.
+ * fees actions.
  *
  * @package    KVCET
- * @subpackage dashboard
- * @author     Your name here
+ * @subpackage fees
+ * @author     Natu
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class dashboardActions extends sfActions
+class feesActions extends sfActions
 {
  /**
   * Executes index action
@@ -22,5 +22,10 @@ class dashboardActions extends sfActions
     } else if($this->getUser()->getGuardUser()->hasGroup('Director')) {
       $this->setTemplate('director');
     }
+  }
+
+  public function executeFeesStructure()
+  {
+
   }
 }

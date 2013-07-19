@@ -10,7 +10,7 @@ else
   cd ..
   ./symfony doctrine:drop-db --no-confirmation --env=$env
   ./symfony doctrine:create-db --env=$env
-  ./symfony doctrine:build --all --env=$env
+  ./symfony doctrine:migrate --env=$env
   ./symfony doctrine:build --all-classes --env=$env
   ./symfony doctrine:data-load --env=$env --append
   END=$(date +%s)

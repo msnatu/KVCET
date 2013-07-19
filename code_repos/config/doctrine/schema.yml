@@ -36,3 +36,20 @@ Department:
   actAs:           [Timestampable, SoftDelete]
   columns:
     name:          { type: string(64) }
+
+
+FeesStructure:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    amount:                   { type: integer(64) }
+    batch_start_year:         { type: integer(64) }
+    fees_type:                { type: integer(64) }
+
+  relations:
+    Type:                     { class: FeesTypes, local: fees_type, foreign: id }
+
+
+FeesTypes:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    name:                   { type: string(256) }

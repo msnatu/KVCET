@@ -44,5 +44,12 @@ $genderArray = array('Male', 'Female');
 <script type="text/javascript">
   $(document).ready( function() {
     $("#student_personal_details_form").validationEngine();
+
+    $("#dob").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'dd-mm-yy',
+      constrainInput: true
+    });
   });
 </script>

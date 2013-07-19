@@ -8,12 +8,6 @@ homepage:
 
 # generic rules
 # please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
 
 sf_guard_signin:
   url:   /login
@@ -31,3 +25,13 @@ forgot_password:
   url:   /forgot_password
   param: { module: sfGuardAuth, action: forgotPassword }
 
+fees_structure:
+  url:  /fees/fees-structure
+  param: { module: fees, action: feesStructure }
+
+# Keep these two rules at the bottom of the page to avoid overriding
+default_index:
+  url:   /:module
+
+default:
+  url:   /:module/:action/*

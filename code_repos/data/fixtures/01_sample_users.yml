@@ -6,7 +6,15 @@ sfGuardUser:
     username:       admin
     password:       Welcome123
     is_super_admin: true
-    Groups:         [Group_admin]
+    Groups:         [Group_dop]
+
+  User_dop:
+    first_name:     Raju
+    last_name:      MS
+    email_address:  raju@gmail.com
+    username:       dop
+    password:       Welcome123
+    Groups:         [Group_dop]
 
   User_director:
     first_name:     Meenakshi
@@ -68,10 +76,10 @@ sfGuardGroup:
     description:    Principal
     Permissions:    [Permission_principal]
 
-  Group_admin:
-    name:           Admin
-    description:    Admin
-    Permissions:    [Permission_admin]
+  Group_dop:
+    name:           DOP
+    description:    Data Entry Operator
+    Permissions:    [Permission_dop]
 
   Group_hod:
     name:           HOD
@@ -103,9 +111,9 @@ sfGuardPermission:
     name:           Principal
     description:    Principal permission
 
-  Permission_admin:
-    name:           Admin
-    description:    Admin permission
+  Permission_dop:
+    name:           DOP
+    description:    DOP permission
 
   Permission_hod:
     name:           HOD
