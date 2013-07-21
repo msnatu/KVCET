@@ -16,9 +16,11 @@ abstract class BaseFeesStructureForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'               => new sfWidgetFormInputHidden(),
-      'batch_start_year' => new sfWidgetFormInputText(),
       'amount'           => new sfWidgetFormInputText(),
-      'fees_type'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => true)),
+      'batch_start_year' => new sfWidgetFormInputText(),
+      'acad_year_no'     => new sfWidgetFormInputText(),
+      'fees_type'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FeesCategory'), 'add_empty' => true)),
+      'course_type'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('CourseCategory'), 'add_empty' => true)),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
       'deleted_at'       => new sfWidgetFormDateTime(),
@@ -26,9 +28,11 @@ abstract class BaseFeesStructureForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'               => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'batch_start_year' => new sfValidatorInteger(array('required' => false)),
       'amount'           => new sfValidatorInteger(array('required' => false)),
-      'fees_type'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'required' => false)),
+      'batch_start_year' => new sfValidatorInteger(array('required' => false)),
+      'acad_year_no'     => new sfValidatorInteger(array('required' => false)),
+      'fees_type'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('FeesCategory'), 'required' => false)),
+      'course_type'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('CourseCategory'), 'required' => false)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
       'deleted_at'       => new sfValidatorDateTime(array('required' => false)),

@@ -32,6 +32,13 @@ Student:
     StudDepartment:    { class: Department, local: department, foreign: id }
 
 
+CourseTypes:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    name:          { type: string(64) }
+    total_years:  { type: integer(64) }
+
+
 Department:
   actAs:           [Timestampable, SoftDelete]
   columns:
@@ -41,12 +48,16 @@ Department:
 FeesStructure:
   actAs:           [Timestampable, SoftDelete]
   columns:
-    amount:                   { type: integer(64) }
-    batch_start_year:         { type: integer(64) }
-    fees_type:                { type: integer(64) }
+    amount:                  { type: integer(64) }
+    batch_start_year:       { type: integer(64) }
+    acad_year_no:           { type: integer(64) }
+    fees_type:               { type: integer(64) }
+    course_type:            { type: integer(64) }
+    amount:                  { type: integer(64) }
 
   relations:
-    Type:                     { class: FeesTypes, local: fees_type, foreign: id }
+    FeesCategory:           { class: FeesTypes, local: fees_type, foreign: id }
+    CourseCategory:        { class: CourseTypes, local: course_type, foreign: id }
 
 
 FeesTypes:

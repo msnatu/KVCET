@@ -24,7 +24,7 @@ test:
 
 kvcet:
   .settings:
-    no_script_name:         true
+    no_script_name:         false
     logging_enabled:        true
 
 all:

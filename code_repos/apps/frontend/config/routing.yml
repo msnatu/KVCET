@@ -29,6 +29,18 @@ fees_structure:
   url:  /fees/fees-structure
   param: { module: fees, action: feesStructure }
 
+view_fees_structure:
+  url:  /fees/view-fees-structure
+  param: { module: fees, action: viewFeesStructure }
+
+set_fees_structure:
+  url:  /fees/set-fees-structure
+  param: { module: fees, action: setFeesStructure }
+
+get_course_total_years:
+  url:  /fees/getCourseTotalYears
+  param: { module: fees, action: getCourseTotalYears }
+
 # Keep these two rules at the bottom of the page to avoid overriding
 default_index:
   url:   /:module

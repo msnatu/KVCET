@@ -4,17 +4,21 @@
   <?php if($form->hasErrors()) { ?>
     <div class="login-form-error">Sorry! Username or Password is wrong</div>
   <?php } ?>
-  <form action="<?php echo url_for($form_submit_route) ?>" method="POST">
+  <form action="<?php echo url_for('@sf_guard_signin') ?>" method="POST">
     <div class="login-field-label">Username</div>
     <div class="login-field-container">
-      <div class="login-field-icon-container"></div>
+      <div class="login-field-icon-container">
+        <div class="login-field-user-icon"></div>
+      </div>
       <?php echo $form['username']; ?>
     </div>
     <br clear="all"/>
     <div class="big-hori-space"></div>
     <div class="login-field-label">Password</div>
     <div class="login-field-container">
-      <div class="login-field-icon-container"></div>
+      <div class="login-field-icon-container">
+        <div class="login-field-password-icon"></div>
+      </div>
       <?php echo $form['password']; ?>
     </div>
     <br clear="all"/>

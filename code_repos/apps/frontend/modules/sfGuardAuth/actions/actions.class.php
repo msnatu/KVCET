@@ -41,7 +41,6 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
     $this->getUser()->signOut();
 
     $this->form = new sfGuardFormSignin();
-    $this->form_submit_route = '@sf_guard_signin';
 
     if ($request->isMethod('POST')) {
       $parameters = $request->getParameter('signin');

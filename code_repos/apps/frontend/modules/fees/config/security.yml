@@ -2,6 +2,6 @@ all:
   is_secure: true
   credentials: [[DOP, Director]]
 
-feesStructure:
+setFeesStructure:
   is_secure: true
   credentials: Director

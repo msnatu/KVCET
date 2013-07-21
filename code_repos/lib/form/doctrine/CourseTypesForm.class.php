@@ -1,14 +1,14 @@
 <?php
 
 /**
- * SchoolDetails form.
+ * CourseTypes form.
  *
  * @package    KVCET
  * @subpackage form
- * @author     Your name here
+ * @author     Natu
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class SchoolDetailsForm extends BaseSchoolDetailsForm
+class CourseTypesForm extends BaseCourseTypesForm
 {
   public function configure()
   {

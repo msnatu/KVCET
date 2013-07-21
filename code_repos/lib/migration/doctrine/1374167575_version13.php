@@ -20,6 +20,11 @@ class Version13 extends Doctrine_Migration_Base
               'type' => 'integer',
               'length' => '64',
              ),
+             'acad_year_no' =>
+             array(
+              'type' => 'integer',
+              'length' => '64',
+             ),
              'amount' => 
              array(
               'type' => 'integer',

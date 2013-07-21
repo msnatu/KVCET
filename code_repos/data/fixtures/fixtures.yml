@@ -11,3 +11,487 @@ Department:
     name: EEE
   BIO:
     name: BIOTECH
+
+
+CourseTypes:
+  BE:
+    name: B.E/B.Tech
+    total_years: 4
+  ME:
+    name: M.E/M.Tech
+    total_years: 2
+  MBA:
+    name: MBA
+    total_years: 2
+  MCA:
+    name: MCA
+    total_years: 3
+
+
+FeesTypes:
+  Tuition_fee_govt:
+    name: Tuition Fees (Govt)
+  Tuition_fee_mgmt:
+    name: Tuition Fees (Mgmt)
+  Tution_fee_first_grdt:
+    name: Tution Fees (First Graduate)
+  Books_fee :
+    name: Books Fees
+  Training_fee :
+    name: Training Fees
+  Hostel_fee_attached :
+    name: Hostel Fees (Attached Room)
+  Hostel_fee_common :
+    name: Hostel Fees (Common Room)
+  Lunch_fee_day_scholar :
+    name: Lunch Fees (Day Scholar Students)
+  Other_chrg :
+    name: Other Charges
+  
+
+FeesStructure:
+  BE_final_tuition_fee_govt:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 32500
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: BE
+  BE_final_tuition_fee_mgmt:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 62500
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: BE
+  BE_final_tution_fee_first_grdt:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 20000
+    FeesCategory: Tution_fee_first_grdt
+    CourseCategory: BE
+  BE_final_other_chrg:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 5000
+    FeesCategory: Other_chrg
+    CourseCategory: BE
+  BE_final_hostel_fee_attached:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: BE
+  BE_final_hostel_fee_common:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: BE
+  BE_final_lunch_fee_day_scholar:
+    batch_start_year: 2010
+    acad_year_no: 4
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: BE
+  BE_third_tuition_fee_govt:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 32500
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: BE
+  BE_third_tuition_fee_mgmt:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 62500
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: BE
+  BE_third_tution_fee_first_grdt:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 20000
+    FeesCategory: Tution_fee_first_grdt
+    CourseCategory: BE
+  BE_third_other_chrg:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 5000
+    FeesCategory: Other_chrg
+    CourseCategory: BE
+  BE_third_hostel_fee_attached:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: BE
+  BE_third_hostel_fee_common:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: BE
+  BE_third_lunch_fee_day_scholar:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: BE
+  BE_second_tuition_fee_govt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 40000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: BE
+  BE_second_tuition_fee_mgmt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 70000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: BE
+  BE_second_tution_fee_first_grdt:
+    batch_start_year: 2012
+    acad_year_no: 2 
+    amount: 20000
+    FeesCategory: Tution_fee_first_grdt
+    CourseCategory: BE
+  BE_second_other_chrg:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 1000
+    FeesCategory: Other_chrg
+    CourseCategory: BE
+  BE_second_hostel_fee_attached:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: BE
+  BE_second_hostel_fee_common:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: BE
+  BE_second_lunch_fee_day_scholar:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: BE
+  BE_second_training_fee:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 5500
+    FeesCategory: Training_fee
+    CourseCategory: BE
+  BE_first_tuition_fee_govt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 40000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: BE
+  BE_first_tuition_fee_mgmt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 70000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: BE
+  BE_first_tution_fee_first_grdt:
+    batch_start_year: 2013
+    acad_year_no: 1 
+    amount: 20000
+    FeesCategory: Tution_fee_first_grdt
+    CourseCategory: BE
+  BE_first_hostel_fee_attached:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: BE
+  BE_first_hostel_fee_common:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: BE
+  BE_first_lunch_fee_day_scholar:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: BE
+  BE_first_training_fee:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 10000
+    FeesCategory: Training_fee
+    CourseCategory: BE
+  BE_first_books_fee:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 9500
+    FeesCategory: Books_fee
+    CourseCategory: BE
+    
+  MCA_third_tuition_fee_govt:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 25000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: MCA
+  MCA_third_tuition_fee_mgmt:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 25000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: MCA
+  MCA_third_other_chrg:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 5000
+    FeesCategory: Other_chrg
+    CourseCategory: MCA
+  MCA_third_hostel_fee_attached:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: MCA
+  MCA_third_hostel_fee_common:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: MCA
+  MCA_third_lunch_fee_day_scholar:
+    batch_start_year: 2011
+    acad_year_no: 3
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: MCA
+  MCA_second_tuition_fee_govt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 30000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: MCA
+  MCA_second_tuition_fee_mgmt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 30000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: MCA
+  MCA_second_other_chrg:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 1000
+    FeesCategory: Other_chrg
+    CourseCategory: MCA
+  MCA_second_hostel_fee_attached:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: MCA
+  MCA_second_hostel_fee_common:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: MCA
+  MCA_second_lunch_fee_day_scholar:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: MCA
+  MCA_second_training_fee:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 5500
+    FeesCategory: Training_fee
+    CourseCategory: MCA
+  MCA_first_tuition_fee_govt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 30000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: MCA
+  MCA_first_tuition_fee_mgmt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 30000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: MCA
+  MCA_first_hostel_fee_attached:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: MCA
+  MCA_first_hostel_fee_common:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: MCA
+  MCA_first_lunch_fee_day_scholar:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: MCA
+  MCA_first_training_fee:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 10000
+    FeesCategory: Training_fee
+    CourseCategory: MCA
+  MBA_second_tuition_fee_govt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 30000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: MBA
+  MBA_second_tuition_fee_mgmt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 30000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: MBA
+  MBA_second_other_chrg:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 1000
+    FeesCategory: Other_chrg
+    CourseCategory: MBA
+  MBA_second_hostel_fee_attached:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: MBA
+  MBA_second_hostel_fee_common:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: MBA
+  MBA_second_lunch_fee_day_scholar:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: MBA
+  MBA_second_training_fee:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 5500
+    FeesCategory: Training_fee
+    CourseCategory: MBA
+  MBA_first_tuition_fee_govt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 30000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: MBA
+  MBA_first_tuition_fee_mgmt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 30000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: MBA
+  MBA_first_hostel_fee_attached:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: MBA
+  MBA_first_hostel_fee_common:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: MBA
+  MBA_first_lunch_fee_day_scholar:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: MBA
+  MBA_first_training_fee:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 10000
+    FeesCategory: Training_fee
+    CourseCategory: MBA
+  ME_second_tuition_fee_govt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 50000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: ME
+  ME_second_tuition_fee_mgmt:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 50000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: ME
+  ME_second_other_chrg:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 1000
+    FeesCategory: Other_chrg
+    CourseCategory: ME
+  ME_second_hostel_fee_attached:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: ME
+  ME_second_hostel_fee_common:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: ME
+  ME_second_lunch_fee_day_scholar:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: ME
+  ME_second_training_fee:
+    batch_start_year: 2012
+    acad_year_no: 2
+    amount: 5500
+    FeesCategory: Training_fee
+    CourseCategory: ME
+  ME_first_tuition_fee_govt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 50000
+    FeesCategory: Tuition_fee_govt
+    CourseCategory: ME
+  ME_first_tuition_fee_mgmt:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 50000
+    FeesCategory: Tuition_fee_mgmt
+    CourseCategory: ME
+  ME_first_hostel_fee_attached:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 43500
+    FeesCategory: Hostel_fee_attached
+    CourseCategory: ME
+  ME_first_hostel_fee_common:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 40500
+    FeesCategory: Hostel_fee_common
+    CourseCategory: ME
+  ME_first_lunch_fee_day_scholar:
+    batch_start_year: 2013
+    acad_year_no: 1
+    amount: 9500
+    FeesCategory: Lunch_fee_day_scholar
+    CourseCategory: ME

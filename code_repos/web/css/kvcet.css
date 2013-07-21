@@ -42,7 +42,7 @@ input {
 
 .kvcet-page-header-text {
   font-size: 30px;
-  font-family: cursive;
+  font-family: arial;
 }
 
 .login-form-container {
@@ -93,7 +93,7 @@ input {
   -moz-border-radius: 0 5px 5px 0px;
   border-radius: 0 5px 5px 0px;
   padding: 10px;
-  width: 288px;
+  width: 287px;
 }
 
 .login-button-container {
@@ -150,4 +150,66 @@ input {
   border-radius: 8px;
   padding: 7px;
   color: #595959;
+}
+
+.login-field-user-icon {
+  /*background: url("images/login-images.png") no-repeat scroll -24px -20px transparent;*/
+  /*height: 25px;*/
+  /*position: absolute;*/
+  /*right: 6px;*/
+  /*top: 12px;*/
+  /*cursor: pointer;*/
+  /*width: 20px;*/
+}
+
+.login-field-password-icon {
+
+}
+
+.form-header {
+  font-size: 18px;
+  padding: 20px 0;
+}
+
+.kt-table {
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  border-collapse: collapse;
+  color: #595959;
+  width: 100%;
+}
+
+.kt-table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.kt-table th {
+  border: 1px solid #ccc;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.fees-structure-table {
+  width: 500px  ;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.form-success-msg {
+  font-size: 12px;
+  padding: 8px;
+  background: none repeat scroll 0 0 #04638F;
+  color: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 50%;
 }
