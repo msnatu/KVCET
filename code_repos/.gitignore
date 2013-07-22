@@ -1,10 +1,7 @@
-plugins/tjSolrDoctrineBehaviorPlugin/lib/vendor/solr/nohup.out
 jhw*
 .idea
 web/.htaccess
 web/admin.php
-config/sphinx.conf
 .jhw-cache
-atlassian-*.xml
 cache
 log
