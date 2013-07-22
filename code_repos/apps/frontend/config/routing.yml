@@ -41,6 +41,18 @@ get_course_total_years:
   url:  /fees/getCourseTotalYears
   param: { module: fees, action: getCourseTotalYears }
 
+fees_categories:
+  url:  /fees/fees-categories
+  param: { module: fees, action: feesCategories }
+
+add_fees_category:
+  url:  /fees/add-fees-category
+  param: { module: fees, action: addFeesCategory }
+
+edit_fees_category:
+  url:  /fees/edit-fees-category
+  param: { module: fees, action: editFeesCategory }
+
 # Keep these two rules at the bottom of the page to avoid overriding
 default_index:
   url:   /:module

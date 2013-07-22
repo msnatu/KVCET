@@ -79,6 +79,7 @@ input {
   -webkit-border-radius: 5px 0px 0px 5px;
   -moz-border-radius: 5px 0px 0px 5px;
   border-radius: 5px 0px 0px 5px;
+  position: relative;
 }
 
 .login-field-container {
@@ -92,8 +93,8 @@ input {
   -webkit-border-radius: 0 5px 5px 0px;
   -moz-border-radius: 0 5px 5px 0px;
   border-radius: 0 5px 5px 0px;
-  padding: 10px;
-  width: 287px;
+  padding: 10px 15px;
+  width: 276px;
 }
 
 .login-button-container {
@@ -153,17 +154,33 @@ input {
 }
 
 .login-field-user-icon {
-  /*background: url("images/login-images.png") no-repeat scroll -24px -20px transparent;*/
-  /*height: 25px;*/
-  /*position: absolute;*/
-  /*right: 6px;*/
-  /*top: 12px;*/
-  /*cursor: pointer;*/
-  /*width: 20px;*/
+  background: url("images/login-images.png") no-repeat scroll -3px -93px transparent;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  width: 17px;
 }
 
 .login-field-password-icon {
+  background: url("images/login-images.png") no-repeat scroll -3px -76px transparent;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  width: 17px;
+}
 
+.login-field-arrow-icon {
+  background: url("images/login-images.png") no-repeat scroll -3px -25px transparent;
+  height: 20px;
+  position: absolute;
+  right: -16px;
+  top: 10px;
+  cursor: pointer;
+  width: 17px;
 }
 
 .form-header {
@@ -212,4 +229,18 @@ input {
   border-radius: 10px;
   margin: 0 auto;
   width: 50%;
+}
+
+.kt-desc-text-container {
+  color: #989898;
+  padding: 10px 0;
+}
+
+.fees-categories-table {
+  width: 400px;
+}
+
+.kt-page-sub-header {
+  font-size: 20px;
+  padding: 10px 0;
 }

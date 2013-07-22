@@ -9,6 +9,7 @@
     <div class="login-field-container">
       <div class="login-field-icon-container">
         <div class="login-field-user-icon"></div>
+        <div class="login-field-arrow-icon"></div>
       </div>
       <?php echo $form['username']; ?>
     </div>
@@ -18,6 +19,7 @@
     <div class="login-field-container">
       <div class="login-field-icon-container">
         <div class="login-field-password-icon"></div>
+        <div class="login-field-arrow-icon"></div>
       </div>
       <?php echo $form['password']; ?>
     </div>

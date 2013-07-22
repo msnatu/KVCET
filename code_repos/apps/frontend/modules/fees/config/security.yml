@@ -5,3 +5,15 @@ all:
 setFeesStructure:
   is_secure: true
   credentials: Director
+
+feesCategories:
+  is_secure: true
+  credentials: Director
+
+addFeesCategory:
+  is_secure: true
+  credentials: Director
+
+editFeesCategory:
+  is_secure: true
+  credentials: Director

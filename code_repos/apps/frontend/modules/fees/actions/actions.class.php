@@ -17,8 +17,8 @@ class feesActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    if ($this->getUser()->getGuardUser()->hasGroup('Admin')) {
-      $this->setTemplate('admin');
+    if ($this->getUser()->getGuardUser()->hasGroup('DOP')) {
+      $this->setTemplate('dop');
     } else if ($this->getUser()->getGuardUser()->hasGroup('Director')) {
       $this->setTemplate('director');
     }
@@ -75,4 +75,42 @@ class feesActions extends sfActions
     $this->getResponse()->setContentType('application/json');
     return $this->renderText(json_encode($totalYears));
   }
+
+  public function executeFeesCategories($request)
+  {
+    $this->feesTypes = FeesTypesTable::getInstance()->getAllTypes();
+  }
+
+  public function executeAddFeesCategory($request)
+  {
+    $this->formType = 'add';
+    $this->setTemplate('feesCategoryForm');
+    if ($request->isMethod('POST')) {
+      $categoryName = $request->getParameter('category_name');
+      $feeCategory = new FeesTypes();
+      $feeCategory->setName($categoryName);
+      $feeCategory->save();
+      $this->redirect('fees/fees-categories');
+    }
+  }
+
+  public function executeEditFeesCategory($request)
+  {
+
+    $this->formType = 'edit';
+    $this->setTemplate('feesCategoryForm');
+    if ($request->isMethod('POST')) {
+      $feesTypeId = $request->getParameter('fees_type_id');
+      $categoryName = $request->getParameter('category_name');
+      $feeCategory = FeesTypesTable::getInstance()->find($feesTypeId);
+      $feeCategory->setName($categoryName);
+      $feeCategory->save();
+      $this->redirect('fees/fees-categories');
+    } else {
+      $this->feesTypeId = $request->getParameter('id');
+      $feeCategory = FeesTypesTable::getInstance()->find($this->feesTypeId);
+      $this->categoryName = $feeCategory->getName();
+    }
+  }
+
 }

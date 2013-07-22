@@ -17,8 +17,8 @@ class dashboardActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    if($this->getUser()->getGuardUser()->hasGroup('Admin')) {
-      $this->setTemplate('admin');
+    if($this->getUser()->getGuardUser()->hasGroup('DOP')) {
+      $this->setTemplate('dop');
     } else if($this->getUser()->getGuardUser()->hasGroup('Director')) {
       $this->setTemplate('director');
     }
