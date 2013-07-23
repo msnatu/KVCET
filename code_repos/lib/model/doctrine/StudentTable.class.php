@@ -30,6 +30,7 @@ class StudentTable extends Doctrine_Table
     $formHelper = new formHelper();
     $admissionDate = $formHelper->formatDate($data['admission_date']);
     $dob = $formHelper->formatDate($data['dob']);
+
     $user = new sfGuardUser();
     $user->setFirstName($data['first_name']);
     $user->setLastName($data['last_name']);
@@ -55,6 +56,7 @@ class StudentTable extends Doctrine_Table
     $student->setAdmissionMode($data['admission_mode']);
     $student->setCourseType($data['course_type']);
     $student->setBatchYear($batchYear);
+    $student->setIsLateral($data['is_lateral']);
     $student->save();
 
     return $student;
@@ -90,15 +92,26 @@ class StudentTable extends Doctrine_Table
       return false;
     }
 
+    $formHelper = new formHelper();
+    $admissionDate = $formHelper->formatDate($data['admission_date']);
+    $dob = $formHelper->formatDate($data['dob']);
+
+    $tempAdmissionDate = explode('-', $admissionDate);
+    //for lateral entry make the batch year entry less by 1
+    $batchYear = $data['is_lateral'] ? $tempAdmissionDate[0] : ($tempAdmissionDate[0] - 1);
+
     $studentObj->setAdmissionNo($data['admission_no']);
     $studentObj->setFirstName($data['first_name']);
     $studentObj->setLastName($data['last_name']);
-    $studentObj->setDob($data['dob']);
+    $studentObj->setDob($dob);
     $studentObj->setGender($data['gender']);
     $studentObj->setEmail($data['student_email']);
     $studentObj->setAdmissionDate($data['admission_date']);
     $studentObj->setDepartment($data['department']);
     $studentObj->setAdmissionMode($data['admission_mode']);
+    $studentObj->setCourseType($data['course_type']);
+    $studentObj->setBatchYear($batchYear);
+    $studentObj->setIsLateral($data['is_lateral']);
 
     $studentObj->save();
     return $studentObj;

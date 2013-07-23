@@ -38,6 +38,7 @@ $genderArray = array('Male', 'Female');
       <?php echo $form->printSelectBox('edit', "Course Type", 'course_type', $courseTypes['options'], $courseTypes['values'], 'Course Type', $student->getCourseType(), 1); ?>
       <?php echo $form->printSelectBox('edit', "Department", 'department', $departments['options'], $departments['values'], 'Department', $student->getDepartment(), 1); ?>
       <?php echo $form->printRadioButton('edit', "Admission Mode", 'admission_mode', $admissionModeArray, $student->getAdmissionMode(), 1); ?>
+      <?php echo $form->printRadioButton('edit', "Lateral Entry", 'is_lateral', array('No', 'Yes'), $student->getIsLateral(), 1); ?>
       <input type="submit" value="Save & Proceed" name="save" id="save_personal_details"/>
       <input type="hidden" value="<?php echo $student->getStudentId()?>" name="student_id"/>
     </form>
