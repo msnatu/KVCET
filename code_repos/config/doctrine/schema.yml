@@ -7,6 +7,9 @@ Student:
     admission_no:       { type: integer }
     admission_date:     { type: date }
     admission_mode:     { type: tinyint(1) }
+    batch_year:         { type: integer }
+    is_lateral:         { type: boolean, default: false }
+    course_type:        { type: integer }
     department:         { type: integer }
     dob:                { type: date }
     gender:              { type: boolean }
@@ -30,6 +33,7 @@ Student:
   relations:
     User:                { class: sfGuardUser, local: student_id, foreign: id }
     StudDepartment:    { class: Department, local: department, foreign: id }
+    StudCourseCategory: { class: CourseTypes, local: course_type, foreign: id }
 
 
 CourseTypes:
@@ -43,6 +47,10 @@ Department:
   actAs:           [Timestampable, SoftDelete]
   columns:
     name:          { type: string(64) }
+    course_type:  { type: integer }
+
+  relations:
+    CourseCategory:        { class: CourseTypes, local: course_type, foreign: id }
 
 
 FeesStructure:

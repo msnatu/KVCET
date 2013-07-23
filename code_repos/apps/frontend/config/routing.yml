@@ -41,6 +41,10 @@ get_course_total_years:
   url:  /fees/getCourseTotalYears
   param: { module: fees, action: getCourseTotalYears }
 
+get_course_total_years:
+  url:  /getCourseTypeDepartments
+  param: { module: admission, action: getCourseTypeDepartments }
+
 fees_categories:
   url:  /fees/fees-categories
   param: { module: fees, action: feesCategories }

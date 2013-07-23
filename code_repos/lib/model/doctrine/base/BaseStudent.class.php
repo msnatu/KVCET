@@ -11,6 +11,9 @@
  * @property integer $admission_no
  * @property date $admission_date
  * @property tinyint $admission_mode
+ * @property integer $batch_year
+ * @property boolean $is_lateral
+ * @property integer $course_type
  * @property integer $department
  * @property date $dob
  * @property boolean $gender
@@ -32,6 +35,7 @@
  * @property float $total_percent_marks
  * @property sfGuardUser $User
  * @property Department $StudDepartment
+ * @property CourseTypes $StudCourseCategory
  * 
  * @method integer     getStudentId()           Returns the current record's "student_id" value
  * @method string      getFirstName()           Returns the current record's "first_name" value
@@ -39,6 +43,9 @@
  * @method integer     getAdmissionNo()         Returns the current record's "admission_no" value
  * @method date        getAdmissionDate()       Returns the current record's "admission_date" value
  * @method tinyint     getAdmissionMode()       Returns the current record's "admission_mode" value
+ * @method integer     getBatchYear()           Returns the current record's "batch_year" value
+ * @method boolean     getIsLateral()           Returns the current record's "is_lateral" value
+ * @method integer     getCourseType()          Returns the current record's "course_type" value
  * @method integer     getDepartment()          Returns the current record's "department" value
  * @method date        getDob()                 Returns the current record's "dob" value
  * @method boolean     getGender()              Returns the current record's "gender" value
@@ -60,12 +67,16 @@
  * @method float       getTotalPercentMarks()   Returns the current record's "total_percent_marks" value
  * @method sfGuardUser getUser()                Returns the current record's "User" value
  * @method Department  getStudDepartment()      Returns the current record's "StudDepartment" value
+ * @method CourseTypes getStudCourseCategory()  Returns the current record's "StudCourseCategory" value
  * @method Student     setStudentId()           Sets the current record's "student_id" value
  * @method Student     setFirstName()           Sets the current record's "first_name" value
  * @method Student     setLastName()            Sets the current record's "last_name" value
  * @method Student     setAdmissionNo()         Sets the current record's "admission_no" value
  * @method Student     setAdmissionDate()       Sets the current record's "admission_date" value
  * @method Student     setAdmissionMode()       Sets the current record's "admission_mode" value
+ * @method Student     setBatchYear()           Sets the current record's "batch_year" value
+ * @method Student     setIsLateral()           Sets the current record's "is_lateral" value
+ * @method Student     setCourseType()          Sets the current record's "course_type" value
  * @method Student     setDepartment()          Sets the current record's "department" value
  * @method Student     setDob()                 Sets the current record's "dob" value
  * @method Student     setGender()              Sets the current record's "gender" value
@@ -87,6 +98,7 @@
  * @method Student     setTotalPercentMarks()   Sets the current record's "total_percent_marks" value
  * @method Student     setUser()                Sets the current record's "User" value
  * @method Student     setStudDepartment()      Sets the current record's "StudDepartment" value
+ * @method Student     setStudCourseCategory()  Sets the current record's "StudCourseCategory" value
  * 
  * @package    KVCET
  * @subpackage model
@@ -119,6 +131,16 @@ abstract class BaseStudent extends sfDoctrineRecord
         $this->hasColumn('admission_mode', 'tinyint', 1, array(
              'type' => 'tinyint',
              'length' => 1,
+             ));
+        $this->hasColumn('batch_year', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('is_lateral', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('course_type', 'integer', null, array(
+             'type' => 'integer',
              ));
         $this->hasColumn('department', 'integer', null, array(
              'type' => 'integer',
@@ -202,6 +224,10 @@ abstract class BaseStudent extends sfDoctrineRecord
 
         $this->hasOne('Department as StudDepartment', array(
              'local' => 'department',
+             'foreign' => 'id'));
+
+        $this->hasOne('CourseTypes as StudCourseCategory', array(
+             'local' => 'course_type',
              'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(

@@ -38,6 +38,10 @@ class StudentTable extends Doctrine_Table
     $user->setPassword('Welcome123');
     $user->save();
 
+    $tempAdmissionDate = explode('-', $admissionDate);
+    //for lateral entry make the batch year entry less by 1
+    $batchYear = $data['is_lateral'] ? $tempAdmissionDate[0] : ($tempAdmissionDate[0] - 1);
+
     $student = new Student();
     $student->setStudentId($user->getId());
     $student->setAdmissionNo($data['admission_no']);
@@ -49,6 +53,8 @@ class StudentTable extends Doctrine_Table
     $student->setAdmissionDate($admissionDate);
     $student->setDepartment($data['department']);
     $student->setAdmissionMode($data['admission_mode']);
+    $student->setCourseType($data['course_type']);
+    $student->setBatchYear($batchYear);
     $student->save();
 
     return $student;

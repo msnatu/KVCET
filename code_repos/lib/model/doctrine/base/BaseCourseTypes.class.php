@@ -7,13 +7,19 @@
  * 
  * @property string $name
  * @property integer $total_years
+ * @property Doctrine_Collection $Student
+ * @property Doctrine_Collection $Department
  * @property Doctrine_Collection $FeesStructure
  * 
  * @method string              getName()          Returns the current record's "name" value
  * @method integer             getTotalYears()    Returns the current record's "total_years" value
+ * @method Doctrine_Collection getStudent()       Returns the current record's "Student" collection
+ * @method Doctrine_Collection getDepartment()    Returns the current record's "Department" collection
  * @method Doctrine_Collection getFeesStructure() Returns the current record's "FeesStructure" collection
  * @method CourseTypes         setName()          Sets the current record's "name" value
  * @method CourseTypes         setTotalYears()    Sets the current record's "total_years" value
+ * @method CourseTypes         setStudent()       Sets the current record's "Student" collection
+ * @method CourseTypes         setDepartment()    Sets the current record's "Department" collection
  * @method CourseTypes         setFeesStructure() Sets the current record's "FeesStructure" collection
  * 
  * @package    KVCET
@@ -39,6 +45,14 @@ abstract class BaseCourseTypes extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Student', array(
+             'local' => 'id',
+             'foreign' => 'course_type'));
+
+        $this->hasMany('Department', array(
+             'local' => 'id',
+             'foreign' => 'course_type'));
+
         $this->hasMany('FeesStructure', array(
              'local' => 'id',
              'foreign' => 'course_type'));

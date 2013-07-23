@@ -17,46 +17,60 @@ AdmissionForm.prototype = {
       }
     }
 
-    this.validateForm();
-    this.bindFormNavigation();
-  },
-
-  validateForm: function () {
-    $("#student_personal_details_form, #student_contact_details_form, #student_parent_details_form, #student_prev_education_details_form").validationEngine();
-  },
-
-  bindFormNavigation: function () {
-    var self = this;
-    var counter = 0;
-    $('#save_personal_details').unbind().bind('click', function () {
-      if(counter == 0) {
-        setTimeout(function(){self.formSubmit()}, 1000);
-      } else {
-        self.formSubmit();
-      }
-      counter++;
-    });
-  },
-
-  getFormData: function (formId) {
-    return $('#' + formId).serialize();
-  },
-
-  formSubmit: function() {
-    if($('.formErrorContent').length > 0) {
-      return false;
+    if (this.callback) {
+      this[this.callback]();
     }
-    var self = this;
-    $.ajax({
-      url: "admission/addAdmission",
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        form_data: self.getFormData('student_personal_details_form')
-      },
-      success: function (response) {
+  },
 
-      }
+  bindPersonalDetails: function(){
+    $("#student_personal_details_form").validationEngine();
+
+    var d = new Date();
+    var curr_year = d.getFullYear();
+    $("#dob").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'dd-mm-yy',
+      yearRange:(curr_year - 35) + ':' + (curr_year)
+    });
+
+    $("#admission_date").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'dd-mm-yy',
+      yearRange:(curr_year - 8) + ':' + (curr_year)
+    });
+
+    this.bindCourseTypeDepartments();
+  },
+
+  bindCourseTypeDepartments: function () {
+    var self = this;
+    $('#course_type').change(function() {
+      $.ajax({
+        url: "getCourseTypeDepartments",
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          course_type: $('#course_type').val()
+        },
+        success: function (response) {
+          var deptBox = $('#department');
+          deptBox.empty();
+          deptBox.append($('<option>', {
+            text: 'Select Department',
+            value: ''
+          }));
+          for(var i = 0; i < response.options.length; i++) {
+            deptBox.append($('<option>', {
+              text: response.options[i],
+              value: response.values[i]
+            }));
+          }
+        }, error: function() {
+          alert("Can't connect to the server. Please try again!");
+        }
+      });
     });
   }
 

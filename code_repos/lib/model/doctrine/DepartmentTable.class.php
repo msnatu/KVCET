@@ -28,4 +28,21 @@ class DepartmentTable extends Doctrine_Table
     return $data;
   }
 
+
+  public function getCourseDepartments($courseType) {
+    $departments = Doctrine_Query::create()
+      ->select('d.id as dept_id, d.name, c.id')
+      ->from('Department d')
+      ->leftJoin('d.CourseCategory c')
+      ->where('d.course_type = ?', $courseType)
+      ->fetchArray();
+
+    $data = array();
+    foreach($departments as $dept) {
+      $data['options'][] = $dept['name'];
+      $data['values'][] = $dept['dept_id'];
+    }
+
+    return $data;
+  }
 }

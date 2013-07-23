@@ -1,6 +1,6 @@
 <?php
 $form = new formHelper();
-$admissionModeArray = array('Counseling', 'Management');
+$admissionModeArray = array('Government Quota', 'Management Quota', 'First Graduate');
 $genderArray = array('Male', 'Female');
 ?>
 
@@ -16,8 +16,10 @@ $genderArray = array('Male', 'Female');
       <?php echo $form->printRadioButton('edit', "Gender", 'gender', $genderArray, 0, 1); ?>
       <?php echo $form->printTextBox('Email', 'student_email', '', 1, ''); ?>
       <?php echo $form->printTextBox('Admission Date', 'admission_date', $admissionDate, 1); ?>
-      <?php echo $form->printSelectBox('add', "Department", 'department', $departments['options'], $departments['values'], 'Department', '', 1); ?>
+      <?php echo $form->printSelectBox('add', "Course Type", 'course_type', $courseTypes['options'], $courseTypes['values'], 'Course Type', '', 1); ?>
+      <?php echo $form->printSelectBox('add', "Department", 'department', array(), array(), 'Department', '', 1); ?>
       <?php echo $form->printRadioButton('edit', "Admission Mode", 'admission_mode', $admissionModeArray, 0, 1); ?>
+      <?php echo $form->printRadioButton('edit', "Lateral Entry", 'is_lateral', array('No', 'Yes'), 0, 1); ?>
       <input type="submit" value="Save & Proceed" name="save" id="save_personal_details">
     </form>
   </div>
@@ -33,6 +35,7 @@ $genderArray = array('Male', 'Female');
       <?php echo $form->printRadioButton('edit', "Gender", 'gender', $genderArray, $student->getGender(), 1); ?>
       <?php echo $form->printTextBox('Email', 'student_email', $student->getEmail(), 1, ''); ?>
       <?php echo $form->printTextBox('Admission Date', 'admission_date', $form->formatDate($student->getAdmissionDate()), 1); ?>
+      <?php echo $form->printSelectBox('edit', "Course Type", 'course_type', $courseTypes['options'], $courseTypes['values'], 'Course Type', $student->getCourseType(), 1); ?>
       <?php echo $form->printSelectBox('edit', "Department", 'department', $departments['options'], $departments['values'], 'Department', $student->getDepartment(), 1); ?>
       <?php echo $form->printRadioButton('edit', "Admission Mode", 'admission_mode', $admissionModeArray, $student->getAdmissionMode(), 1); ?>
       <input type="submit" value="Save & Proceed" name="save" id="save_personal_details"/>
@@ -43,13 +46,8 @@ $genderArray = array('Male', 'Female');
 
 <script type="text/javascript">
   $(document).ready( function() {
-    $("#student_personal_details_form").validationEngine();
-
-    $("#dob").datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'dd-mm-yy',
-      constrainInput: true
+    new AdmissionForm({
+      callback: 'bindPersonalDetails'
     });
   });
 </script>

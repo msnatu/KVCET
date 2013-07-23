@@ -1,18 +1,3 @@
-Department:
-  CSE:
-    name: CSE
-  ECE:
-    name: ECE
-  IT:
-    name: IT
-  MECH:
-    name: MECH
-  EEE:
-    name: EEE
-  BIO:
-    name: BIOTECH
-
-
 CourseTypes:
   BE:
     name: B.E/B.Tech
@@ -26,6 +11,32 @@ CourseTypes:
   MCA:
     name: MCA
     total_years: 3
+
+Department:
+  CSE:
+    name: CSE
+    CourseCategory: BE
+  ECE:
+    name: ECE
+    CourseCategory: BE
+  IT:
+    name: IT
+    CourseCategory: BE
+  MECH:
+    name: MECH
+    CourseCategory: BE
+  EEE:
+    name: EEE
+    CourseCategory: BE
+  BIO:
+    name: BIOTECH
+    CourseCategory: BE
+  ME_BIO:
+    name: M.E BIOTECH
+    CourseCategory: ME
+  MBA_COURSE:
+    name: Business Management
+    CourseCategory: MBA
 
 
 FeesTypes:

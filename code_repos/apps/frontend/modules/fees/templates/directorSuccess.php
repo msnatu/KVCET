@@ -1,4 +1,4 @@
-<?php echo link_to('Admission', 'admission/index'); ?>
+<?php echo link_to('Back', 'dashboard/index'); ?>
 
 <div class="kt-page-sub-header">Fees</div>
 <div class="">

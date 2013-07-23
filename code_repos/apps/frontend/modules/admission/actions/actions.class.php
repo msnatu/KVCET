@@ -35,6 +35,7 @@ class admissionActions extends sfActions
         if(!$this->student) {
           $this->forward404('Sorry! User not found.');
         }
+        $this->departments = DepartmentTable::getInstance()->getCourseDepartments($this->student->getCourseType());
       } else {
         //add form
         $this->formType = "add";
@@ -43,7 +44,7 @@ class admissionActions extends sfActions
         $this->admissionDate = date('d-m-Y');
       }
     }
-    $this->departments = DepartmentTable::getInstance()->getDepartments();
+    $this->courseTypes = CourseTypesTable::getInstance()->getCourseTypes();
   }
 
   public function executeContactDetails(sfWebRequest $request)
@@ -75,4 +76,14 @@ class admissionActions extends sfActions
     $this->getUser()->setAttribute('admission_student_id', $formData['student_id']);
     $this->redirect('admission/contactDetails');
   }
+
+  public function executeGetCourseTypeDepartments($request)
+  {
+    $courseType = $request->getParameter('course_type');
+    $departments = DepartmentTable::getInstance()->getCourseDepartments($courseType);
+
+    $this->getResponse()->setContentType('application/json');
+    return $this->renderText(json_encode($departments));
+  }
+
 }
