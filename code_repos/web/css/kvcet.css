@@ -37,12 +37,12 @@ input {
 .kvcet-page-header-body {
   width: 1000px;
   margin: 0px auto;
-  padding: 30px 0;
+  padding: 30px 0 0 0;
 }
 
 .kvcet-page-header-text {
   font-size: 30px;
-  font-family: arial;
+  font-family: PT Sans;
 }
 
 .login-form-container {
@@ -183,6 +183,10 @@ input {
   width: 17px;
 }
 
+.login-page-header {
+  padding-bottom: 30px;
+}
+
 .form-header {
   font-size: 18px;
   padding: 20px 0;
@@ -243,4 +247,227 @@ input {
 .kt-page-sub-header {
   font-size: 20px;
   padding: 10px 0;
+}
+
+.kvcet-page-header-utilities-container {
+  position: relative;
+  height: 30px;
+}
+
+.page-header-msg-icon {
+  background: url("images/dashboard-icons.png") no-repeat scroll -24px -930px transparent;
+  height: 20px;
+  position: absolute;
+  right: 238px;
+  top: 0px;
+  cursor: pointer;
+  width: 17px;
+}
+
+.page-header-msg-label {
+  position: absolute;
+  right: 156px;
+  top: 2px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+.page-header-settings-icon {
+  background: url("images/dashboard-icons.png") no-repeat scroll -47px -929px transparent;
+  height: 20px;
+  position: absolute;
+  right: 128px;
+  top: 0px;
+  cursor: pointer;
+  width: 17px;
+}
+
+.page-header-settings-label {
+  position: absolute;
+  right: 77px;
+  top: 2px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+.page-header-logout-icon {
+  background: url("images/dashboard-icons.png") no-repeat scroll -69px -929px transparent;
+  height: 20px;
+  position: absolute;
+  right: 48px;
+  top: 0px;
+  cursor: pointer;
+  width: 17px;
+}
+
+.page-header-logout-label {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+.page-top-menu-container {
+  background: #FFFFFF; /* Old browsers */
+  background: -moz-linear-gradient(top,  #FFFFFF 0%, #DEDEDE 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#DEDEDE)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #FFFFFF 0%,#DEDEDE 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #FFFFFF 0%,#DEDEDE 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #FFFFFF 0%,#DEDEDE 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #FFFFFF 0%,#DEDEDE 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#DEDEDE',GradientType=0 ) !important; /* IE6-9 */
+  border-top: 1px solid #292929;
+}
+
+.page-top-menu-border {
+  background: #FFAA44; /* Old browsers */
+  background: -moz-linear-gradient(top,  #FFC175 0%, #FF9923 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFC175), color-stop(100%,#FF9923)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #FFC175 0%,#FF9923 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFC175', endColorstr='#FF9923',GradientType=0 ) !important; /* IE6-9 */
+  border: 1px solid #DA7300;
+  height: 4px;
+}
+
+.page-top-menu-item-container {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.page-top-menu-item {
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+  float: left;
+  width: 100px;
+  font-family: Roboto, sans-serif;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+.page-top-menu-selected-item, .page-top-menu-item:hover {
+  background: #FFAA44; /* Old browsers */
+  background: -moz-linear-gradient(top,  #FFC175 0%, #FF9923 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFC175), color-stop(100%,#FF9923)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #FFC175 0%,#FF9923 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #FFC175 0%,#FF9923 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFC175', endColorstr='#FF9923',GradientType=0 ) !important; /* IE6-9 */
+  border: 1px solid #DA7300;
+  color: #A25804;
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.dashboard-page-body {
+  padding: 20px 0 100px;
+}
+
+.dashboard-page-links-row {
+  position: relative;
+  float: left;
+  margin: 40px 35px 10px;
+
+}
+
+.dashboard-page-link {
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  margin-right: 75px;
+  cursor: pointer;
+}
+
+.dashboard-link-text {
+  color: #292929;
+  font-size: 12px;
+  font-family: sans-serif;
+  width: 125px;
+}
+
+.dashboard-admission-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px 0px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-student-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px -129px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-user-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px -263px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-exam-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px -526px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-attendance-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px -792px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-fees-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -150px -526px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-hostel-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -150px -792px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-library-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -408px -792px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-transport-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -410px -659px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-news-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -15px -395px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-staff-materials-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -150px -657px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-timetable-link {
+  background: url("images/dashboard-icons.png") no-repeat scroll -12px -657px transparent;
+  height: 132px;
+  width: 125px;
+}
+
+.dashboard-page-links-row .dashboard-page-link:last-child {
+  margin-right: 0;
 }
