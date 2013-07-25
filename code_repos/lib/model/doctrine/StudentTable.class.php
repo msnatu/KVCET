@@ -17,7 +17,8 @@ class StudentTable extends Doctrine_Table
     return Doctrine_Core::getTable('Student');
   }
 
-  public function getPreviousStudent() {
+  public function getPreviousStudent()
+  {
     $student = $this->createQuery()
       ->orderBy('admission_no desc')
       ->limit(1)
@@ -26,7 +27,8 @@ class StudentTable extends Doctrine_Table
     return $student;
   }
 
-  public function addNewStudent($data) {
+  public function addNewStudent($data)
+  {
     $formHelper = new formHelper();
     $admissionDate = $formHelper->formatDate($data['admission_date']);
     $dob = $formHelper->formatDate($data['dob']);
@@ -62,7 +64,8 @@ class StudentTable extends Doctrine_Table
     return $student;
   }
 
-  public function updateContactDetails($studentObj, $data) {
+  public function updateContactDetails($studentObj, $data)
+  {
     $studentObj->setAddress($data['address']);
     $studentObj->setCity($data['city']);
     $studentObj->setState($data['state']);
@@ -71,7 +74,8 @@ class StudentTable extends Doctrine_Table
     $studentObj->save();
   }
 
-  public function updateParentDetails($studentObj, $data) {
+  public function updateParentDetails($studentObj, $data)
+  {
     $studentObj->setParentFirstName($data['parent_first_name']);
     $studentObj->setParentLastName($data['parent_last_name']);
     $studentObj->setParentGender($data['relation']);
@@ -86,9 +90,10 @@ class StudentTable extends Doctrine_Table
     $studentObj->save();
   }
 
-  public function updatePersonalDetails($data) {
+  public function updatePersonalDetails($data)
+  {
     $studentObj = $this->getInstance()->findOneByStudentId($data['student_id']);
-    if(!$studentObj) {
+    if (!$studentObj) {
       return false;
     }
 
@@ -117,4 +122,18 @@ class StudentTable extends Doctrine_Table
     return $studentObj;
   }
 
+  public function searchStudent($name, $courseType, $dept)
+  {
+    $searchQuery = Doctrine_Query::create()
+      ->from('Student')
+      ->where('first_name LIKE ?', '%' . $name . '%');
+    if ($courseType) {
+      $searchQuery->andWhere('course_type = ?', $courseType);
+    }
+    if ($dept) {
+      $searchQuery->andWhere('department = ?', $dept);
+    }
+
+    return $searchQuery;
+  }
 }

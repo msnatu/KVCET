@@ -4,7 +4,7 @@
       <div class="dashboard-admission-link"></div>
       <div class="dashboard-link-text">Admission</div>
     </a>
-    <a href="<?php echo url_for('dashboard/index'); ?>" class="dashboard-page-link">
+    <a href="<?php echo url_for('student/index'); ?>" class="dashboard-page-link">
       <div class="dashboard-student-link"></div>
       <div class="dashboard-link-text">Student</div>
     </a>
@@ -55,3 +55,7 @@
   </div>
   <br clear="all"/>
 </div>
+
+<script type="text/javascript">
+  $('.page-top-menu-item[item="1"]').addClass('page-top-menu-selected-item');
+</script>

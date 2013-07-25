@@ -1,3 +1,425 @@
+sfGuardUser:
+  User_admin:
+    first_name:     Natarajan
+    last_name:      MS
+    email_address:  ms.natu@gmail.com
+    username:       admin
+    password:       Welcome123
+    is_super_admin: true
+    Groups:         [Group_dop]
+
+  User_dop:
+    first_name:     Raju
+    last_name:      MS
+    email_address:  raju@gmail.com
+    username:       dop
+    password:       Welcome123
+    Groups:         [Group_dop]
+
+  User_director:
+    first_name:     Meenakshi
+    last_name:      Annamalai
+    email_address:  svmeenakshi@yahoo.com
+    username:       meena
+    password:       Welcome123
+    Groups:         [Group_director]
+
+  User_principal:
+    first_name:     Principal
+    last_name:      Kvcet
+    email_address:  principal@yahoo.com
+    username:       principal
+    password:       Welcome123
+    Groups:         [Group_principal]
+
+  User_hod:
+    first_name:     Hod
+    last_name:      Kvcet
+    email_address:  hod@yahoo.com
+    username:       hod
+    password:       Welcome123
+    Groups:         [Group_hod]
+
+  User_staff:
+    first_name:     Staff
+    last_name:      Kvcet
+    email_address:  staff@yahoo.com
+    username:       staff
+    password:       Welcome123
+    Groups:         [Group_staff]
+
+  User_student:
+    first_name:     Student
+    last_name:      Kvcet
+    email_address:  student@yahoo.com
+    username:       student
+    password:       Welcome123
+    Groups:         [Group_student]
+
+  User_parent:
+    first_name:     Parent
+    last_name:      Kvcet
+    email_address:  parent@yahoo.com
+    username:       parent
+    password:       Welcome123
+    Groups:         [Group_parent]
+
+  sfGuardUser_9:
+    first_name: Ganesh
+    last_name: Sivalingam
+    email_address: ganesh@gmail.com
+    username: ganesh@gmail.com
+    algorithm: sha1
+    salt: f55847f616bd394c6f1d4f7b7df8c07c
+    password: 0bdef06461f5435174cb630f0e2a2dd445188cf0
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:00:05'
+    updated_at: '2013-07-25 20:00:05'
+
+  sfGuardUser_10:
+    first_name: Murugan
+    last_name: Bose
+    email_address: muruga@gmail.com
+    username: muruga@gmail.com
+    algorithm: sha1
+    salt: 33386204eb4e70cb8b8d9354542c31cc
+    password: 24e0b190f17f8cf7f24504f4cd45e79f0e1ca83f
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:03:51'
+    updated_at: '2013-07-25 20:03:51'
+
+  sfGuardUser_11:
+    first_name: Rajkamal
+    last_name: Sankar
+    email_address: rajkamal@sdf.com
+    username: rajkamal@sdf.com
+    algorithm: sha1
+    salt: 3aa0e0368ff457360d3ebaa2f1cb5b76
+    password: d88c943816c84be1bcf6e70bc6997a640aea7330
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:06:42'
+    updated_at: '2013-07-25 20:06:42'
+
+  sfGuardUser_12:
+    first_name: Priya
+    last_name: Ramanathan
+    email_address: priya@sdf.co
+    username: priya@sdf.co
+    algorithm: sha1
+    salt: 306ecc95dd76b44b55aa550f2175a30b
+    password: 48dba2589ff85500d5b6d9fe48d20a603b5c86b2
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:09:06'
+    updated_at: '2013-07-25 20:09:06'
+
+  sfGuardUser_13:
+    first_name: Venkat
+    last_name: Subramanian
+    email_address: asdf@adf.co
+    username: asdf@adf.co
+    algorithm: sha1
+    salt: aff47a62b8bc07bdfa2f1344e3c0ab06
+    password: 3bc86e13e07b74965f108fe85902902136e70660
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:14:58'
+    updated_at: '2013-07-25 20:14:58'
+
+  sfGuardUser_14:
+    first_name: Nisha
+    last_name: Singh
+    email_address: asdf@sdf.cc
+    username: asdf@sdf.cc
+    algorithm: sha1
+    salt: 6224874bcbbdff0c590fe554dca090ba
+    password: 28d334da3a971ec00080ba4ebd77885fd23c538d
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-07-25 20:18:04'
+    updated_at: '2013-07-25 20:18:04'
+
+sfGuardGroup:
+  Group_director:
+    name:           Director
+    description:    Director
+    Permissions:    [Permission_director]
+
+  Group_principal:
+    name:           Principal
+    description:    Principal
+    Permissions:    [Permission_principal]
+
+  Group_dop:
+    name:           DOP
+    description:    Data Entry Operator
+    Permissions:    [Permission_dop]
+
+  Group_hod:
+    name:           HOD
+    description:    HOD
+    Permissions:    [Permission_hod]
+
+  Group_staff:
+    name:           Staff
+    description:    Staff
+    Permissions:    [Permission_staff]
+
+  Group_student:
+    name:           Student
+    description:    Student
+    Permissions:    [Permission_student]
+
+  Group_parent:
+    name:           Parent
+    description:    Parent
+    Permissions:    [Permission_parent]
+
+
+sfGuardPermission:
+  Permission_director:
+    name:           Director
+    description:    Director permission
+
+  Permission_principal:
+    name:           Principal
+    description:    Principal permission
+
+  Permission_dop:
+    name:           DOP
+    description:    DOP permission
+
+  Permission_hod:
+    name:           HOD
+    description:    HOD permission
+
+  Permission_staff:
+    name:           Staff
+    description:    Staff permission
+
+  Permission_student:
+    name:           Student
+    description:    Student permission
+
+  Permission_parent:
+    name:           Parent
+    description:    Parent permission
+
+
+Student:
+  Student_1:
+    User:          User_student
+    first_name:     Student
+    last_name:      KVCET
+    email:          student@gmail.com
+
+  Student_2:
+    User: sfGuardUser_9
+    first_name: Ganesh
+    last_name: Sivalingam
+    admission_no: '1'
+    admission_date: '2013-07-19'
+    admission_mode: '0'
+    batch_year: '2012'
+    is_lateral: false
+    StudCourseCategory: BE
+    StudDepartment: ECE
+    dob: '2013-07-09'
+    gender: false
+    address: 'ajksdhf ahfla hdfjahsjfhasdhf kashfkahdskf hakshf kashfhakjsdhf kahsfk ahksdfhakshfhasd khf'
+    city: Pune
+    state: Maharashtra
+    pincode: '6546464'
+    mobile: '2323432423'
+    email: ganesh@gmail.com
+    photo_id: null
+    parent_first_name: Sivalingam
+    parent_last_name: Annadurai
+    parent_gender: false
+    parent_occupation: Business
+    parent_email: sdfsdf@sdfdf.cc
+    parent_phone: '80989080'
+    parent_mobile: '111234234'
+    institution_name: 'St Xaviers Matric Hr Sec School'
+    total_percent_marks: '89.00'
+    created_at: '2013-07-25 20:00:05'
+    updated_at: '2013-07-25 20:02:03'
+    deleted_at: null
+
+  Student_3:
+    User: sfGuardUser_10
+    first_name: Murugan
+    last_name: Bose
+    admission_no: '2'
+    admission_date: '2013-07-25'
+    admission_mode: '1'
+    batch_year: '2012'
+    is_lateral: false
+    StudCourseCategory: BE
+    StudDepartment: CSE
+    dob: '1989-07-26'
+    gender: false
+    address: 'ndfjgfdkgks shgkshgjkshjkfhkjghkfdhg'
+    city: Chennai
+    state: Tamilnadu
+    pincode: '654646'
+    mobile: '2323432423'
+    email: muruga@gmail.com
+    photo_id: null
+    parent_first_name: Mahendran
+    parent_last_name: YG
+    parent_gender: false
+    parent_occupation: Professor
+    parent_email: sdfsdf@sdfdf.cc
+    parent_phone: '80989080'
+    parent_mobile: '111234234'
+    institution_name: addsfsf
+    total_percent_marks: '68.00'
+    created_at: '2013-07-25 20:03:51'
+    updated_at: '2013-07-25 20:05:01'
+    deleted_at: null
+
+  Student_4:
+    User: sfGuardUser_11
+    first_name: Rajkamal
+    last_name: Sankar
+    admission_no: '3'
+    admission_date: '2013-07-25'
+    admission_mode: '2'
+    batch_year: '2012'
+    is_lateral: false
+    StudCourseCategory: BE
+    StudDepartment: IT
+    dob: '1994-07-21'
+    gender: false
+    address: 'lksjdfkds lfj'
+    city: Tirunelveli
+    state: Tamilnadu
+    pincode: '6546464'
+    mobile: '2323432423'
+    email: rajkamal@sdf.com
+    photo_id: null
+    parent_first_name: Sankar
+    parent_last_name: Kumar
+    parent_gender: false
+    parent_occupation: Collector
+    parent_email: sdfsdfsd@fsddv
+    parent_phone: '80989080'
+    parent_mobile: '9080800'
+    institution_name: 'St Xaviers Matric Hr Sec School'
+    total_percent_marks: '89.00'
+    created_at: '2013-07-25 20:06:42'
+    updated_at: '2013-07-25 20:07:31'
+    deleted_at: null
+
+  Student_5:
+    User: sfGuardUser_12
+    first_name: Priya
+    last_name: Ramanathan
+    admission_no: '4'
+    admission_date: '2013-07-25'
+    admission_mode: '0'
+    batch_year: '2012'
+    is_lateral: false
+    StudCourseCategory: ME
+    StudDepartment: ME_BIO
+    dob: '1995-07-05'
+    gender: true
+    address: 'dlfjslff,dmfnvfnvm,nvdnkjh'
+    city: Chennai
+    state: Tamilnadu
+    pincode: '6546464'
+    mobile: '2323432423'
+    email: priya@sdf.co
+    photo_id: null
+    parent_first_name: Ravi
+    parent_last_name: Kumar
+    parent_gender: false
+    parent_occupation: Business
+    parent_email: sdfsdf@sdfdf.cc
+    parent_phone: '80989080'
+    parent_mobile: '234234'
+    institution_name: addsfsf
+    total_percent_marks: '82.00'
+    created_at: '2013-07-25 20:09:06'
+    updated_at: '2013-07-25 20:13:00'
+    deleted_at: null
+
+  Student_6:
+    User: sfGuardUser_13
+    first_name: Venkat
+    last_name: Subramanian
+    admission_no: '5'
+    admission_date: '2013-07-25'
+    admission_mode: '0'
+    batch_year: '2013'
+    is_lateral: true
+    StudCourseCategory: BE
+    StudDepartment: IT
+    dob: '1995-07-05'
+    gender: false
+    address: lvlxcjvlxcjvlj
+    city: Chennai
+    state: Tamilnadu
+    pincode: '654646'
+    mobile: '2323432423'
+    email: asdf@adf.co
+    photo_id: null
+    parent_first_name: Palani
+    parent_last_name: Vel
+    parent_gender: false
+    parent_occupation: 'Bank Manager'
+    parent_email: sdfsdf@sdfdf.cc
+    parent_phone: '80989080'
+    parent_mobile: '111234234'
+    institution_name: addsfsf
+    total_percent_marks: '75.00'
+    created_at: '2013-07-25 20:14:58'
+    updated_at: '2013-07-25 20:16:27'
+    deleted_at: null
+
+  Student_7:
+    User: sfGuardUser_14
+    first_name: Nisha
+    last_name: Singh
+    admission_no: '6'
+    admission_date: '2013-07-25'
+    admission_mode: '0'
+    batch_year: '2012'
+    is_lateral: false
+    StudCourseCategory: MBA
+    StudDepartment: MBA_COURSE
+    dob: '1994-07-20'
+    gender: true
+    address: djfskjdfhskfksdf
+    city: Chennai
+    state: Tamilnadu
+    pincode: '6546464'
+    mobile: '2323432423'
+    email: asdf@sdf.cc
+    photo_id: null
+    parent_first_name: Rani
+    parent_last_name: Mukerjee
+    parent_gender: true
+    parent_occupation: Actress
+    parent_email: sdfsdf@sdfdf.cc
+    parent_phone: '80989080'
+    parent_mobile: '111234234'
+    institution_name: 'St Xaviers Matric Hr Sec School'
+    total_percent_marks: '68.00'
+    created_at: '2013-07-25 20:18:04'
+    updated_at: '2013-07-25 20:19:18'
+    deleted_at: null
+    
 CourseTypes:
   BE:
     name: B.E/B.Tech

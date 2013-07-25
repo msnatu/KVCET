@@ -11,7 +11,7 @@ if($isEditable) {
   echo link_to('Edit', 'admission/index?id=' . $student->getStudentId());
 }
 ?>
-<table width="50%" align="center" border="1">
+<table class="kt-table student-profile-table">
   <tr>
     <th colspan="2">Personal Details</th>
   </tr>
@@ -51,7 +51,7 @@ if($isEditable) {
 
 <br/>
 <br/>
-<table width="50%" align="center" border="1">
+<table class="kt-table student-profile-table">
   <tr>
     <th colspan="2">Contact Details</th>
   </tr>
@@ -78,7 +78,7 @@ if($isEditable) {
 </table>
 <br/>
 <br/>
-<table width="50%" align="center" border="1">
+<table class="kt-table student-profile-table">
   <tr>
     <th colspan="2">Parent Details</th>
   </tr>
@@ -113,7 +113,7 @@ if($isEditable) {
 </table>
 <br/>
 <br/>
-<table width="50%" align="center" border="1">
+<table class="kt-table student-profile-table">
   <tr>
     <th colspan="2">Previous Educational Details</th>
   </tr>

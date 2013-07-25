@@ -471,3 +471,12 @@ input {
 .dashboard-page-links-row .dashboard-page-link:last-child {
   margin-right: 0;
 }
+
+.student-search-table {
+  width: 750px;
+}
+
+.student-profile-table {
+  width: 500px;
+  margin: 20px auto 5px auto;
+}
