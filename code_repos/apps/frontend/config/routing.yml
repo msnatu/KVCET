@@ -58,7 +58,7 @@ edit_fees_category:
   param: { module: fees, action: editFeesCategory }
 
 student_fees_dashboard:
-  url:  /student/fees
+  url:  /student/fees/id/:id
   param: { module: fees, action: feesDashboard }
 
 student_add_fees:
@@ -68,6 +68,10 @@ student_add_fees:
 search_student:
   url:  /student/search
   param: { module: student, action: searchStudent }
+
+student_profile:
+  url:  /profile/studentProfile/id/:id
+  param: { module: profile, action: studentProfile }
 
 
 
