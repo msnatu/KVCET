@@ -22,6 +22,7 @@
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
  * @property Doctrine_Collection $Student
+ * @property Doctrine_Collection $StudentFees
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -40,6 +41,7 @@
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method Doctrine_Collection   getStudent()               Returns the current record's "Student" collection
+ * @method Doctrine_Collection   getStudentFees()           Returns the current record's "StudentFees" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -57,6 +59,7 @@
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setStudent()               Sets the current record's "Student" collection
+ * @method sfGuardUser           setStudentFees()           Sets the current record's "StudentFees" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -155,6 +158,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasMany('Student', array(
              'local' => 'id',
              'foreign' => 'student_id'));
+
+        $this->hasMany('StudentFees', array(
+             'local' => 'id',
+             'foreign' => 'added_by'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

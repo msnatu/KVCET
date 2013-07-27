@@ -48,4 +48,9 @@
      return $batchYearText;
    }
 
+   public function getAcadYearNo($batchYear) {
+     $currentAcadYear = $this->getCurrentAcadYear();
+     return ($currentAcadYear - $batchYear);
+   }
+
  }

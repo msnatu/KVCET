@@ -478,9 +478,11 @@ FeesTypes:
     name: Hostel Fees (Common Room)
   Lunch_fee_day_scholar :
     name: Lunch Fees (Day Scholar Students)
+  Transport_fee :
+    name: Transport Fees
   Other_chrg :
     name: Other Charges
-  
+
 
 FeesStructure:
   BE_final_tuition_fee_govt:
@@ -928,3 +930,14 @@ FeesStructure:
     amount: 9500
     FeesCategory: Lunch_fee_day_scholar
     CourseCategory: ME
+
+
+TransportFees:
+  TransportFees_1:
+    route_name: Tambaram
+    amount: '12000'
+    year: '2013'
+  TransportFees_2:
+    route_name: 'Anna Arch'
+    amount: '25000'
+    year: '2013'

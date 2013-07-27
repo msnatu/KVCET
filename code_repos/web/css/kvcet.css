@@ -22,6 +22,7 @@ input {
 .page-body-container {
   width: 1000px;
   margin: 0 auto;
+  padding: 30px 0 100px;
 }
 
 .big-hori-space {
@@ -231,8 +232,9 @@ input {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 0px auto;
   width: 50%;
+  text-align: center;
 }
 
 .kt-desc-text-container {
@@ -478,5 +480,6 @@ input {
 
 .student-profile-table {
   width: 500px;
-  margin: 20px auto 5px auto;
+  margin: 20px auto 5px;
 }
+

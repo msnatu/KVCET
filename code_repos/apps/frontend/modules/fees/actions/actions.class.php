@@ -96,7 +96,6 @@ class feesActions extends sfActions
 
   public function executeEditFeesCategory($request)
   {
-
     $this->formType = 'edit';
     $this->setTemplate('feesCategoryForm');
     if ($request->isMethod('POST')) {
@@ -110,6 +109,52 @@ class feesActions extends sfActions
       $this->feesTypeId = $request->getParameter('id');
       $feeCategory = FeesTypesTable::getInstance()->find($this->feesTypeId);
       $this->categoryName = $feeCategory->getName();
+    }
+  }
+
+  public function executeFeesDashboard($request)
+  {
+    $this->studentId = $request->getParameter('id');
+    $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+    $this->studentName = $this->student->getFirstName();
+
+    $this->feesAssignmentSuccessMsg = $this->getUser()->getFlash('fees_assignment_success');
+    $this->feesEntrySuccess = $this->getUser()->getFlash('fees_entry_success');
+
+    $academic = new academicHelper();
+    $acadYearNo = $academic->getAcadYearNo($this->student->getBatchYear());
+    $this->batchYearText = $academic->getBatchYearText($acadYearNo);
+  }
+
+  public function executeAssignment($request)
+  {
+    if ($request->isMethod('POST')) {
+      $studentId = $request->getParameter('student_id');
+      $postValues = $request->getPostParameters();
+      $student = StudentTable::getInstance()->findOneByStudentId($studentId);
+      StudentVaryingFeesTable::getInstance()->setStudentFees($student, $postValues);
+      $this->getUser()->setFlash('fees_assignment_success', 'Fees for ' . $student->getFirstName() . ' has been assigned successfully');
+      $this->redirect('fees/feesDashboard?id=' . $studentId);
+    } else {
+      $this->studentId = $request->getParameter('id');
+      $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+      $this->studentName = $this->student->getFirstName();
+      $this->routeTypes = TransportFeesTable::getInstance()->getRouteTypes();
+    }
+  }
+
+  public function executeAddStudentFees($request)
+  {
+    if ($request->isMethod('POST')) {
+      $studentId = $request->getParameter('student_id');
+      $postValues = $request->getPostParameters();
+      StudentFeesTable::getInstance()->feesEntry($studentId, $this->getUser()->getGuardUser()->getId(), $postValues);
+      $this->getUser()->setFlash('fees_entry_success', 'Fees Entry has been added successfully');
+      $this->redirect('fees/feesDashboard?id=' . $studentId);
+    } else {
+      $this->studentId = $request->getParameter('id');
+      $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+      $this->studentName = $this->student->getFirstName();
     }
   }
 

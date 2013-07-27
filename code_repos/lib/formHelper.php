@@ -132,10 +132,11 @@ class formHelper
       $selected = "";
 
     for ($i = 0; $i < count($optionArray); $i++) {
+      $idName = $tagName . '_' . strtolower(str_replace(' ', '_', $optionArray[$i]));
       if ($valueSelected == $i && $type != 'add') {
-        $html .= "<input type='radio' style='margin:0 5px 0 10px;' class=\"$validator_class\" name=\"$tagName\" id=\"$tagName\" value=\"$i\" " . $selected . ">$optionArray[$i]";
+        $html .= "<input type='radio' style='margin:0 5px 0 10px;' class=\"$validator_class\" name=\"$tagName\" id=\"$idName\" value=\"$i\" " . $selected . ">$optionArray[$i]";
       } else {
-        $html .= "<input type='radio' style='margin:0 5px 0 10px;' class=\"$validator_class\" name=\"$tagName\" id=\"$tagName\" value=\"$i\">$optionArray[$i]";
+        $html .= "<input type='radio' style='margin:0 5px 0 10px;' class=\"$validator_class\" name=\"$tagName\" id=\"$idName\" value=\"$i\">$optionArray[$i]";
       }
     }
     $html .= "</div><br clear=\"all\"/></div>";

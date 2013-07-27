@@ -27,6 +27,7 @@ default:
     - lib/jquery.ui.autocomplete.js
     - lib/jquery.ui.position.js
     - lib/underscore-min.js
+    - forms/page_helper.js
     - forms/admission_form.js
     - forms/fees_form.js
 

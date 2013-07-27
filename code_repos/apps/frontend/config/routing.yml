@@ -57,6 +57,14 @@ edit_fees_category:
   url:  /fees/edit-fees-category
   param: { module: fees, action: editFeesCategory }
 
+student_fees_dashboard:
+  url:  /student/fees
+  param: { module: fees, action: feesDashboard }
+
+student_add_fees:
+  url:  /student/add-fees/id/:id
+  param: { module: fees, action: addStudentFees }
+
 search_student:
   url:  /student/search
   param: { module: student, action: searchStudent }

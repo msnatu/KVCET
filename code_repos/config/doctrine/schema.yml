@@ -72,3 +72,38 @@ FeesTypes:
   actAs:           [Timestampable, SoftDelete]
   columns:
     name:                   { type: string(256) }
+
+
+StudentVaryingFees:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    student_id:            { type: integer }
+    acad_year_no:         { type: integer }
+    fees_type:             { type: integer }
+    route_id:             { type: integer }
+
+  relations:
+    Stud:                  { class: Student, local: student_id, foreign: student_id }
+
+
+TransportFees:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    route_name:          { type: string(256) }
+    amount:              { type: integer }
+    year:                { type: integer } #fees for the current academic year
+
+
+StudentFees:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    student_id:            { type: integer }
+    date:                  { type: string(256) }
+    amount:                 { type: integer }
+    added_by:               { type: integer }
+    challan_no:            { type: integer }
+
+  relations:
+    Stud:                  { class: Student, local: student_id, foreign: student_id }
+    User:                  { class: sfGuardUser, local: added_by, foreign: id }
+

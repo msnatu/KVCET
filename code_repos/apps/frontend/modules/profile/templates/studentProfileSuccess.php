@@ -5,6 +5,11 @@ if($successMsg != "") {
 $formHelper = new formHelper();
 ?>
 
+<div class="kt-page-sub-menu-container">
+  <a href="<?php echo url_for('profile/studentProfile'); ?>" class="kt-page-sub-menu-item">Profile</a>
+  <a href="<?php echo url_for('@student_fees_dashboard?id='.$student->getStudentId()); ?>" class="kt-page-sub-menu-item">Fees</a>
+</div>
+
 <h2>Student Profile</h2>
 <?php
 if($isEditable) {

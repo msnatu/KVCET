@@ -36,69 +36,75 @@
  * @property sfGuardUser $User
  * @property Department $StudDepartment
  * @property CourseTypes $StudCourseCategory
+ * @property Doctrine_Collection $StudentVaryingFees
+ * @property Doctrine_Collection $StudentFees
  * 
- * @method integer     getStudentId()           Returns the current record's "student_id" value
- * @method string      getFirstName()           Returns the current record's "first_name" value
- * @method string      getLastName()            Returns the current record's "last_name" value
- * @method integer     getAdmissionNo()         Returns the current record's "admission_no" value
- * @method date        getAdmissionDate()       Returns the current record's "admission_date" value
- * @method tinyint     getAdmissionMode()       Returns the current record's "admission_mode" value
- * @method integer     getBatchYear()           Returns the current record's "batch_year" value
- * @method boolean     getIsLateral()           Returns the current record's "is_lateral" value
- * @method integer     getCourseType()          Returns the current record's "course_type" value
- * @method integer     getDepartment()          Returns the current record's "department" value
- * @method date        getDob()                 Returns the current record's "dob" value
- * @method boolean     getGender()              Returns the current record's "gender" value
- * @method string      getAddress()             Returns the current record's "address" value
- * @method string      getCity()                Returns the current record's "city" value
- * @method string      getState()               Returns the current record's "state" value
- * @method integer     getPincode()             Returns the current record's "pincode" value
- * @method integer     getMobile()              Returns the current record's "mobile" value
- * @method string      getEmail()               Returns the current record's "email" value
- * @method integer     getPhotoId()             Returns the current record's "photo_id" value
- * @method string      getParentFirstName()     Returns the current record's "parent_first_name" value
- * @method string      getParentLastName()      Returns the current record's "parent_last_name" value
- * @method boolean     getParentGender()        Returns the current record's "parent_gender" value
- * @method string      getParentOccupation()    Returns the current record's "parent_occupation" value
- * @method string      getParentEmail()         Returns the current record's "parent_email" value
- * @method integer     getParentPhone()         Returns the current record's "parent_phone" value
- * @method integer     getParentMobile()        Returns the current record's "parent_mobile" value
- * @method string      getInstitutionName()     Returns the current record's "institution_name" value
- * @method float       getTotalPercentMarks()   Returns the current record's "total_percent_marks" value
- * @method sfGuardUser getUser()                Returns the current record's "User" value
- * @method Department  getStudDepartment()      Returns the current record's "StudDepartment" value
- * @method CourseTypes getStudCourseCategory()  Returns the current record's "StudCourseCategory" value
- * @method Student     setStudentId()           Sets the current record's "student_id" value
- * @method Student     setFirstName()           Sets the current record's "first_name" value
- * @method Student     setLastName()            Sets the current record's "last_name" value
- * @method Student     setAdmissionNo()         Sets the current record's "admission_no" value
- * @method Student     setAdmissionDate()       Sets the current record's "admission_date" value
- * @method Student     setAdmissionMode()       Sets the current record's "admission_mode" value
- * @method Student     setBatchYear()           Sets the current record's "batch_year" value
- * @method Student     setIsLateral()           Sets the current record's "is_lateral" value
- * @method Student     setCourseType()          Sets the current record's "course_type" value
- * @method Student     setDepartment()          Sets the current record's "department" value
- * @method Student     setDob()                 Sets the current record's "dob" value
- * @method Student     setGender()              Sets the current record's "gender" value
- * @method Student     setAddress()             Sets the current record's "address" value
- * @method Student     setCity()                Sets the current record's "city" value
- * @method Student     setState()               Sets the current record's "state" value
- * @method Student     setPincode()             Sets the current record's "pincode" value
- * @method Student     setMobile()              Sets the current record's "mobile" value
- * @method Student     setEmail()               Sets the current record's "email" value
- * @method Student     setPhotoId()             Sets the current record's "photo_id" value
- * @method Student     setParentFirstName()     Sets the current record's "parent_first_name" value
- * @method Student     setParentLastName()      Sets the current record's "parent_last_name" value
- * @method Student     setParentGender()        Sets the current record's "parent_gender" value
- * @method Student     setParentOccupation()    Sets the current record's "parent_occupation" value
- * @method Student     setParentEmail()         Sets the current record's "parent_email" value
- * @method Student     setParentPhone()         Sets the current record's "parent_phone" value
- * @method Student     setParentMobile()        Sets the current record's "parent_mobile" value
- * @method Student     setInstitutionName()     Sets the current record's "institution_name" value
- * @method Student     setTotalPercentMarks()   Sets the current record's "total_percent_marks" value
- * @method Student     setUser()                Sets the current record's "User" value
- * @method Student     setStudDepartment()      Sets the current record's "StudDepartment" value
- * @method Student     setStudCourseCategory()  Sets the current record's "StudCourseCategory" value
+ * @method integer             getStudentId()           Returns the current record's "student_id" value
+ * @method string              getFirstName()           Returns the current record's "first_name" value
+ * @method string              getLastName()            Returns the current record's "last_name" value
+ * @method integer             getAdmissionNo()         Returns the current record's "admission_no" value
+ * @method date                getAdmissionDate()       Returns the current record's "admission_date" value
+ * @method tinyint             getAdmissionMode()       Returns the current record's "admission_mode" value
+ * @method integer             getBatchYear()           Returns the current record's "batch_year" value
+ * @method boolean             getIsLateral()           Returns the current record's "is_lateral" value
+ * @method integer             getCourseType()          Returns the current record's "course_type" value
+ * @method integer             getDepartment()          Returns the current record's "department" value
+ * @method date                getDob()                 Returns the current record's "dob" value
+ * @method boolean             getGender()              Returns the current record's "gender" value
+ * @method string              getAddress()             Returns the current record's "address" value
+ * @method string              getCity()                Returns the current record's "city" value
+ * @method string              getState()               Returns the current record's "state" value
+ * @method integer             getPincode()             Returns the current record's "pincode" value
+ * @method integer             getMobile()              Returns the current record's "mobile" value
+ * @method string              getEmail()               Returns the current record's "email" value
+ * @method integer             getPhotoId()             Returns the current record's "photo_id" value
+ * @method string              getParentFirstName()     Returns the current record's "parent_first_name" value
+ * @method string              getParentLastName()      Returns the current record's "parent_last_name" value
+ * @method boolean             getParentGender()        Returns the current record's "parent_gender" value
+ * @method string              getParentOccupation()    Returns the current record's "parent_occupation" value
+ * @method string              getParentEmail()         Returns the current record's "parent_email" value
+ * @method integer             getParentPhone()         Returns the current record's "parent_phone" value
+ * @method integer             getParentMobile()        Returns the current record's "parent_mobile" value
+ * @method string              getInstitutionName()     Returns the current record's "institution_name" value
+ * @method float               getTotalPercentMarks()   Returns the current record's "total_percent_marks" value
+ * @method sfGuardUser         getUser()                Returns the current record's "User" value
+ * @method Department          getStudDepartment()      Returns the current record's "StudDepartment" value
+ * @method CourseTypes         getStudCourseCategory()  Returns the current record's "StudCourseCategory" value
+ * @method Doctrine_Collection getStudentVaryingFees()  Returns the current record's "StudentVaryingFees" collection
+ * @method Doctrine_Collection getStudentFees()         Returns the current record's "StudentFees" collection
+ * @method Student             setStudentId()           Sets the current record's "student_id" value
+ * @method Student             setFirstName()           Sets the current record's "first_name" value
+ * @method Student             setLastName()            Sets the current record's "last_name" value
+ * @method Student             setAdmissionNo()         Sets the current record's "admission_no" value
+ * @method Student             setAdmissionDate()       Sets the current record's "admission_date" value
+ * @method Student             setAdmissionMode()       Sets the current record's "admission_mode" value
+ * @method Student             setBatchYear()           Sets the current record's "batch_year" value
+ * @method Student             setIsLateral()           Sets the current record's "is_lateral" value
+ * @method Student             setCourseType()          Sets the current record's "course_type" value
+ * @method Student             setDepartment()          Sets the current record's "department" value
+ * @method Student             setDob()                 Sets the current record's "dob" value
+ * @method Student             setGender()              Sets the current record's "gender" value
+ * @method Student             setAddress()             Sets the current record's "address" value
+ * @method Student             setCity()                Sets the current record's "city" value
+ * @method Student             setState()               Sets the current record's "state" value
+ * @method Student             setPincode()             Sets the current record's "pincode" value
+ * @method Student             setMobile()              Sets the current record's "mobile" value
+ * @method Student             setEmail()               Sets the current record's "email" value
+ * @method Student             setPhotoId()             Sets the current record's "photo_id" value
+ * @method Student             setParentFirstName()     Sets the current record's "parent_first_name" value
+ * @method Student             setParentLastName()      Sets the current record's "parent_last_name" value
+ * @method Student             setParentGender()        Sets the current record's "parent_gender" value
+ * @method Student             setParentOccupation()    Sets the current record's "parent_occupation" value
+ * @method Student             setParentEmail()         Sets the current record's "parent_email" value
+ * @method Student             setParentPhone()         Sets the current record's "parent_phone" value
+ * @method Student             setParentMobile()        Sets the current record's "parent_mobile" value
+ * @method Student             setInstitutionName()     Sets the current record's "institution_name" value
+ * @method Student             setTotalPercentMarks()   Sets the current record's "total_percent_marks" value
+ * @method Student             setUser()                Sets the current record's "User" value
+ * @method Student             setStudDepartment()      Sets the current record's "StudDepartment" value
+ * @method Student             setStudCourseCategory()  Sets the current record's "StudCourseCategory" value
+ * @method Student             setStudentVaryingFees()  Sets the current record's "StudentVaryingFees" collection
+ * @method Student             setStudentFees()         Sets the current record's "StudentFees" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -229,6 +235,14 @@ abstract class BaseStudent extends sfDoctrineRecord
         $this->hasOne('CourseTypes as StudCourseCategory', array(
              'local' => 'course_type',
              'foreign' => 'id'));
+
+        $this->hasMany('StudentVaryingFees', array(
+             'local' => 'student_id',
+             'foreign' => 'student_id'));
+
+        $this->hasMany('StudentFees', array(
+             'local' => 'student_id',
+             'foreign' => 'student_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));
