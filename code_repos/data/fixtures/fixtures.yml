@@ -229,7 +229,7 @@ Student:
     admission_no: '1'
     admission_date: '2013-07-19'
     admission_mode: '0'
-    batch_year: '2012'
+    batch_year: '2010'
     is_lateral: false
     StudCourseCategory: BE
     StudDepartment: ECE
@@ -262,7 +262,7 @@ Student:
     admission_no: '2'
     admission_date: '2013-07-25'
     admission_mode: '1'
-    batch_year: '2012'
+    batch_year: '2011'
     is_lateral: false
     StudCourseCategory: BE
     StudDepartment: CSE
@@ -464,22 +464,29 @@ Department:
 FeesTypes:
   Tuition_fee_govt:
     name: Tuition Fees (Govt)
+    is_varying: true
   Tuition_fee_mgmt:
     name: Tuition Fees (Mgmt)
+    is_varying: true
   Tution_fee_first_grdt:
     name: Tution Fees (First Graduate)
+    is_varying: true
   Books_fee :
     name: Books Fees
   Training_fee :
     name: Training Fees
   Hostel_fee_attached :
     name: Hostel Fees (Attached Room)
+    is_varying: true
   Hostel_fee_common :
     name: Hostel Fees (Common Room)
+    is_varying: true
   Lunch_fee_day_scholar :
     name: Lunch Fees (Day Scholar Students)
+    is_varying: true
   Transport_fee :
     name: Transport Fees
+    is_varying: true
   Other_chrg :
     name: Other Charges
 

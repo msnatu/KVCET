@@ -154,8 +154,28 @@ class feesActions extends sfActions
     } else {
       $this->studentId = $request->getParameter('id');
       $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+      $academicHelper = new academicHelper();
+      $this->academicYears = $academicHelper->getTotalYearsList($this->student->getCourseType());
       $this->studentName = $this->student->getFirstName();
     }
+  }
+
+  public function executeStudentPaymentHistory($request)
+  {
+    $this->studentId = $request->getParameter('id');
+    $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+    $this->studentName = $this->student->getFirstName();
+
+    $academic = new academicHelper();
+    $this->currentAcadYearNo = $academic->getAcadYearNo($this->student->getBatchYear());
+    $this->batchYearText = $academic->getBatchYearText($this->currentAcadYearNo);
+
+    for($acadYearNo = 1; $acadYearNo <= $this->currentAcadYearNo; $acadYearNo++) {
+      $feesStructure[$acadYearNo] = StudentFeesTable::getInstance()->getStudentFeesStructure($this->student, $acadYearNo);
+    }
+
+    $this->feesStructure = $feesStructure;
+    $this->feesPaid = StudentFeesTable::getInstance()->getPaidFees($this->student);
   }
 
 }

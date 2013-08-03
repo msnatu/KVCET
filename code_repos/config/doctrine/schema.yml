@@ -72,6 +72,7 @@ FeesTypes:
   actAs:           [Timestampable, SoftDelete]
   columns:
     name:                   { type: string(256) }
+    is_varying:            { type: boolean, default: false } #ex: hostel fees varies by student but books fees don't
 
 
 StudentVaryingFees:
@@ -98,7 +99,8 @@ StudentFees:
   actAs:           [Timestampable, SoftDelete]
   columns:
     student_id:            { type: integer }
-    date:                  { type: string(256) }
+    acad_year_no:          { type: integer }
+    date:                   { type: date }
     amount:                 { type: integer }
     added_by:               { type: integer }
     challan_no:            { type: integer }

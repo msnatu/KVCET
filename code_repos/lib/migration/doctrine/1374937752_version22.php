@@ -108,7 +108,7 @@ class Version22 extends Doctrine_Migration_Base
              'collate' => 'utf8_unicode_ci',
              ));
         $this->removeColumn('student_fees', 'fees_type');
-        $this->addColumn('student_fees', 'date', 'string', '256', array(
+        $this->addColumn('student_fees', 'date', 'date', '25', array(
              ));
         $this->addColumn('student_fees', 'amount', 'integer', '8', array(
              ));

@@ -17,14 +17,117 @@ class StudentFeesTable extends Doctrine_Table
     return Doctrine_Core::getTable('StudentFees');
   }
 
-  public function feesEntry($studentId, $userId, $data) {
+  public function feesEntry($studentId, $userId, $data)
+  {
+    $formHelper = new formHelper();
     $fees = new StudentFees();
     $fees->setStudentId($studentId);
     $fees->setAddedBy($userId);
     $fees->setAmount($data['amount']);
     $fees->setChallanNo($data['challan_no']);
-    $fees->setDate($data['entry_date']);
+    $fees->setDate($formHelper->formatDate($data['entry_date']));
+    $fees->setAcadYearNo($data['acad_year_no']);
     $fees->save();
+  }
+
+  public function getStudentFeesStructure($student, $acadYearNo) {
+    $data = array();
+    $feesStructure = Doctrine_Query::create()
+      ->from('FeesStructure fs')
+      ->leftJoin('fs.FeesCategory ft')
+      ->where('fs.batch_start_year = ?', $student->getBatchYear())
+      ->andWhere('fs.course_type = ?', $student->getCourseType())
+      ->andWhere('fs.acad_year_no = ?', $acadYearNo)
+      ->orderBy('ft.id asc')
+      ->fetchArray();
+
+    if(count($feesStructure) == 0) {
+      return false;
+    }
+
+    $feesStructureData = array();
+    $i = 0;
+    foreach ($feesStructure as $structure) {
+      $feesTypeId = $structure['fees_type'];
+      if ($structure['FeesCategory']['is_varying'] == false) {
+        $data[$i]['fees_type'] = $structure['FeesCategory']['name'];
+        $data[$i]['amount'] = $structure['amount'];
+        $i++;
+      } else {
+        $feesStructureData[$feesTypeId]['fees_type'] = $structure['FeesCategory']['name'];
+        $feesStructureData[$feesTypeId]['amount'] = $structure['amount'];
+      }
+    }
+
+    //for standard non varying fees
+    if ($student->getAdmissionMode() == 0) {
+      $data[] = $feesStructureData[FeesTypesTable::TUITION_GOVT];
+    } else if ($student->getAdmissionMode() == 1) {
+      $data[] = $feesStructureData[FeesTypesTable::TUITION_MGMT];
+    } else if ($student->getAdmissionMode() == 2) {
+      $data[] = $feesStructureData[FeesTypesTable::TUITION_FG];
+    }
+
+    //for varying fees
+    $studVaryingFees = Doctrine_Query::create()
+      ->from('StudentVaryingFees svf')
+      ->where('svf.student_id = ?', $student->getStudentId())
+      ->andWhere('svf.acad_year_no = ?', $acadYearNo)
+      ->fetchArray();
+
+    foreach ($studVaryingFees as $varyingFees) {
+      if ($varyingFees['fees_type'] == FeesTypesTable::HOSTEL_ATTACHED) {
+        $data[] = $feesStructureData[FeesTypesTable::HOSTEL_ATTACHED];
+      } else if ($varyingFees['fees_type'] == FeesTypesTable::HOSTEL_COMMON) {
+        $data[] = $feesStructureData[FeesTypesTable::HOSTEL_COMMON];
+      }
+
+      #if transport is selected then he is a day scholar
+      #charge lunch fees by default
+      if ($varyingFees['fees_type'] == FeesTypesTable::TRANSPORT) {
+        $data[] = $feesStructureData[FeesTypesTable::LUNCH];
+        $routeId = $varyingFees['route_id'];
+        if ($routeId != 0) {
+          $route = TransportFeesTable::getInstance()->find($routeId);
+          $data[] = array(
+            'fees_type' => 'Transport Fees (' . $route->getRouteName() . ')',
+            'amount' => $route->getAmount()
+          );
+        }
+      }
+    }
+
+    return $data;
+  }
+
+  public function getPaidFees($student) {
+    $paidFees = Doctrine_Query::create()
+      ->from('StudentFees')
+      ->where('student_id = ?', $student->getStudentId())
+      ->fetchArray();
+
+    $data = array();
+    $i = 0;
+    $prevAcadYearNo = 0;
+    $formHelper = new formHelper();
+    foreach($paidFees as $pf) {
+      $acadYearNo = $pf['acad_year_no'];
+      if($i == 0) {
+        $prevAcadYearNo = $acadYearNo;
+      }
+
+      if($prevAcadYearNo != $acadYearNo) {
+        $i = 0;
+      }
+
+      $data[$acadYearNo][$i]['date'] = $formHelper->formatDate($pf['date']);
+      $data[$acadYearNo][$i]['challan_no'] = $pf['challan_no'];
+      $data[$acadYearNo][$i]['amount'] = $pf['amount'];
+
+      $i++;
+    }
+
+    return $data;
   }
 
 }

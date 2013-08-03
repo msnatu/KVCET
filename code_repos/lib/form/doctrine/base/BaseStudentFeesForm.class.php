@@ -15,27 +15,29 @@ abstract class BaseStudentFeesForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'         => new sfWidgetFormInputHidden(),
-      'student_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Stud'), 'add_empty' => true)),
-      'date'       => new sfWidgetFormTextarea(),
-      'amount'     => new sfWidgetFormInputText(),
-      'added_by'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
-      'challan_no' => new sfWidgetFormInputText(),
-      'created_at' => new sfWidgetFormDateTime(),
-      'updated_at' => new sfWidgetFormDateTime(),
-      'deleted_at' => new sfWidgetFormDateTime(),
+      'id'           => new sfWidgetFormInputHidden(),
+      'student_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Stud'), 'add_empty' => true)),
+      'acad_year_no' => new sfWidgetFormInputText(),
+      'date'         => new sfWidgetFormDate(),
+      'amount'       => new sfWidgetFormInputText(),
+      'added_by'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'challan_no'   => new sfWidgetFormInputText(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
+      'deleted_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'student_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Stud'), 'required' => false)),
-      'date'       => new sfValidatorString(array('max_length' => 256, 'required' => false)),
-      'amount'     => new sfValidatorInteger(array('required' => false)),
-      'added_by'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'required' => false)),
-      'challan_no' => new sfValidatorInteger(array('required' => false)),
-      'created_at' => new sfValidatorDateTime(),
-      'updated_at' => new sfValidatorDateTime(),
-      'deleted_at' => new sfValidatorDateTime(array('required' => false)),
+      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'student_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Stud'), 'required' => false)),
+      'acad_year_no' => new sfValidatorInteger(array('required' => false)),
+      'date'         => new sfValidatorDate(array('required' => false)),
+      'amount'       => new sfValidatorInteger(array('required' => false)),
+      'added_by'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'required' => false)),
+      'challan_no'   => new sfValidatorInteger(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
+      'deleted_at'   => new sfValidatorDateTime(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('student_fees[%s]');

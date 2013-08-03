@@ -195,7 +195,7 @@ input {
 
 .kt-table {
   border: 1px solid #ccc;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   border-collapse: collapse;
   color: #595959;
   width: 100%;
@@ -483,3 +483,34 @@ input {
   margin: 20px auto 5px;
 }
 
+.bold-text {
+  font-weight: bold;
+}
+
+.page-sep-line {
+  border-bottom: 1px solid #ccc;
+  height: 1px;
+}
+
+.form-notice {
+  background: #F7E58B;
+  border: 2px solid #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 8px;
+  padding: 7px;
+  color: #595959;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.fees-history-balance {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.due-amount {
+  color: #cd0a0a;
+}

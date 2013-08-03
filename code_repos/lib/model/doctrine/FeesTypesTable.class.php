@@ -12,6 +12,18 @@ class FeesTypesTable extends Doctrine_Table
    *
    * @return object FeesTypesTable
    */
+
+  const TUITION_GOVT = 1;
+  const TUITION_MGMT = 2;
+  const TUITION_FG = 3;
+  const BOOKS = 4;
+  const TRAINING = 5;
+  const HOSTEL_ATTACHED = 6;
+  const HOSTEL_COMMON = 7;
+  const LUNCH = 8;
+  const TRANSPORT = 9;
+  const OTHER = 10;
+
   public static function getInstance()
   {
     return Doctrine_Core::getTable('FeesTypes');

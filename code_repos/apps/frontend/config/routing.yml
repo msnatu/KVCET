@@ -65,6 +65,10 @@ student_add_fees:
   url:  /student/add-fees/id/:id
   param: { module: fees, action: addStudentFees }
 
+student_fees_history:
+  url:  /student/payment-history/id/:id
+  param: { module: fees, action: studentPaymentHistory }
+
 search_student:
   url:  /student/search
   param: { module: student, action: searchStudent }
