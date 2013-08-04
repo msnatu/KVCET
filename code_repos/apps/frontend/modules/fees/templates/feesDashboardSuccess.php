@@ -15,5 +15,9 @@
 <?php echo link_to('Add Fees', 'student/add-fees?id=' . $studentId); ?>
 <br/>
 <br/>
+<div>Add fees discount for the student</div>
+<?php echo link_to('Add Fees Discount', 'student/add-fees-discount?id=' . $studentId); ?>
+<br/>
+<br/>
 <div>See the previous payment history</div>
 <?php echo link_to('Payment History', 'student/payment-history?id=' . $studentId); ?>

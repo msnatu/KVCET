@@ -8,3 +8,7 @@
 <div class="">
   <?php echo link_to('Fees Categories', 'fees/fees-categories'); ?>
 </div>
+<br/>
+<div class="">
+  <?php echo link_to('Due List', 'fees/due-list'); ?>
+</div>

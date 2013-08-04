@@ -65,6 +65,22 @@ student_add_fees:
   url:  /student/add-fees/id/:id
   param: { module: fees, action: addStudentFees }
 
+student_edit_fees:
+  url:  /student/edit-fees/id/:id
+  param: { module: fees, action: editStudentFees }
+
+student_add_fees_discount:
+  url:  /student/add-fees-discount/id/:id
+  param: { module: fees, action: addFeesDiscount }
+
+student_edit_fees_discount:
+  url:  /student/edit-fees-discount/id/:id
+  param: { module: fees, action: editFeesDiscount }
+
+due_list:
+  url:  /fees/due-list
+  param: { module: fees, action: dueList }
+
 student_fees_history:
   url:  /student/payment-history/id/:id
   param: { module: fees, action: studentPaymentHistory }

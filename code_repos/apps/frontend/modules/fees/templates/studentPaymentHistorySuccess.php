@@ -1,5 +1,8 @@
 <?php echo link_to('Back', 'student/fees?id='.$studentId); ?>
 <?php $academicHelper = new academicHelper(); ?>
+<?php if ($feesEntrySuccess != '') { ?>
+  <div class="form-success-msg"><?php echo $feesEntrySuccess; ?></div>
+<?php } ?>
 
 <div class="kt-page-sub-header">Payment History of <?php echo $studentName . " (" . $batchYearText . ")"?></div>
 <div class="page-sep-line"></div>
@@ -7,11 +10,15 @@
 <?php for($acadYearNo = $currentAcadYearNo; $acadYearNo >= 1; $acadYearNo--) {
   $totalAmount = 0;
   $totalPaidFeesAmount = 0;
+  $totalDiscountAmount = 0;
   $varyingFees = StudentVaryingFeesTable::getInstance()->findOneByStudentIdAndAcadYearNo($student->getStudentId(), $acadYearNo);
   ?>
+  <!-- FEES ASSIGNMENT NOTICE -->
   <?php if(!$varyingFees) { ?>
     <div class="form-notice">NOTE: Varying fees has not been assigned for <?php echo $academicHelper->getYearSuffix($acadYearNo); ?> year</div>
   <?php } ?>
+
+  <!-- FEES STRUCTURE -->
   <?php if(count($feesStructure[$acadYearNo]) > 1) { ?> <!-- For object, the count is 1 for a null array -->
     <div class="form-header">Fees Structure for <?php echo $academicHelper->getYearSuffix($acadYearNo); ?> year</div>
     <table class="kt-table fees-categories-table">
@@ -38,17 +45,22 @@
         <td class="center-align"><?php echo $totalAmount; ?></td>
       </tr>
     </table>
-  <?php } else {?>
+  <?php } else { ?>
     <div class="form-notice">Please define the fees structure for <?php echo $academicHelper->getYearSuffix($acadYearNo); ?> year</div>
   <?php } ?>
 
+  <!-- FEES PAID -->
   <?php if(isset($feesPaid[$acadYearNo])) { ?>
     <div class="form-header">Fees Paid for <?php echo $academicHelper->getYearSuffix($acadYearNo); ?> year</div>
-    <table class="kt-table fees-categories-table">
+    <table class="kt-table fees-paid-table">
       <tr>
         <th>S.No</th>
+        <?php if($isEditable) { ?>
+          <th>Action</th>
+        <?php } ?>
         <th>Date</th>
         <th>Challan No</th>
+        <th>Entry by</th>
         <th>Amount</th>
       </tr>
       <?php
@@ -58,8 +70,12 @@
         ?>
         <tr>
           <td class="center-align"><?php echo $paidFeesCounter; ?></td>
-          <td><?php echo $fp['date']; ?></td>
+          <?php if($isEditable) { ?>
+            <td class="center-align"><?php echo link_to('Edit', 'student/edit-fees?id='. $fp['id']); ?></td>
+          <?php } ?>
+          <td class="center-align"><?php echo $fp['date']; ?></td>
           <td class="center-align"><?php echo $fp['challan_no']; ?></td>
+          <td class="center-align"><?php echo $fp['entry_by']; ?></td>
           <td class="center-align"><?php echo $fp['amount']; ?></td>
         </tr>
         <?php
@@ -67,7 +83,7 @@
       }
       ?>
       <tr class="bold-text">
-        <td colspan="3" class="center-align">Total Paid Amount</td>
+        <td colspan="<?php echo $isEditable ? 5 : 4; ?>" class="center-align"></td>
         <td class="center-align"><?php echo $totalPaidFeesAmount; ?></td>
       </tr>
     </table>
@@ -75,13 +91,52 @@
     <div class="form-notice">This year does not have any paid fees history</div>
   <?php } ?>
 
+  <!-- FEES DISCOUNT -->
+  <?php if(isset($feesDiscount[$acadYearNo])) { ?>
+    <div class="form-header">Fees Discount for <?php echo $academicHelper->getYearSuffix($acadYearNo); ?> year</div>
+    <table class="kt-table fees-discount-table">
+      <tr>
+        <th>S.No</th>
+        <?php if($isEditable) { ?>
+          <th>Action</th>
+        <?php } ?>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+      <?php
+      $feesDiscountCounter = 1;
+      foreach ($feesDiscount[$acadYearNo] as $fd) {
+        $totalDiscountAmount += $fd['amount'];
+        ?>
+        <tr>
+          <td class="center-align"><?php echo $feesDiscountCounter; ?></td>
+          <?php if($isEditable) { ?>
+            <td class="center-align"><?php echo link_to('Edit', 'student/edit-fees-discount?id='. $fd['id']); ?></td>
+          <?php } ?>
+          <td class="center-align"><?php echo $fd['description']; ?></td>
+          <td class="center-align"><?php echo $fd['amount']; ?></td>
+        </tr>
+        <?php
+        $feesDiscountCounter++;
+      }
+      ?>
+      <tr class="bold-text">
+        <td colspan="<?php echo $isEditable ? 3 : 2; ?>" class="center-align"></td>
+        <td class="center-align"><?php echo $totalDiscountAmount; ?></td>
+      </tr>
+    </table>
+  <?php } else { ?>
+    <div class="italic-text">No Discount has been levied on this student</div>
+  <?php } ?>
+
+  <!-- DUE AMOUNT-->
   <?php
   if($totalAmount != 0) {
     $balance = $totalAmount - $totalPaidFeesAmount;
     if($balance == 0) { ?>
       <div class="fees-history-balance">No Due</div>
     <?php } else { ?>
-      <div class="fees-history-balance due-amount">Due amount: Rs.<?php echo $totalAmount - $totalPaidFeesAmount; ?></div>
+      <div class="fees-history-balance due-amount">Due amount: Rs.<?php echo $totalAmount - $totalPaidFeesAmount - $totalDiscountAmount; ?></div>
     <?php
     }
   } ?>

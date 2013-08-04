@@ -23,9 +23,20 @@ class StudentVaryingFeesTable extends Doctrine_Table
     $acadYearNo = $academic->getAcadYearNo($student->getBatchYear());
 
     if($data['accommodation'] == 0) {
-      $feesType = ($data['room_type'] == 0) ? 6 : 7;
+      $feesType = ($data['room_type'] == 0) ? FeesTypesTable::HOSTEL_ATTACHED : FeesTypesTable::HOSTEL_COMMON;
     } else {
-      $feesType = 9;
+      $feesType = FeesTypesTable::TRANSPORT;
+    }
+
+    $existingVaryingFee = Doctrine_Query::create()
+      ->from('StudentVaryingFees')
+      ->where('student_id = ?', $student->getStudentId())
+      ->andWhere('acad_year_no = ?', $acadYearNo)
+      ->andWhere('fees_type = ?', $feesType)
+      ->fetchArray();
+
+    if(count($existingVaryingFee) > 0) {
+      return false;
     }
 
     $fees = new StudentVaryingFees();
@@ -34,6 +45,8 @@ class StudentVaryingFeesTable extends Doctrine_Table
     $fees->setFeesType($feesType);
     $fees->setRouteId($data['route']);
     $fees->save();
+
+    return true;
   }
 
 }

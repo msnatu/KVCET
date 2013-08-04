@@ -128,13 +128,21 @@ class feesActions extends sfActions
 
   public function executeAssignment($request)
   {
+    $this->feesAssignmentErrorMsg = '';
     if ($request->isMethod('POST')) {
-      $studentId = $request->getParameter('student_id');
+      $this->studentId = $request->getParameter('student_id');
+      $student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+      $this->studentName = $student->getFirstName();
+      $this->routeTypes = TransportFeesTable::getInstance()->getRouteTypes();
       $postValues = $request->getPostParameters();
-      $student = StudentTable::getInstance()->findOneByStudentId($studentId);
-      StudentVaryingFeesTable::getInstance()->setStudentFees($student, $postValues);
-      $this->getUser()->setFlash('fees_assignment_success', 'Fees for ' . $student->getFirstName() . ' has been assigned successfully');
-      $this->redirect('fees/feesDashboard?id=' . $studentId);
+
+      $varyingFee = StudentVaryingFeesTable::getInstance()->setStudentFees($student, $postValues);
+      if($varyingFee == false) {
+        $this->feesAssignmentErrorMsg = 'The selected fees has been already assigned to the student';
+      } else {
+        $this->getUser()->setFlash('fees_assignment_success', 'Fees for ' . $this->studentName . ' has been assigned successfully');
+        $this->redirect('fees/feesDashboard?id=' . $this->studentId);
+      }
     } else {
       $this->studentId = $request->getParameter('id');
       $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
@@ -160,12 +168,33 @@ class feesActions extends sfActions
     }
   }
 
+  public function executeEditStudentFees($request)
+  {
+    if ($request->isMethod('POST')) {
+      $postValues = $request->getPostParameters();
+      StudentFeesTable::getInstance()->editFeesEntry($this->getUser()->getGuardUser()->getId(), $postValues);
+      $this->getUser()->setFlash('fees_entry_success', 'Fees Entry has been edited successfully');
+      $this->redirect('fees/feesDashboard?id=' . $postValues['student_id']);
+    } else {
+      $this->entryId = $request->getParameter('id');
+      $this->feesEntry = StudentFeesTable::getInstance()->find($this->entryId);
+      $student = $this->feesEntry->getStud();
+      $this->studentId = $student->getStudentId();
+      $this->studentName = $student->getFirstName();
+      $academicHelper = new academicHelper();
+      $this->academicYears = $academicHelper->getTotalYearsList($student->getCourseType());
+    }
+  }
+
   public function executeStudentPaymentHistory($request)
   {
     $this->studentId = $request->getParameter('id');
     $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
     $this->studentName = $this->student->getFirstName();
-
+    $this->isEditable = false;
+    if ($this->getUser()->getGuardUser()->hasGroup('Director')) {
+      $this->isEditable = true;
+    }
     $academic = new academicHelper();
     $this->currentAcadYearNo = $academic->getAcadYearNo($this->student->getBatchYear());
     $this->batchYearText = $academic->getBatchYearText($this->currentAcadYearNo);
@@ -176,6 +205,48 @@ class feesActions extends sfActions
 
     $this->feesStructure = $feesStructure;
     $this->feesPaid = StudentFeesTable::getInstance()->getPaidFees($this->student);
+    $this->feesDiscount = FeesDiscountTable::getInstance()->getFeesDiscount($this->student);
+    $this->feesEntrySuccess = $this->getUser()->getFlash('fees_entry_success');
+  }
+
+  public function executeAddFeesDiscount($request)
+  {
+    if ($request->isMethod('POST')) {
+      $studentId = $request->getParameter('student_id');
+      $postValues = $request->getPostParameters();
+      FeesDiscountTable::getInstance()->addDiscount($postValues);
+      $this->getUser()->setFlash('fees_entry_success', 'Discount has been added successfully');
+      $this->redirect('fees/feesDashboard?id=' . $studentId);
+    } else {
+      $this->studentId = $request->getParameter('id');
+      $this->student = StudentTable::getInstance()->findOneByStudentId($this->studentId);
+      $academicHelper = new academicHelper();
+      $this->academicYears = $academicHelper->getTotalYearsList($this->student->getCourseType());
+      $this->studentName = $this->student->getFirstName();
+    }
+  }
+
+  public function executeEditFeesDiscount($request)
+  {
+    if ($request->isMethod('POST')) {
+      $postValues = $request->getPostParameters();
+      FeesDiscountTable::getInstance()->editFeesDiscount($postValues);
+      $this->getUser()->setFlash('fees_entry_success', 'Discount has been edited successfully');
+      $this->redirect('fees/studentPaymentHistory?id=' . $postValues['student_id']);
+    } else {
+      $this->discountId = $request->getParameter('id');
+      $this->feesDiscount = FeesDiscountTable::getInstance()->find($this->discountId);
+      $student = $this->feesDiscount->getStud();
+      $this->studentId = $student->getStudentId();
+      $this->studentName = $student->getFirstName();
+      $academicHelper = new academicHelper();
+      $this->academicYears = $academicHelper->getTotalYearsList($student->getCourseType());
+    }
+  }
+
+  public function executeDueList($request)
+  {
+
   }
 
 }

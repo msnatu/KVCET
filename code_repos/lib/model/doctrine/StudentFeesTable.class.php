@@ -30,6 +30,18 @@ class StudentFeesTable extends Doctrine_Table
     $fees->save();
   }
 
+  public function editFeesEntry($userId, $data)
+  {
+    $formHelper = new formHelper();
+    $fees = StudentFeesTable::getInstance()->find($data['entry_id']);
+    $fees->setAddedBy($userId);
+    $fees->setAmount($data['amount']);
+    $fees->setChallanNo($data['challan_no']);
+    $fees->setDate($formHelper->formatDate($data['entry_date']));
+    $fees->setAcadYearNo($data['acad_year_no']);
+    $fees->save();
+  }
+
   public function getStudentFeesStructure($student, $acadYearNo) {
     $data = array();
     $feesStructure = Doctrine_Query::create()
@@ -102,7 +114,9 @@ class StudentFeesTable extends Doctrine_Table
 
   public function getPaidFees($student) {
     $paidFees = Doctrine_Query::create()
-      ->from('StudentFees')
+      ->select('f.*, u.*')
+      ->from('StudentFees f')
+      ->leftJoin('f.User u')
       ->where('student_id = ?', $student->getStudentId())
       ->fetchArray();
 
@@ -120,8 +134,10 @@ class StudentFeesTable extends Doctrine_Table
         $i = 0;
       }
 
+      $data[$acadYearNo][$i]['id'] = $pf['id'];
       $data[$acadYearNo][$i]['date'] = $formHelper->formatDate($pf['date']);
       $data[$acadYearNo][$i]['challan_no'] = $pf['challan_no'];
+      $data[$acadYearNo][$i]['entry_by'] = $pf['User']['first_name'] . " " . $pf['User']['last_name'];
       $data[$acadYearNo][$i]['amount'] = $pf['amount'];
 
       $i++;

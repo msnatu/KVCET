@@ -322,7 +322,7 @@ input {
   background: -ms-linear-gradient(top,  #FFFFFF 0%,#DEDEDE 100%) !important; /* IE10+ */
   background: linear-gradient(to bottom,  #FFFFFF 0%,#DEDEDE 100%) !important; /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#DEDEDE',GradientType=0 ) !important; /* IE6-9 */
-  border-top: 1px solid #292929;
+  border-top: 1px solid #05729A;
 }
 
 .page-top-menu-border {
@@ -513,4 +513,16 @@ input {
 
 .due-amount {
   color: #cd0a0a;
+}
+
+.fees-paid-table {
+  width: 600px;
+}
+
+.fees-discount-table {
+  width: 600px;
+}
+
+.italic-text {
+  font-style: italic;
 }

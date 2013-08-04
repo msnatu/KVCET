@@ -109,3 +109,14 @@ StudentFees:
     Stud:                  { class: Student, local: student_id, foreign: student_id }
     User:                  { class: sfGuardUser, local: added_by, foreign: id }
 
+
+FeesDiscount:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    student_id:            { type: integer }
+    acad_year_no:          { type: integer }
+    amount:                 { type: integer }
+    description:          { type: string(1000) }
+
+  relations:
+    Stud:                  { class: Student, local: student_id, foreign: student_id }
