@@ -48,14 +48,6 @@ sfGuardUser:
     password:       Welcome123
     Groups:         [Group_staff]
 
-  User_student:
-    first_name:     Student
-    last_name:      Kvcet
-    email_address:  student@yahoo.com
-    username:       student
-    password:       Welcome123
-    Groups:         [Group_student]
-
   User_parent:
     first_name:     Parent
     last_name:      Kvcet
@@ -216,12 +208,6 @@ sfGuardPermission:
 
 
 Student:
-  Student_1:
-    User:          User_student
-    first_name:     Student
-    last_name:      KVCET
-    email:          student@gmail.com
-
   Student_2:
     User: sfGuardUser_9
     first_name: Ganesh

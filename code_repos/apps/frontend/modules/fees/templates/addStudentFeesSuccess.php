@@ -1,5 +1,5 @@
 <?php echo link_to('Back', 'fees/feesDashboard?id=' . $studentId); ?>
-<div class="form-header">Add Fees for <?php echo $studentName . " (" . date('Y') . ' - ' . (date('Y') + 1)  . ")"; ?></div>
+<div class="form-header">Add Fees for <?php echo $studentName; ?></div>
 <?php $form = new formHelper(); ?>
 <form method="POST" id="add_student_fees_form">
   <?php echo $form->printTextBox('Entry Date', 'entry_date', date('d-m-Y'), 1); ?>

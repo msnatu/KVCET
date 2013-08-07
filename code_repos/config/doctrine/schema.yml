@@ -104,6 +104,7 @@ StudentFees:
     amount:                 { type: integer }
     added_by:               { type: integer }
     challan_no:            { type: integer }
+    is_due_paid:          { type: boolean, default: false }
 
   relations:
     Stud:                  { class: Student, local: student_id, foreign: student_id }

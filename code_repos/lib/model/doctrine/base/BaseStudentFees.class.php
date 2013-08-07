@@ -11,6 +11,7 @@
  * @property integer $amount
  * @property integer $added_by
  * @property integer $challan_no
+ * @property boolean $is_due_paid
  * @property Student $Stud
  * @property sfGuardUser $User
  * 
@@ -20,6 +21,7 @@
  * @method integer     getAmount()       Returns the current record's "amount" value
  * @method integer     getAddedBy()      Returns the current record's "added_by" value
  * @method integer     getChallanNo()    Returns the current record's "challan_no" value
+ * @method boolean     getIsDuePaid()    Returns the current record's "is_due_paid" value
  * @method Student     getStud()         Returns the current record's "Stud" value
  * @method sfGuardUser getUser()         Returns the current record's "User" value
  * @method StudentFees setStudentId()    Sets the current record's "student_id" value
@@ -28,6 +30,7 @@
  * @method StudentFees setAmount()       Sets the current record's "amount" value
  * @method StudentFees setAddedBy()      Sets the current record's "added_by" value
  * @method StudentFees setChallanNo()    Sets the current record's "challan_no" value
+ * @method StudentFees setIsDuePaid()    Sets the current record's "is_due_paid" value
  * @method StudentFees setStud()         Sets the current record's "Stud" value
  * @method StudentFees setUser()         Sets the current record's "User" value
  * 
@@ -58,6 +61,10 @@ abstract class BaseStudentFees extends sfDoctrineRecord
              ));
         $this->hasColumn('challan_no', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('is_due_paid', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              ));
     }
 

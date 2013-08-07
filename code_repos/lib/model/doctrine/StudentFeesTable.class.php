@@ -28,6 +28,8 @@ class StudentFeesTable extends Doctrine_Table
     $fees->setDate($formHelper->formatDate($data['entry_date']));
     $fees->setAcadYearNo($data['acad_year_no']);
     $fees->save();
+
+    $this->updateDueStatus($studentId, $data['acad_year_no']);
   }
 
   public function editFeesEntry($userId, $data)
@@ -144,6 +146,65 @@ class StudentFeesTable extends Doctrine_Table
     }
 
     return $data;
+  }
+
+  public function updateDueStatus($studentId, $acadYearNo) {
+    $paidFee = Doctrine_Query::create()
+      ->select('sum(amount) as total_fees_paid')
+      ->from('StudentFees')
+      ->where('student_id = ?', $studentId)
+      ->andWhere('acad_year_no = ?', $acadYearNo)
+      ->groupBy('acad_year_no')
+      ->fetchArray();
+
+    $totalFeesPaid = count($paidFee) > 0 ? $paidFee[0]['total_fees_paid'] : 0;
+    $student = StudentTable::getInstance()->findOneByStudentId($studentId);
+    $feesStructure = $this->getStudentFeesStructure($student, $acadYearNo);
+    $totalStructureFee = 0;
+    foreach($feesStructure as $fee) {
+      $totalStructureFee += $fee['amount'];
+    }
+
+    if($totalStructureFee <= $totalFeesPaid) {
+      Doctrine_Query::create()
+        ->update('StudentFees')
+        ->set('is_due_paid', 1)
+        ->where('student_id = ?', $studentId)
+        ->andWhere('acad_year_no = ?', $acadYearNo)
+        ->execute();
+
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  public function getDueList() {
+    $paidStudents = Doctrine_Query::create()
+      ->select('sf.student_id')
+      ->from('StudentFees sf')
+      ->where('sf.is_due_paid = ?', true)
+      ->fetchArray();
+
+    $paidStudentIds = array();
+    foreach($paidStudents as $paidStudent) {
+      if(!in_array($paidStudent['student_id'], $paidStudentIds)) {
+        $data[] = $paidStudent;
+        $paidStudentIds[] = $paidStudent['student_id'];
+      }
+    }
+
+    $dontCareStudents = Doctrine_Query::create()
+      ->select('s.first_name as first_name , s.last_name as last_name,
+      s.student_id as student_id, c.name as course_type, d.name as department')
+      ->from('Student s')
+      ->leftJoin('s.StudCourseCategory c')
+      ->leftJoin('s.StudDepartment d')
+      ->andWhereNotIn('s.student_id', $paidStudentIds)
+      ->fetchArray();
+
+    return $dontCareStudents;
   }
 
 }

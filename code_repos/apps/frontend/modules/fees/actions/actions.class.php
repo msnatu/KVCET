@@ -246,7 +246,18 @@ class feesActions extends sfActions
 
   public function executeDueList($request)
   {
+    $pagination = new zebra_pagination();
+    $pagination->navigation_position(isset($_GET['navigation_position']) && in_array($_GET['navigation_position'], array('left', 'right')) ? $_GET['navigation_position'] : 'outside');
 
+    $records_per_page = 3;
+    $this->offset = ($pagination->get_page() - 1) * $records_per_page;
+    $dueListStudents = StudentFeesTable::getInstance()->getDueList();
+    $this->dueListStudents = array_slice($dueListStudents, $this->offset, $records_per_page);
+    $totalRows = count($dueListStudents);
+    $pagination->records($totalRows);
+    $pagination->records_per_page($records_per_page);
+
+    $this->pagination = $pagination;
   }
 
 }
