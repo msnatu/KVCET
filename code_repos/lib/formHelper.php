@@ -10,7 +10,7 @@ class formHelper
     if ($is_required == 1) {
       $html .= "<span class=\"is_required\">*</span>";
     }
-    $html .= " :</label>";
+    $html .= "</label>";
 
     $html .= "<div class=\"text_box_div $customClassName\">";
     if ($type == "view") {
@@ -100,7 +100,7 @@ class formHelper
     $html .= "<label class=\"text_box_label\">$label";
     if ($is_required == 1)
       $html .= "<span class=\"is_required\">*</span>";
-    $html .= " :</label>";
+    $html .= " </label>";
     $html .= "<div class=\"text_box_div\">";
     $html .= "<select name=\"$tagName\" id=\"$tagName\" class=\"$validator_class\">";
     if ($type == 'add')
@@ -125,7 +125,7 @@ class formHelper
     $html = "<div class=\"form-field-container\"><label class=\"text_box_label\">$label";
     if ($is_required == 1)
       $html .= "<span class=\"is_required\">*</span>";
-    $html .= " :</label><div class=\"text_box_div\">";
+    $html .= " </label><div class=\"text_box_div radio_box_div\">";
     if ($type == 'edit')
       $selected = "checked";
     else
@@ -165,7 +165,7 @@ class formHelper
     $html .= "<label class=\"text_box_label\">$label";
     if ($is_required == 1)
       $html .= "<span class=\"is_required\">*</span>";
-    $html .= " :</label>";
+    $html .= " </label>";
     $html .= "<div class=\"text_box_div\">";
     if ($type == 'add')
       $selected = "selected=yes";
@@ -226,7 +226,7 @@ class formHelper
     if ($is_required == 1) {
       $html .= "<span class=\"is_required\">*</span>";
     }
-    $html .= " :</label><div class=\"text_box_div\">";
+    $html .= " </label><div class=\"text_box_div\">";
     if ($type == "view") {
       $html .= "<textarea name=\"$tagName\" class = \"view $validator_class\" id=\"$tagName\" rows=\"2\" cols=\"45\" readonly>$value</textarea>";
     } else {

@@ -1,11 +1,12 @@
-<?php echo link_to('Back', 'fees/fees-structure'); ?>
+<?php include_partial('global/page_title', array('title' => 'Fees', 'back_url' => 'fees/fees-structure', 'icon_class' => 'dashboard-admission-link1')); ?>
 <?php
 if($successMsg != "") {
   echo '<div class="form-success-msg">'.$successMsg."</div>";
 }
 ?>
-<div class="form-header">Fees Structure for <?php echo $courseName . " (" . $batchYearText . ")"; ?></div>
 <?php $form = new formHelper(); ?>
+
+<div class="form-header">Set Fees Structure for <?php echo $courseName . " (" . $batchYearText . ")"; ?></div>
 <form action="<?php echo url_for('set_fees_structure'); ?>" method="POST" id="fees_structure_form">
   <?php
   foreach ($feesTypes as $feeType) {
@@ -16,5 +17,5 @@ if($successMsg != "") {
   ?>
   <input type="hidden" value="<?php echo $courseType?>" name="course_type">
   <input type="hidden" value="<?php echo $acadYearNo?>" name="year">
-  <input type="submit" value="Set" name="save">
+  <input type="submit" value="Save" name="save" class="form-submit-button">
 </form>
