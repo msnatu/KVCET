@@ -251,15 +251,19 @@ input {
 .kt-desc-text-container {
   color: #989898;
   padding: 10px 0;
+  font-size: 12px;
 }
 
 .fees-categories-table {
   width: 400px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .kt-page-sub-header {
   font-size: 20px;
   padding: 15px 0 25px;
+  color: #494949;
 }
 
 .kvcet-page-header-utilities-container {
@@ -606,9 +610,15 @@ input {
 
 .page-title-header-icon {
   float: left;
-  width: 100px;
-  height: 40px;
+  width: 60px;
+  height: 65px;
   margin-right: 10px;
+  margin-left: -10px;
+  margin-top: -15px;
+}
+
+.page-title-fees-icon {
+  background: url("images/dashboard-icons-small.png") no-repeat scroll -90px -12px transparent;
 }
 
 .page-title-back-btn-container {
@@ -853,4 +863,67 @@ input {
   text-decoration: none;
   display: block;
   width: 50px;
+}
+
+.add-new-btn {
+  background: url("images/add-icon.png") no-repeat scroll 0px 0px transparent;
+  clear: both;
+  color: #000;
+  display: block;
+  float: right;
+  font-family: PT Sans;
+  font-size: 14px;
+  margin: 5px;
+  padding: 0 22px;
+  text-decoration: none;
+}
+
+.add-new-btn:hover {
+  color: #18B301;
+}
+
+.kt-small-form-container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.edit-icon {
+  background: url("images/edit-icon.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  text-decoration: none;
+}
+
+.edit-icon:hover {
+  background: url("images/edit-icon-hover.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  text-decoration: none;
+}
+
+.kt-page-link-button {
+  font-size: 18px;
+  padding: 20px 0 0px;
+  list-style: circle;
+  list-style-type: circle;
+}
+
+.kt-page-link-button a {
+  text-decoration: none;
+  color: #DA7300;
+  font-family: PT Sans;
+}
+
+.kt-page-link-button a:hover {
+  color: #F98100;
+}
+
+.view-icon {
+  background: url("images/view-icon.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  text-decoration: none;
 }

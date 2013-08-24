@@ -1,4 +1,7 @@
-<?php include_partial('global/page_title', array('title' => 'Fees', 'back_url' => 'fees/index', 'icon_class' => 'dashboard-admission-link1')); ?>
+<?php include_partial('global/page_title', array('title' => 'Fees', 'back_url' => 'fees/index', 'icon_class' => 'page-title-fees-icon')); ?>
+<div class="kt-desc-text-container">
+  Select the Course Type and the Academic Year to view the fees structure
+</div>
 <?php
 $academic = new academicHelper();
 $form = new formHelper();
