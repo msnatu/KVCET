@@ -621,6 +621,10 @@ input {
   background: url("images/dashboard-icons-small.png") no-repeat scroll -90px -12px transparent;
 }
 
+.page-title-student-icon {
+  background: url("images/dashboard-icons-small.png") no-repeat scroll -20px -78px transparent;
+}
+
 .page-title-back-btn-container {
   float: right;
   margin-right: 30px;

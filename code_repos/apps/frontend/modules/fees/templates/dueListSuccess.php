@@ -10,9 +10,7 @@
     <th>Department</th>
     <th>View</th>
   </tr>
-  <?php
-    $counter = $offset + 1;
-  ?>
+  <?php $counter = $offset + 1; ?>
   <?php foreach($dueListStudents as $student) { ?>
     <tr>
       <td class="center-align"><?php echo $counter; ?></td>
@@ -27,5 +25,3 @@
   <?php } ?>
 </table>
 <?php echo $pagination->render(); ?>
-
-<?php //include_partial('pagination_tpl', array('pager' => $pager, 'searchUrl' => url_for('@due_list'))); ?>
