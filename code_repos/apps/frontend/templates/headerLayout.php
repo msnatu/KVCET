@@ -20,7 +20,7 @@
   <div class="page-top-menu-container">
     <div class="page-top-menu-item-container">
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="1">Dashboard</a>
-      <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="2">Students</a>
+      <a href="<?php echo url_for('student/index'); ?>" class="page-top-menu-item" item="2">Students</a>
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="3">Attendance</a>
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="4">Timetable</a>
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="5">Examination</a>

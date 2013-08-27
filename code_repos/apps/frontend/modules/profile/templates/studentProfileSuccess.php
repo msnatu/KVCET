@@ -1,18 +1,19 @@
 <?php
-if($successMsg != "") {
+if ($successMsg != "") {
   echo $successMsg;
 }
 $formHelper = new formHelper();
 ?>
 
 <div class="kt-page-sub-menu-container">
-  <a href="<?php echo url_for('profile/studentProfile'); ?>" class="kt-page-sub-menu-item">Profile</a>
-  <a href="<?php echo url_for('student/fees?id='.$student->getStudentId()); ?>" class="kt-page-sub-menu-item">Fees</a>
+  <a href="<?php echo url_for('profile/studentProfile?id=' . $student->getStudentId()); ?>" class="kt-page-sub-menu-item-selected kt-page-sub-menu-item">Profile</a>
+  <a href="<?php echo url_for('student/fees?id=' . $student->getStudentId()); ?>" class="kt-page-sub-menu-item">Fees</a>
+  <br clear="all"/>
 </div>
 
-<h2>Student Profile</h2>
+<div class="kt-page-sub-header">Student Profile</div>
 <?php
-if($isEditable) {
+if ($isEditable) {
   echo link_to('Edit', 'admission/index?id=' . $student->getStudentId());
 }
 ?>
@@ -34,7 +35,7 @@ if($isEditable) {
   </tr>
   <tr>
     <td>Gender:</td>
-    <td><?php echo $student->getGender() == 0 ? "Male" : "Female" ; ?></td>
+    <td><?php echo $student->getGender() == 0 ? "Male" : "Female"; ?></td>
   </tr>
   <tr>
     <td>Email:</td>
@@ -131,3 +132,7 @@ if($isEditable) {
     <td><?php echo $student->getTotalPercentMarks() . "%"; ?></td>
   </tr>
 </table>
+
+<script type="text/javascript">
+  $('.page-top-menu-item[item="2"]').addClass('page-top-menu-selected-item');
+</script>

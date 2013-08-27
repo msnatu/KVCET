@@ -1,4 +1,4 @@
-<?php echo link_to('Back', 'fees/feesDashboard?id=' . $studentId); ?>
+<?php include_partial('global/page_title', array('title' => 'Student', 'back_url' => 'fees/feesDashboard?id=' . $studentId, 'icon_class' => 'page-title-student-icon')); ?>
 <div class="form-header">Assign Fees for <?php echo $studentName . " (" . date('Y') . ' - ' . (date('Y') + 1)  . ")"; ?></div>
 <?php if ($feesAssignmentErrorMsg != '') { ?>
   <div class="form-success-msg"><?php echo $feesAssignmentErrorMsg; ?></div>
@@ -14,7 +14,7 @@
     <?php echo $form->printSelectBox('edit', 'Route', 'route', $routeTypes['options'], $routeTypes['values'], 'Route'); ?>
   </div>
   <input type="hidden" value="<?php echo $studentId; ?>" name="student_id"/>
-  <input type="submit" value="Assign" name="save">
+  <input type="submit" value="Assign" name="save" class="form-submit-button">
 </form>
 
 

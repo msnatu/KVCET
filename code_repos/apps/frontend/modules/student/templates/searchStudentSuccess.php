@@ -23,9 +23,13 @@
         <td><?php echo $student['last_name']; ?></td>
         <td class="center-align"><?php echo $student['StudCourseCategory']['name']; ?></td>
         <td class="center-align"><?php echo $student['StudDepartment']['name']; ?></td>
-        <td class="center-align"><?php echo link_to('&nbsp;', 'profile/studentProfile?id=' . $student['student_id'], array('class' => 'view-icon')); ?></td>
+        <td class="center-align"><?php echo link_to('&nbsp;', 'profile/studentProfile?id=' . $student['student_id'], array('class' => 'view-icon', 'target' => '_blank')); ?></td>
       </tr>
       <?php $counter++; ?>
     <?php } ?>
   </table>
 <?php echo $pagination->render(); ?>
+
+<script type="text/javascript">
+  $('.page-top-menu-item[item="2"]').addClass('page-top-menu-selected-item');
+</script>
