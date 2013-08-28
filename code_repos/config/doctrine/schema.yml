@@ -128,13 +128,16 @@ OtherUser:
   columns:
     user_id:               { type: integer }
     first_name:            { type: string(64) }
-    middle_name:           { type: string(64) }
+    last_name:             { type: string(64) }
     email_address:         { type: string(64) }
-    user_name:             { type: string(64) }
-    group_id:              { type: integer }
+    department:            { type: integer }
 
   relations:
     GuardUser:             
       class: sfGuardUser
       local: user_id
+      foreign: id
+    Department:             
+      class: Department
+      local: department
       foreign: id
