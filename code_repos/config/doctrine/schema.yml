@@ -121,3 +121,23 @@ FeesDiscount:
 
   relations:
     Stud:                  { class: Student, local: student_id, foreign: student_id }
+
+    
+OtherUser:
+  actAs:                   [Timestampable, SoftDelete]
+  columns:
+    user_id:               { type: integer }
+    first_name:            { type: string(64) }
+    last_name:             { type: string(64) }
+    email_address:         { type: string(64) }
+    department:            { type: integer }
+
+  relations:
+    GuardUser:             
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+    Department:             
+      class: Department
+      local: department
+      foreign: id
