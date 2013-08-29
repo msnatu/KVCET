@@ -2,6 +2,14 @@
 
  class academicHelper {
 
+   const USER_ROLE_DIRECTOR = 1;
+   const USER_ROLE_PRINCIPAL = 2;
+   const USER_ROLE_DOP = 3;
+   const USER_ROLE_HOD = 4;
+   const USER_ROLE_STAFF = 5;
+   const USER_ROLE_STUDENT = 6;
+   const USER_ROLE_PARENT = 7;
+
    public function getCurrentAcadYear() {
      $currentCalYear = date('Y');
      $currentCalMonth = date('n');

@@ -37,6 +37,11 @@ class StudentTable extends Doctrine_Table {
     $user->setPassword('Welcome123');
     $user->save();
 
+    $userGroup = new sfGuardUserGroup();
+    $userGroup->setGroupId(academicHelper::USER_ROLE_STUDENT);
+    $userGroup->setUserId($user->getId());
+    $userGroup->save();
+
     $tempAdmissionDate = explode('-', $admissionDate);
     //for lateral entry make the batch year entry less by 1
     $batchYear = $data['is_lateral'] ? $tempAdmissionDate[0] : ($tempAdmissionDate[0] - 1);

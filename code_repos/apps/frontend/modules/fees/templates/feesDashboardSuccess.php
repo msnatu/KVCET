@@ -33,3 +33,12 @@
     </div>
   </li>
 </ul>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    new PageHelper({
+      navigationNo: 2,
+      callback: 'activateCurrentTab'
+    });
+  });
+</script>

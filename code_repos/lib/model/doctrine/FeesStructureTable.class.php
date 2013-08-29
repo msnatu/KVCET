@@ -47,7 +47,7 @@ class FeesStructureTable extends Doctrine_Table
     foreach($data as $fieldName => $amount) {
       $is_fee_type = substr_count($fieldName, 'fees_type');
       if($is_fee_type == 1) {
-        $feesType = substr($fieldName, -1);
+        $feesType = substr($fieldName, 10, 2);
         $feesStructure = $this->getInstance()->findOneByBatchStartYearAndAcadYearNoAndCourseTypeAndFeesType(
           $batchStartYear,
           $data['year'],
