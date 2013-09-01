@@ -23,7 +23,7 @@
       <a href="<?php echo url_for('student/index'); ?>" class="page-top-menu-item" item="2">Students</a>
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="3">Attendance</a>
       <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="4">Timetable</a>
-      <a href="<?php echo url_for('dashboard/index'); ?>" class="page-top-menu-item" item="5">Examination</a>
+      <a href="<?php echo url_for('exam/index'); ?>" class="page-top-menu-item" item="5">Examination</a>
       <br clear="all"/>
     </div>
   </div>

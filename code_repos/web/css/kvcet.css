@@ -625,6 +625,10 @@ input {
   background: url("images/dashboard-icons-small.png") no-repeat scroll -20px -78px transparent;
 }
 
+.page-title-exam-icon {
+  background: url("images/dashboard-icons-small.png") no-repeat scroll -20px -283px transparent;
+}
+
 .page-title-back-btn-container {
   float: right;
   margin-right: 30px;
@@ -635,6 +639,7 @@ input {
   display: block;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 }
 
 .page-title-back-btn-text {
@@ -973,4 +978,18 @@ input {
   background-image: -ms-linear-gradient(top, #26759e, #133d5b);
   background-image: -o-linear-gradient(top, #26759e, #133d5b);
   background-image: linear-gradient(to bottom, #26759e, #133d5b);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#26759e, endColorstr=#133d5b);
+}
+
+.no-records-found-box {
+  border: 1px solid #006AB2;
+  color: #E17500;
+  padding: 10px;
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  font-family: PT Sans, sans-serif;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }

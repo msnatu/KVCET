@@ -93,6 +93,21 @@ student_profile:
   url:  /profile/studentProfile/id/:id
   param: { module: profile, action: studentProfile }
 
+subjects:
+  url:  /subjects
+  param: { module: exam, action: subjects }
+
+search_subject:
+  url:  /search/subject
+  param: { module: exam, action: searchSubject }
+
+add_subject:
+  url:  /add/subject
+  param: { module: exam, action: addSubject }
+
+edit_subject:
+  url:  /exam/edit-subject
+  param: { module: exam, action: editSubject }
 
 
 
@@ -102,4 +117,4 @@ default_index:
   url:   /:module
 
 default:
-  url:   /:module/:action/*
+  url:   /:module/:action

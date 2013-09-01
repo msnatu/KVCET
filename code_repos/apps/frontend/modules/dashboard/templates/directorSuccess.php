@@ -12,7 +12,7 @@
       <div class="dashboard-user-link"></div>
       <div class="dashboard-link-text">Manage Users</div>
     </a>
-    <a href="<?php echo url_for('dashboard/index'); ?>" class="dashboard-page-link">
+    <a href="<?php echo url_for('exam/index'); ?>" class="dashboard-page-link">
       <div class="dashboard-exam-link"></div>
       <div class="dashboard-link-text">Examination</div>
     </a>

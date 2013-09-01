@@ -141,3 +141,16 @@ OtherUser:
       class: Department
       local: department
       foreign: id
+
+
+Subjects:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    batch_year:            { type: integer }
+    semester:             { type: integer }
+    dept_id:            { type: integer }
+    name:                   { type: string(1000) }
+    code:                   { type: string(1000) }
+
+  relations:
+    Department:             { class: Department, local: dept_id, foreign: id }

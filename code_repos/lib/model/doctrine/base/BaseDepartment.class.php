@@ -10,17 +10,20 @@
  * @property CourseTypes $CourseCategory
  * @property Doctrine_Collection $Student
  * @property Doctrine_Collection $OtherUser
+ * @property Doctrine_Collection $Subjects
  * 
  * @method string              getName()           Returns the current record's "name" value
  * @method integer             getCourseType()     Returns the current record's "course_type" value
  * @method CourseTypes         getCourseCategory() Returns the current record's "CourseCategory" value
  * @method Doctrine_Collection getStudent()        Returns the current record's "Student" collection
  * @method Doctrine_Collection getOtherUser()      Returns the current record's "OtherUser" collection
+ * @method Doctrine_Collection getSubjects()       Returns the current record's "Subjects" collection
  * @method Department          setName()           Sets the current record's "name" value
  * @method Department          setCourseType()     Sets the current record's "course_type" value
  * @method Department          setCourseCategory() Sets the current record's "CourseCategory" value
  * @method Department          setStudent()        Sets the current record's "Student" collection
  * @method Department          setOtherUser()      Sets the current record's "OtherUser" collection
+ * @method Department          setSubjects()       Sets the current record's "Subjects" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -55,6 +58,10 @@ abstract class BaseDepartment extends sfDoctrineRecord
         $this->hasMany('OtherUser', array(
              'local' => 'id',
              'foreign' => 'department'));
+
+        $this->hasMany('Subjects', array(
+             'local' => 'id',
+             'foreign' => 'dept_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));
