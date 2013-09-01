@@ -130,16 +130,16 @@ OtherUser:
     first_name:            { type: string(64) }
     last_name:             { type: string(64) }
     email_address:         { type: string(64) }
-    department:            { type: integer }
+    dept_id:               { type: integer }
 
   relations:
-    GuardUser:             
+    GuardUser:
       class: sfGuardUser
       local: user_id
       foreign: id
-    Department:             
+    Department:
       class: Department
-      local: department
+      local: dept_id
       foreign: id
 
 
