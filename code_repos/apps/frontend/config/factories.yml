@@ -1,4 +1,4 @@
-# You can find more information about this file on the symfony website:
+  # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/05-Factories
 
 prod:
@@ -7,12 +7,18 @@ prod:
     param:
       level:   err
       loggers: ~
+  mailer:
+    param:
+      delivery_strategy: realtime
 
 test:
   storage:
     class: sfSessionTestStorage
     param:
       session_path: %SF_TEST_CACHE_DIR%/sessions
+  mailer:
+    param:
+      delivery_strategy:  none 
 
   response:
     class: sfWebResponse
@@ -27,6 +33,10 @@ dev:
   mailer:
     param:
       delivery_strategy: none
+  mailer:
+    param:
+      delivery_strategy:  single_address
+      delivery_address:  your_email
 
 all:
   routing:
@@ -34,6 +44,16 @@ all:
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
+  mailer:
+    param:
+      transport:
+        class: Swift_SmtpTransport
+        param:
+          host:       smtp.gmail.com
+          port:       465
+          encryption: ssl
+          username: your_gmail_account
+          password: your_gmail_password
 
   view_cache_manager:
     class: sfViewCacheManager
