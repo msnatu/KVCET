@@ -24,7 +24,7 @@ class examActions extends sfActions
     }
   }
 
-  public function executeSubjects(sfWebRequest $request)
+  public function executeSubjects($request)
   {
     $this->course_types = CourseTypesTable::getInstance()->getCourseTypes();
   }
