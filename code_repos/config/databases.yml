@@ -13,5 +13,5 @@ kvcet:
     param:
       dsn: 'mysql:host=localhost;dbname=KVCET'
       username: root
-      password: kvcet@123
+      password: p@ssw0rd
       attributes: { default_table_collate: utf8_unicode_ci }

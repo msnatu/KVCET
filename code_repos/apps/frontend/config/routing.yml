@@ -117,4 +117,4 @@ default_index:
   url:   /:module
 
 default:
-  url:   /:module/:action
+  url:   /:module/:action/*
