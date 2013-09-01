@@ -94,7 +94,7 @@ student_profile:
   param: { module: profile, action: studentProfile }
 
 exam_subject:
-  url:  /exam/subjects
+  url:  /exam/view-subjects
   param: { module: exam, action: subjects }
 
 search_subject:
