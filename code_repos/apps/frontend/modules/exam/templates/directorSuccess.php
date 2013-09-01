@@ -2,7 +2,7 @@
 
 <ul class="kt-small-form-container">
   <li class="kt-page-link-button">
-    <?php echo link_to('Subjects', 'subjects'); ?>
+    <?php echo link_to('Subjects', 'exam/subjects'); ?>
     <div class="kt-desc-text-container">
       Manage the subjects for each semester
     </div>

@@ -93,8 +93,8 @@ student_profile:
   url:  /profile/studentProfile/id/:id
   param: { module: profile, action: studentProfile }
 
-subjects:
-  url:  /subjects
+exam_subjects:
+  url:  /exam/subjects
   param: { module: exam, action: subjects }
 
 search_subject:
