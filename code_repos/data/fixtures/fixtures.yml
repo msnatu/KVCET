@@ -60,10 +60,9 @@ sfGuardUser:
     first_name: Ganesh
     last_name: Sivalingam
     email_address: ganesh@gmail.com
-    username: ganesh@gmail.com
     algorithm: sha1
-    salt: f55847f616bd394c6f1d4f7b7df8c07c
-    password: 0bdef06461f5435174cb630f0e2a2dd445188cf0
+    username:  ganesh@gmail.com
+    password:  Welcome123
     is_active: true
     is_super_admin: false
     last_login: null
@@ -76,8 +75,9 @@ sfGuardUser:
     email_address: muruga@gmail.com
     username: muruga@gmail.com
     algorithm: sha1
-    salt: 33386204eb4e70cb8b8d9354542c31cc
-    password: 24e0b190f17f8cf7f24504f4cd45e79f0e1ca83f
+    password: Welcome123
+#    salt: 33386204eb4e70cb8b8d9354542c31cc
+#    password: 24e0b190f17f8cf7f24504f4cd45e79f0e1ca83f
     is_active: true
     is_super_admin: false
     last_login: null
@@ -139,6 +139,33 @@ sfGuardUser:
     last_login: null
     created_at: '2013-07-25 20:18:04'
     updated_at: '2013-07-25 20:18:04'
+
+  sfGuardUser_15:
+    first_name:      Uday
+    last_name:       Singh
+    email_address:   udayshankar1306@gmail.com
+    username:        udayshankar1306@gmail.com
+    algorithm:       sha1
+    password:        Welcome123
+    is_active:       true
+    is_super_admin:  false
+    last_login:      null
+    created_at:      '2013-07-25 20:18:04'
+    updated_at:      '2013-07-25 20:18:04'
+
+  otherUser_1:
+    first_name:      'Uday Shankar'
+    last_name:       Singh
+    email_address:   usingh@ubicsindia.com
+    username:        usingh@ubicsindia.com
+    Groups:          [Group_hod]
+    algorithm:       sha1
+    password:        Welcome123
+    is_active:       true
+    is_super_admin:  false
+    last_login:      null
+    created_at:      '2013-07-25 20:18:04'
+    updated_at:      '2013-07-25 20:18:04'
 
 sfGuardGroup:
   Group_director:
@@ -934,3 +961,11 @@ TransportFees:
     route_name: 'Anna Arch'
     amount: '25000'
     year: '2013'
+    
+OtherUser:
+  user_1:
+    GuardUser:       otherUser_1
+    first_name:      'uday shankar'
+    last_name:       'singh'
+    email_address:   usingh@ubicsindia.com
+    Department:      CSE
