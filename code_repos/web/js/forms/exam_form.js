@@ -19,7 +19,7 @@ ExaminationForm.prototype = {
     var self = this;
     $('#course_type').change(function () {
       $.ajax({
-        url: "getCourseTypeDepartments",
+        url: LocationHelper.routeFor("getCourseTypeDepartments"),
         type: 'POST',
         dataType: 'json',
         data: {
@@ -61,4 +61,22 @@ ExaminationForm.prototype = {
     });
   }
 
+};
+
+var LocationHelper = {
+  routeFor: function (route) {
+    if (this.isProductionEnv()) {
+      return "/" + route;
+    } else {
+      var path = document.location.pathname;
+      return path == "/" ? path + route : path.substring(0, path.indexOf("/", 1) + 1) + route;
+    }
+  },
+
+  isProductionEnv: function () {
+    if (document.location.hostname) {
+      return document.location.hostname.indexOf("54.226.211.94") >= 0;
+    }
+    return true;
+  }
 };
