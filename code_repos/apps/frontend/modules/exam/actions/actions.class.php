@@ -26,8 +26,7 @@ class examActions extends sfActions
 
   public function executeViewSubjects($request)
   {
-    $params = $request->getPostParameters();
-    $this->course_types = CourseTypesTable::getInstance()->getCourseTypes();
+//    $this->course_types = CourseTypesTable::getInstance()->getCourseTypes();
   }
 
   public function executeSearchSubject($request) {
