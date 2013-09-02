@@ -154,3 +154,11 @@ Subjects:
 
   relations:
     Department:             { class: Department, local: dept_id, foreign: id }
+    
+ManageUser:
+  actAs:               [Timestampable, softDelete]
+  columns:
+    to_group:          { type: string(64) }
+    to_dept:           { type: string(64) }
+    user_name:         { type: string(64) }
+    email_id:          { type: string(64) }
