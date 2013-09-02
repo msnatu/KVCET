@@ -57,7 +57,7 @@ abstract class BaseDepartment extends sfDoctrineRecord
 
         $this->hasMany('OtherUser', array(
              'local' => 'id',
-             'foreign' => 'department'));
+             'foreign' => 'dept_id'));
 
         $this->hasMany('Subjects', array(
              'local' => 'id',
