@@ -6,7 +6,7 @@ class Version30 extends Doctrine_Migration_Base
 {
     public function up()
     {
-        $this->createTable('other_user', array(
+        $this->createTable('subjects', array(
              'id' => 
              array(
               'type' => 'integer',
@@ -14,35 +14,30 @@ class Version30 extends Doctrine_Migration_Base
               'autoincrement' => '1',
               'primary' => '1',
              ),
-             'user_id' => 
+             'batch_year' => 
              array(
               'type' => 'integer',
               'length' => '8',
              ),
-             'first_name' => 
-             array(
-              'type' => 'string',
-              'length' => '64',
-             ),
-             'middle_name' => 
-             array(
-              'type' => 'string',
-              'length' => '64',
-             ),
-             'email_address' => 
-             array(
-              'type' => 'string',
-              'length' => '64',
-             ),
-             'user_name' => 
-             array(
-              'type' => 'string',
-              'length' => '64',
-             ),
-             'group_id' => 
+             'semester' =>
              array(
               'type' => 'integer',
               'length' => '8',
+             ),
+             'dept_id' =>
+             array(
+              'type' => 'integer',
+              'length' => '8',
+             ),
+             'name' => 
+             array(
+              'type' => 'string',
+              'length' => '1000',
+             ),
+             'code' => 
+             array(
+              'type' => 'string',
+              'length' => '1000',
              ),
              'created_at' => 
              array(
@@ -73,6 +68,6 @@ class Version30 extends Doctrine_Migration_Base
 
     public function down()
     {
-        $this->dropTable('other_user');
+        $this->dropTable('subjects');
     }
 }
