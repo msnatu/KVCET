@@ -24,6 +24,22 @@ PageHelper.prototype = {
 
   activateCurrentTab: function() {
     $('.page-top-menu-item[item="' + this.navigationNo + '"]').addClass('page-top-menu-selected-item');
+  },
+
+  routeFor: function (route) {
+    if (this.isProdEnv()) {
+      return "/" + route;
+    } else {
+      var path = document.location.pathname;
+      return path == "/" ? path + route : path.substring(0, path.indexOf("/", 1) + 1) + route;
+    }
+  },
+
+  isProdEnv: function () {
+    if (document.location.hostname) {
+      return document.location.hostname.indexOf("54.226.211.94") >= 0;
+    }
+    return true;
   }
 
 };

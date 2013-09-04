@@ -83,4 +83,15 @@
      }
    }
 
+   public function getSectionsDropDown($department) {
+     $dept = DepartmentTable::getInstance()->find($department);
+     $sections = array();
+     if($dept) {
+       for($i = 1; $i <= $dept->getTotalSections(); $i++){
+         $sections[] = $i;
+       }
+     }
+     return $sections;
+   }
+
  }

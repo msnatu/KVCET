@@ -1,8 +1,8 @@
-var ExaminationForm = function (options) {
+var TimetableForm = function (options) {
   this.init(options);
 };
 
-ExaminationForm.prototype = {
+TimetableForm.prototype = {
   init: function (options) {
     for (var key in options) {
       if (options.hasOwnProperty(key)) {

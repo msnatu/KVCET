@@ -48,6 +48,7 @@ Department:
   columns:
     name:          { type: string(64) }
     course_type:  { type: integer }
+    total_sections:  { type: integer }
 
   relations:
     CourseCategory:        { class: CourseTypes, local: course_type, foreign: id }
@@ -156,9 +157,21 @@ Subjects:
     Department:             { class: Department, local: dept_id, foreign: id }
     
 ManageUser:
-  actAs:               [Timestampable, softDelete]
+  actAs:               [Timestampable, SoftDelete]
   columns:
     to_group:          { type: string(64) }
     to_dept:           { type: string(64) }
     user_name:         { type: string(64) }
     email_id:          { type: string(64) }
+
+
+StudentClassroom:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    student_id:            { type: integer }
+    dept_id:               { type: integer }
+    section_no:            { type: integer }
+
+  relations:
+    Stud:                    { class: Student, local: student_id, foreign: student_id }
+    Department:             { class: Department, local: dept_id, foreign: id }

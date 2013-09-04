@@ -7,23 +7,29 @@
  * 
  * @property string $name
  * @property integer $course_type
+ * @property integer $total_sections
  * @property CourseTypes $CourseCategory
  * @property Doctrine_Collection $Student
  * @property Doctrine_Collection $OtherUser
  * @property Doctrine_Collection $Subjects
+ * @property Doctrine_Collection $StudentClassroom
  * 
- * @method string              getName()           Returns the current record's "name" value
- * @method integer             getCourseType()     Returns the current record's "course_type" value
- * @method CourseTypes         getCourseCategory() Returns the current record's "CourseCategory" value
- * @method Doctrine_Collection getStudent()        Returns the current record's "Student" collection
- * @method Doctrine_Collection getOtherUser()      Returns the current record's "OtherUser" collection
- * @method Doctrine_Collection getSubjects()       Returns the current record's "Subjects" collection
- * @method Department          setName()           Sets the current record's "name" value
- * @method Department          setCourseType()     Sets the current record's "course_type" value
- * @method Department          setCourseCategory() Sets the current record's "CourseCategory" value
- * @method Department          setStudent()        Sets the current record's "Student" collection
- * @method Department          setOtherUser()      Sets the current record's "OtherUser" collection
- * @method Department          setSubjects()       Sets the current record's "Subjects" collection
+ * @method string              getName()             Returns the current record's "name" value
+ * @method integer             getCourseType()       Returns the current record's "course_type" value
+ * @method integer             getTotalSections()    Returns the current record's "total_sections" value
+ * @method CourseTypes         getCourseCategory()   Returns the current record's "CourseCategory" value
+ * @method Doctrine_Collection getStudent()          Returns the current record's "Student" collection
+ * @method Doctrine_Collection getOtherUser()        Returns the current record's "OtherUser" collection
+ * @method Doctrine_Collection getSubjects()         Returns the current record's "Subjects" collection
+ * @method Doctrine_Collection getStudentClassroom() Returns the current record's "StudentClassroom" collection
+ * @method Department          setName()             Sets the current record's "name" value
+ * @method Department          setCourseType()       Sets the current record's "course_type" value
+ * @method Department          setTotalSections()    Sets the current record's "total_sections" value
+ * @method Department          setCourseCategory()   Sets the current record's "CourseCategory" value
+ * @method Department          setStudent()          Sets the current record's "Student" collection
+ * @method Department          setOtherUser()        Sets the current record's "OtherUser" collection
+ * @method Department          setSubjects()         Sets the current record's "Subjects" collection
+ * @method Department          setStudentClassroom() Sets the current record's "StudentClassroom" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -40,6 +46,9 @@ abstract class BaseDepartment extends sfDoctrineRecord
              'length' => 64,
              ));
         $this->hasColumn('course_type', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('total_sections', 'integer', null, array(
              'type' => 'integer',
              ));
     }
@@ -60,6 +69,10 @@ abstract class BaseDepartment extends sfDoctrineRecord
              'foreign' => 'dept_id'));
 
         $this->hasMany('Subjects', array(
+             'local' => 'id',
+             'foreign' => 'dept_id'));
+
+        $this->hasMany('StudentClassroom', array(
              'local' => 'id',
              'foreign' => 'dept_id'));
 

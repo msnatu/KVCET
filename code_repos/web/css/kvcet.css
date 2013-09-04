@@ -629,6 +629,10 @@ input {
     background: url("images/dashboard-icons-small.png") no-repeat scroll -20px -283px transparent;
 }
 
+.page-title-timetable-icon {
+    background: url("images/dashboard-icons-small.png") no-repeat scroll -20px -351px transparent;
+}
+
 .page-title-back-btn-container {
     float: right;
     margin-right: 30px;
@@ -1014,4 +1018,12 @@ input {
 .text-highlist {
     font-weight: bold;
     color: #81571F;
+}
+
+.assign-classroom .form-field-container {
+  background: none repeat scroll 0 0 #ddd;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 400px;
 }

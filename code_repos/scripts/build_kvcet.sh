@@ -13,6 +13,7 @@ else
   ./symfony doctrine:migrate --env=$env
   ./symfony doctrine:build --all-classes --env=$env
   ./symfony doctrine:data-load --env=$env --append
+  ./symfony cc
   END=$(date +%s)
   DIFF=$(( $END - $START ))
   echo "It took $DIFF seconds"

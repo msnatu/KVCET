@@ -109,6 +109,14 @@ edit_subject:
   url:  /exam/edit-subject
   param: { module: exam, action: editSubject }
 
+timetable_search_classroom:
+  url:  /timetable/search-classroom
+  param: { module: timetable, action: searchClassroom }
+
+timetable_assign_classroom:
+  url:  /student/assign-classroom
+  param: { module: timetable, action: assignStudentsClassroom }
+
 
 
 

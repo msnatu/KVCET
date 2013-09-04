@@ -8,7 +8,7 @@
       <div class="dashboard-student-link"></div>
       <div class="dashboard-link-text">Student</div>
     </a>
-    <a href="<?php echo url_for('userManagement/index'); ?>" class="dashboard-page-link">
+    <a href="<?php echo url_for('otherUser/index'); ?>" class="dashboard-page-link">
       <div class="dashboard-user-link"></div>
       <div class="dashboard-link-text">Manage Users</div>
     </a>
@@ -22,7 +22,7 @@
     </a>
   </div>
   <div class="dashboard-page-links-row">
-    <a href="<?php echo url_for('admission/index'); ?>" class="dashboard-page-link">
+    <a href="<?php echo url_for('timetable/index'); ?>" class="dashboard-page-link">
       <div class="dashboard-timetable-link"></div>
       <div class="dashboard-link-text">Timetable</div>
     </a>

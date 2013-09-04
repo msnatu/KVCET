@@ -52,7 +52,7 @@ abstract class BaseManageUser extends sfDoctrineRecord
         parent::setUp();
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));
-        $softdelete0 = new Doctrine_Template_softDelete(array(
+        $softdelete0 = new Doctrine_Template_SoftDelete(array(
              ));
         $this->actAs($timestampable0);
         $this->actAs($softdelete0);

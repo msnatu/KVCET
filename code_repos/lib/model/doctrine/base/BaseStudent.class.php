@@ -39,6 +39,7 @@
  * @property Doctrine_Collection $StudentVaryingFees
  * @property Doctrine_Collection $StudentFees
  * @property Doctrine_Collection $FeesDiscount
+ * @property Doctrine_Collection $StudentClassroom
  * 
  * @method integer             getStudentId()           Returns the current record's "student_id" value
  * @method string              getFirstName()           Returns the current record's "first_name" value
@@ -74,6 +75,7 @@
  * @method Doctrine_Collection getStudentVaryingFees()  Returns the current record's "StudentVaryingFees" collection
  * @method Doctrine_Collection getStudentFees()         Returns the current record's "StudentFees" collection
  * @method Doctrine_Collection getFeesDiscount()        Returns the current record's "FeesDiscount" collection
+ * @method Doctrine_Collection getStudentClassroom()    Returns the current record's "StudentClassroom" collection
  * @method Student             setStudentId()           Sets the current record's "student_id" value
  * @method Student             setFirstName()           Sets the current record's "first_name" value
  * @method Student             setLastName()            Sets the current record's "last_name" value
@@ -108,6 +110,7 @@
  * @method Student             setStudentVaryingFees()  Sets the current record's "StudentVaryingFees" collection
  * @method Student             setStudentFees()         Sets the current record's "StudentFees" collection
  * @method Student             setFeesDiscount()        Sets the current record's "FeesDiscount" collection
+ * @method Student             setStudentClassroom()    Sets the current record's "StudentClassroom" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -248,6 +251,10 @@ abstract class BaseStudent extends sfDoctrineRecord
              'foreign' => 'student_id'));
 
         $this->hasMany('FeesDiscount', array(
+             'local' => 'student_id',
+             'foreign' => 'student_id'));
+
+        $this->hasMany('StudentClassroom', array(
              'local' => 'student_id',
              'foreign' => 'student_id'));
 
