@@ -1015,9 +1015,28 @@ input {
     border-radius: 8px; 
 }
 
+.flash_error {
+    font-size: 16px;
+    background-color: #FDC486;
+    color: #cd0a0a;
+    text-align: center;
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px; 
+}
+
 .text-highlist {
     font-weight: bold;
     color: #81571F;
+}
+
+
+.delete_icon {
+    background: url("images/delete_icon.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    text-decoration: none;
 }
 
 .assign-classroom .form-field-container {
