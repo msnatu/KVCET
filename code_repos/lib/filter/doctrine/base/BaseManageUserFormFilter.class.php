@@ -13,6 +13,8 @@ abstract class BaseManageUserFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
+      'first_name' => new sfWidgetFormFilterInput(),
+      'last_name'  => new sfWidgetFormFilterInput(),
       'to_group'   => new sfWidgetFormFilterInput(),
       'to_dept'    => new sfWidgetFormFilterInput(),
       'user_name'  => new sfWidgetFormFilterInput(),
@@ -23,6 +25,8 @@ abstract class BaseManageUserFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
+      'first_name' => new sfValidatorPass(array('required' => false)),
+      'last_name'  => new sfValidatorPass(array('required' => false)),
       'to_group'   => new sfValidatorPass(array('required' => false)),
       'to_dept'    => new sfValidatorPass(array('required' => false)),
       'user_name'  => new sfValidatorPass(array('required' => false)),
@@ -50,6 +54,8 @@ abstract class BaseManageUserFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'         => 'Number',
+      'first_name' => 'Text',
+      'last_name'  => 'Text',
       'to_group'   => 'Text',
       'to_dept'    => 'Text',
       'user_name'  => 'Text',
