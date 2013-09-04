@@ -159,6 +159,8 @@ Subjects:
 ManageUser:
   actAs:               [Timestampable, SoftDelete]
   columns:
+    first_name:        { type: string(64) }
+    last_name:         { type: string(64) }
     to_group:          { type: string(64) }
     to_dept:           { type: string(64) }
     user_name:         { type: string(64) }
