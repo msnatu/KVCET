@@ -108,6 +108,22 @@ add_subject:
 edit_subject:
   url:  /exam/edit-subject
   param: { module: exam, action: editSubject }
+  
+create_user:
+  url: /user/new
+  param: { module: userManagement, action: new }
+  
+#edit_user:
+#  url: /user/edit
+#  param: { module: userManagement, action: edit }
+  
+delete_user:
+  url: /user/delete
+  param: { module: userManagement, action: delete }
+  
+view_user:
+  url: /user/list
+  param: { module: userManagement, action: list }
 
 timetable_search_classroom:
   url:  /timetable/search-classroom
