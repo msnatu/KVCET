@@ -11,21 +11,26 @@ class TimetableInteraction {
 
   public function getUnassignedClassroomStudents($department, $batchYear) {
     $unAssignedStudents = Doctrine_Query::create()
-        ->select('c.id, s.student_id, s.first_name, s.last_name')
+        ->select('c.section_no, s.student_id, s.first_name, s.last_name')
         ->from('Student s')
         ->leftJoin('s.StudentClassroom c')
-        ->where('c.section_no IS NULL')
-        ->andWhere('s.department = ?', $department)
+        ->where('s.department = ?', $department)
         ->andWhere('s.batch_year = ?', $batchYear)
+        ->orderBy('c.section_no, s.first_name')
         ->execute();
 
     return $unAssignedStudents;
   }
 
   public function assignStudentClassroom($studentIds, $section, $department) {
-    foreach($studentIds as $student) {
-      $classroom = new StudentClassroom();
-      $classroom->setStudentId($student);
+    foreach ($studentIds as $studentId) {
+      $isExistingStudent = StudentClassroomTable::getInstance()->findOneByStudentId($studentId);
+      if ($isExistingStudent) {
+        $classroom = $isExistingStudent;
+      } else {
+        $classroom = new StudentClassroom();
+      }
+      $classroom->setStudentId($studentId);
       $classroom->setDeptId($department);
       $classroom->setSectionNo($section);
       $classroom->save();
