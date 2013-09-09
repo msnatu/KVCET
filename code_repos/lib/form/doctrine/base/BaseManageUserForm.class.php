@@ -16,6 +16,8 @@ abstract class BaseManageUserForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
+      'first_name' => new sfWidgetFormInputText(),
+      'last_name'  => new sfWidgetFormInputText(),
       'to_group'   => new sfWidgetFormInputText(),
       'to_dept'    => new sfWidgetFormInputText(),
       'user_name'  => new sfWidgetFormInputText(),
@@ -27,6 +29,8 @@ abstract class BaseManageUserForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'first_name' => new sfValidatorString(array('max_length' => 64, 'required' => false)),
+      'last_name'  => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'to_group'   => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'to_dept'    => new sfValidatorString(array('max_length' => 64, 'required' => false)),
       'user_name'  => new sfValidatorString(array('max_length' => 64, 'required' => false)),

@@ -31,8 +31,43 @@ class ManageUserTable extends Doctrine_Table {
                 $result['options'][] = $data['description'];
             }
         }
-        
+
         return $result;
+    }
+
+    public function checkUserExsistance($params) {
+        $result = $this->createQuery('c')
+                ->select('count(*) as count')
+                ->from('sfGuardUser c')
+                ->where('c.username = ? ', $params['user_mail'])
+                ->fetchOne();
+
+        return $result->getCount();
+    }
+
+    public function saveUserData($params, $passGenerated) {
+
+        $user = new sfGuardUser();
+        $user->setFirstName($params['first_name']);
+        $user->setLastName($params['last_name']);
+        $user->setEmailAddress($params['user_mail']);
+        $user->setUsername($params['user_mail']); // SAVING user_mail AS USER NAME can be changed with user_name IF NEEDED
+        $user->setPassword($passGenerated);
+        $user->save();
+
+        if ($user->getId()) {
+            $userGroup = new sfGuardUserGroup();
+            $userGroup->setGroupId($params['user_dept']);
+            $userGroup->setUserId($user->getId());
+            $userGroup->save();
+
+            return TRUE;
+        } else
+            return FALSE;
+    }
+
+    public function getAllUsers() {
+        
     }
 
 }
