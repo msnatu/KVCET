@@ -13,6 +13,7 @@
  * @property Doctrine_Collection $OtherUser
  * @property Doctrine_Collection $Subjects
  * @property Doctrine_Collection $StudentClassroom
+ * @property Doctrine_Collection $Period
  * 
  * @method string              getName()             Returns the current record's "name" value
  * @method integer             getCourseType()       Returns the current record's "course_type" value
@@ -22,6 +23,7 @@
  * @method Doctrine_Collection getOtherUser()        Returns the current record's "OtherUser" collection
  * @method Doctrine_Collection getSubjects()         Returns the current record's "Subjects" collection
  * @method Doctrine_Collection getStudentClassroom() Returns the current record's "StudentClassroom" collection
+ * @method Doctrine_Collection getPeriod()           Returns the current record's "Period" collection
  * @method Department          setName()             Sets the current record's "name" value
  * @method Department          setCourseType()       Sets the current record's "course_type" value
  * @method Department          setTotalSections()    Sets the current record's "total_sections" value
@@ -30,6 +32,7 @@
  * @method Department          setOtherUser()        Sets the current record's "OtherUser" collection
  * @method Department          setSubjects()         Sets the current record's "Subjects" collection
  * @method Department          setStudentClassroom() Sets the current record's "StudentClassroom" collection
+ * @method Department          setPeriod()           Sets the current record's "Period" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -73,6 +76,10 @@ abstract class BaseDepartment extends sfDoctrineRecord
              'foreign' => 'dept_id'));
 
         $this->hasMany('StudentClassroom', array(
+             'local' => 'id',
+             'foreign' => 'dept_id'));
+
+        $this->hasMany('Period', array(
              'local' => 'id',
              'foreign' => 'dept_id'));
 
