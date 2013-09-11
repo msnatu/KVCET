@@ -132,6 +132,7 @@ OtherUser:
     last_name:             { type: string(64) }
     email_address:         { type: string(64) }
     dept_id:               { type: integer }
+    group_id:              { type: integer }
 
   relations:
     GuardUser:
@@ -142,7 +143,10 @@ OtherUser:
       class: Department
       local: dept_id
       foreign: id
-
+    Groups:
+      class: sfGuardGroup
+      local: group_id
+      foreign: id
 
 Subjects:
   actAs:           [Timestampable, SoftDelete]
@@ -156,15 +160,15 @@ Subjects:
   relations:
     Department:             { class: Department, local: dept_id, foreign: id }
     
-ManageUser:
-  actAs:               [Timestampable, SoftDelete]
-  columns:
-    first_name:        { type: string(64) }
-    last_name:         { type: string(64) }
-    to_group:          { type: string(64) }
-    to_dept:           { type: string(64) }
-    user_name:         { type: string(64) }
-    email_id:          { type: string(64) }
+#ManageUser:
+#  actAs:               [Timestampable, SoftDelete]
+#  columns:
+#    first_name:        { type: string(64) }
+#    last_name:         { type: string(64) }
+#    to_group:          { type: string(64) }
+#    to_dept:           { type: string(64) }
+#    user_name:         { type: string(64) }
+#    email_id:          { type: string(64) }
 
 
 StudentClassroom:
