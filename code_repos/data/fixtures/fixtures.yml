@@ -31,7 +31,7 @@ sfGuardUser:
     username:       principal
     password:       Welcome123
     Groups:         [Group_principal]
-
+    
   User_hod:
     first_name:     Hod
     last_name:      Kvcet
@@ -152,12 +152,13 @@ sfGuardUser:
     last_login:      null
     created_at:      '2013-07-25 20:18:04'
     updated_at:      '2013-07-25 20:18:04'
-
-  otherUser_1:
+    
+<?php for($i = 1; $i <= 20; $i++): ?>
+  otherUser_<?php echo $i; ?>:
     first_name:      'Uday Shankar'
     last_name:       Singh
-    email_address:   usingh@ubicsindia.com
-    username:        usingh@ubicsindia.com
+    email_address:   usingh<?php echo $i; ?>@ubicsindia.com
+    username:        usingh<?php echo $i; ?>@ubicsindia.com
     Groups:          [Group_hod]
     algorithm:       sha1
     password:        Welcome123
@@ -166,6 +167,23 @@ sfGuardUser:
     last_login:      null
     created_at:      '2013-07-25 20:18:04'
     updated_at:      '2013-07-25 20:18:04'
+<?php endfor; ?>
+
+<?php for($i = 21; $i <= 40; $i++): ?>
+  otherUser_<?php echo $i; ?>:
+    first_name:      'Uday Shankar'
+    last_name:       Singh
+    email_address:   usingh<?php echo $i; ?>@ubicsindia.com
+    username:        usingh<?php echo $i; ?>@ubicsindia.com
+    Groups:          [Group_staff]
+    algorithm:       sha1
+    password:        Welcome123
+    is_active:       true
+    is_super_admin:  false
+    last_login:      null
+    created_at:      '2013-07-25 20:18:04'
+    updated_at:      '2013-07-25 20:18:04'
+<?php endfor; ?>
 
 sfGuardGroup:
   Group_director:
@@ -963,9 +981,21 @@ TransportFees:
     year: '2013'
     
 OtherUser:
-  user_1:
-    GuardUser:       otherUser_1
+<?php for($i = 1; $i <= 20; $i++): ?>
+  user_<?php echo $i; ?>:
+    GuardUser:       otherUser_<?php echo $i ."\n"; ?>
     first_name:      'uday shankar'
     last_name:       'singh'
-    email_address:   usingh@ubicsindia.com
+    email_address:   usingh<?php echo $i; ?>@ubicsindia.com
     Department:      CSE
+    Groups:          [Group_hod]
+<?php endfor; ?>
+<?php for($i = 21; $i <= 40; $i++): ?>
+  user_<?php echo $i; ?>:
+    GuardUser:       otherUser_<?php echo $i ."\n"; ?>
+    first_name:      'uday shankar'
+    last_name:       'singh'
+    email_address:   usingh<?php echo $i; ?>@ubicsindia.com
+    Department:      CSE
+    Groups:          [Group_staff]
+<?php endfor; ?>
