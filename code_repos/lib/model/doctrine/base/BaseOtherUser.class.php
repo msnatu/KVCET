@@ -13,6 +13,7 @@
  * @property integer $group_id
  * @property sfGuardUser $GuardUser
  * @property Department $Department
+ * @property sfGuardGroup $Groups
  * @property Doctrine_Collection $TimetableAssignment
  * 
  * @method integer             getUserId()              Returns the current record's "user_id" value
@@ -20,39 +21,22 @@
  * @method string              getLastName()            Returns the current record's "last_name" value
  * @method string              getEmailAddress()        Returns the current record's "email_address" value
  * @method integer             getDeptId()              Returns the current record's "dept_id" value
+ * @method integer             getGroupId()             Returns the current record's "group_id" value
  * @method sfGuardUser         getGuardUser()           Returns the current record's "GuardUser" value
  * @method Department          getDepartment()          Returns the current record's "Department" value
+ * @method sfGuardGroup        getGroups()              Returns the current record's "Groups" value
  * @method Doctrine_Collection getTimetableAssignment() Returns the current record's "TimetableAssignment" collection
  * @method OtherUser           setUserId()              Sets the current record's "user_id" value
  * @method OtherUser           setFirstName()           Sets the current record's "first_name" value
  * @method OtherUser           setLastName()            Sets the current record's "last_name" value
  * @method OtherUser           setEmailAddress()        Sets the current record's "email_address" value
  * @method OtherUser           setDeptId()              Sets the current record's "dept_id" value
+ * @method OtherUser           setGroupId()             Sets the current record's "group_id" value
  * @method OtherUser           setGuardUser()           Sets the current record's "GuardUser" value
  * @method OtherUser           setDepartment()          Sets the current record's "Department" value
+ * @method OtherUser           setGroups()              Sets the current record's "Groups" value
  * @method OtherUser           setTimetableAssignment() Sets the current record's "TimetableAssignment" collection
- *
- * @property sfGuardGroup $Groups
- *
- * @method integer      getUserId()        Returns the current record's "user_id" value
- * @method string       getFirstName()     Returns the current record's "first_name" value
- * @method string       getLastName()      Returns the current record's "last_name" value
- * @method string       getEmailAddress()  Returns the current record's "email_address" value
- * @method integer      getDeptId()        Returns the current record's "dept_id" value
- * @method integer      getGroupId()       Returns the current record's "group_id" value
- * @method sfGuardUser  getGuardUser()     Returns the current record's "GuardUser" value
- * @method Department   getDepartment()    Returns the current record's "Department" value
- * @method sfGuardGroup getGroups()        Returns the current record's "Groups" value
- * @method OtherUser    setUserId()        Sets the current record's "user_id" value
- * @method OtherUser    setFirstName()     Sets the current record's "first_name" value
- * @method OtherUser    setLastName()      Sets the current record's "last_name" value
- * @method OtherUser    setEmailAddress()  Sets the current record's "email_address" value
- * @method OtherUser    setDeptId()        Sets the current record's "dept_id" value
- * @method OtherUser    setGroupId()       Sets the current record's "group_id" value
- * @method OtherUser    setGuardUser()     Sets the current record's "GuardUser" value
- * @method OtherUser    setDepartment()    Sets the current record's "Department" value
- * @method OtherUser    setGroups()        Sets the current record's "Groups" value
- *
+ * 
  * @package    KVCET
  * @subpackage model
  * @author     Natu
@@ -97,13 +81,13 @@ abstract class BaseOtherUser extends sfDoctrineRecord
              'local' => 'dept_id',
              'foreign' => 'id'));
 
-      $this->hasMany('TimetableAssignment', array(
-             'local' => 'user_id',
-             'foreign' => 'staff_id'));
-
-      $this->hasOne('sfGuardGroup as Groups', array(
+        $this->hasOne('sfGuardGroup as Groups', array(
              'local' => 'group_id',
              'foreign' => 'id'));
+
+        $this->hasMany('TimetableAssignment', array(
+             'local' => 'user_id',
+             'foreign' => 'staff_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));
