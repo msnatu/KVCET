@@ -21,7 +21,10 @@ class dashboardActions extends sfActions {
         } else if ($this->getUser()->getGuardUser()->hasGroup('Director')) {
             $this->setTemplate('director');
         } else {
+            $this->setTemplate('otherUser');
             /**
+             * 
+             * Uday Shankar Singh --- COMMENTED TEMPORARY
              * SINGLE USER LOGIN ARE ALREADY CHECKED ABOVE BUT TO MAKE SURE OF THAT
              * I AM CHECKING THAT THE USER IS FROM MULTIPLE USER LOGIN AND IF HE IS THEN
              * THEN
@@ -30,12 +33,12 @@ class dashboardActions extends sfActions {
              * I AM SENDING THE USER TO 404 PAGE AS THIS IS NEW GROUP USER THAT HAS 
              * NOT BEEN DFINED IN THE ARRAY YET
              */
-            $userGroup = $this->getUser()->getGuardUser()->getGroups()->toArray();
-            if (!in_array($userGroup, array('HOD', 'Staff', 'Student', 'Parent'))) {
-                $this->forward('otherUser', 'index');
-            }
-            else
-                $this->forward404();
+//            $userGroup = $this->getUser()->getGuardUser()->getGroups()->toArray();
+//            if (!in_array($userGroup, array('Student', 'Parent'))) {
+//                $this->forward('otherUser', 'index');
+//            }
+//            else
+//                $this->forward404();
         }
     }
 

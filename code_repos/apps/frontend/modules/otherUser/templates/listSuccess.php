@@ -1,4 +1,4 @@
-<?php include_partial('global/page_title', array('title' => 'View and Manage User', 'back_url' => 'userManagement/index', 'icon_class' => 'page-title-user-icon')); ?>
+<?php include_partial('global/page_title', array('title' => 'View and Manage User', 'back_url' => 'otherUser/index', 'icon_class' => 'page-title-user-icon')); ?>
 
 <?php if ($sf_user->hasFlash('successMsg')): ?>
     <div class="flash_success"><?php echo $sf_user->getFlash('successMsg'); ?></div>

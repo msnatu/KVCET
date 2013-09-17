@@ -34,7 +34,7 @@ class siteMails {
         $mailBody = $this->mailHtml();
 
         $message = Swift_Message::newInstance('New User Created')
-                ->setFrom(array('udayshankar1306@gmail.com' => 'KVCET'))
+                ->setFrom(array('noreply.kvcet@gmail.com' => 'KVCET'))
                 ->setTo(array($this->UserMail => $this->UserName))
                 ->setBody($mailBody, 'text/html');
 

@@ -32,11 +32,8 @@ test:
 dev:
   mailer:
     param:
-      delivery_strategy: none
-  mailer:
-    param:
       delivery_strategy:  single_address
-      delivery_address:  your_email
+      delivery_address:  noreply.kvcet@gmail.com
 
 all:
   routing:
@@ -52,8 +49,8 @@ all:
           host:       smtp.gmail.com
           port:       465
           encryption: ssl
-          username: your_gmail_account
-          password: your_gmail_password
+          username: noreply.kvcet@gmail.com
+          password: 
 
   view_cache_manager:
     class: sfViewCacheManager

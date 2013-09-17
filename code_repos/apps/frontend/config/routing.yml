@@ -111,7 +111,7 @@ edit_subject:
   
 create_user:
   url: /user/new
-  param: { module: userManagement, action: new }
+  param: { module: otherUser, action: new }
   
 #edit_user:
 #  url: /user/edit
@@ -119,11 +119,11 @@ create_user:
   
 delete_user:
   url: /user/delete
-  param: { module: userManagement, action: delete }
+  param: { module: otherUser, action: delete }
   
 view_user:
   url: /user/list
-  param: { module: userManagement, action: list }
+  param: { module: otherUser, action: list }
 
 timetable_search_classroom:
   url:  /timetable/search-classroom
