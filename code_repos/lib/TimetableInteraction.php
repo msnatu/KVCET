@@ -37,4 +37,36 @@ class TimetableInteraction {
     }
   }
 
+  public function getClassroomPeriods($dept, $batch_year, $section, $sem) {
+    $periods = Doctrine_Query::create()
+        ->from('Period')
+        ->where('batch_year = ?', $batch_year)
+        ->andWhere('dept_id = ?', $dept)
+        ->andWhere('section_no = ?', $section)
+        ->andWhere('semester = ?', $sem)
+        ->fetchArray();
+
+    foreach($periods as $p) {
+      $periodIds[] = $p['id'];
+    }
+
+    if(count($periodIds) > 0) {
+      $assignedClassrooms = Doctrine_Query::create()
+          ->from('TimetableAssignment')
+          ->whereIn('period_id', $periodIds)
+          ->fetchArray();
+    } else {
+      $assignedClassrooms = array();
+    }
+
+    return array(
+      'periods' => $periods,
+      'assignment_details' => $assignedClassrooms
+    );
+  }
+
+  public function getAssignedClassroomDetails($periods) {
+
+  }
+
 }

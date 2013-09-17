@@ -19,6 +19,14 @@ input {
     color: #595959;
 }
 
+select {
+  font-size: 12px;
+}
+
+select option {
+  padding-bottom: 2px;
+}
+
 .page-body-container {
     width: 1000px;
     margin: 0 auto;
@@ -1045,4 +1053,47 @@ input {
   border-radius: 5px;
   margin: 0 auto;
   width: 400px;
+}
+
+.timetable-th {
+  font-weight: bold;
+  white-space: nowrap;
+  background: #eee;
+}
+
+.timetable-table td {
+  padding: 20px;
+  text-align: center;
+}
+
+.day-th {
+  background: #eee;
+}
+
+.break-time-th {
+  width: 20px;
+  background: none repeat scroll 0 0 #C6C2C2;
+  display: marker;
+  border: 1px solid #C6C2C2 !important;
+  font-size: 0px;
+  font-weight: normal;
+  white-space: nowrap;
+  padding: 0px !important;
+}
+
+.break-time-td {
+  background: #C6C2C2;
+  display: table-cell;
+  border: 1px solid #C6C2C2 !important;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 0px !important;
+}
+
+.period-td {
+  cursor: pointer;
+}
+
+.period-td:hover {
+  background: #F9E3A5;
 }

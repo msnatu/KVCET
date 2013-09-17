@@ -191,3 +191,16 @@ Period:
 
   relations:
     Department:             { class: Department, local: dept_id, foreign: id }
+
+TimetableAssignment:
+  actAs:           [Timestampable, SoftDelete]
+  columns:
+    subject_id:         { type: integer }
+    staff_id:            { type: integer }
+    period_id:          { type: integer }
+    day_no:             { type: integer }
+
+  relations:
+    Subject:            { class: Subject, local: subject_id, foreign: id }
+    Staff:              { class: OtherUser, local: staff_id, foreign: user_id }
+    Period:             { class: Period, local: period_id, foreign: id }

@@ -12,21 +12,24 @@
  * @property integer $dept_id
  * @property sfGuardUser $GuardUser
  * @property Department $Department
+ * @property Doctrine_Collection $TimetableAssignment
  * 
- * @method integer     getUserId()        Returns the current record's "user_id" value
- * @method string      getFirstName()     Returns the current record's "first_name" value
- * @method string      getLastName()      Returns the current record's "last_name" value
- * @method string      getEmailAddress()  Returns the current record's "email_address" value
- * @method integer     getDeptId()        Returns the current record's "dept_id" value
- * @method sfGuardUser getGuardUser()     Returns the current record's "GuardUser" value
- * @method Department  getDepartment()    Returns the current record's "Department" value
- * @method OtherUser   setUserId()        Sets the current record's "user_id" value
- * @method OtherUser   setFirstName()     Sets the current record's "first_name" value
- * @method OtherUser   setLastName()      Sets the current record's "last_name" value
- * @method OtherUser   setEmailAddress()  Sets the current record's "email_address" value
- * @method OtherUser   setDeptId()        Sets the current record's "dept_id" value
- * @method OtherUser   setGuardUser()     Sets the current record's "GuardUser" value
- * @method OtherUser   setDepartment()    Sets the current record's "Department" value
+ * @method integer             getUserId()              Returns the current record's "user_id" value
+ * @method string              getFirstName()           Returns the current record's "first_name" value
+ * @method string              getLastName()            Returns the current record's "last_name" value
+ * @method string              getEmailAddress()        Returns the current record's "email_address" value
+ * @method integer             getDeptId()              Returns the current record's "dept_id" value
+ * @method sfGuardUser         getGuardUser()           Returns the current record's "GuardUser" value
+ * @method Department          getDepartment()          Returns the current record's "Department" value
+ * @method Doctrine_Collection getTimetableAssignment() Returns the current record's "TimetableAssignment" collection
+ * @method OtherUser           setUserId()              Sets the current record's "user_id" value
+ * @method OtherUser           setFirstName()           Sets the current record's "first_name" value
+ * @method OtherUser           setLastName()            Sets the current record's "last_name" value
+ * @method OtherUser           setEmailAddress()        Sets the current record's "email_address" value
+ * @method OtherUser           setDeptId()              Sets the current record's "dept_id" value
+ * @method OtherUser           setGuardUser()           Sets the current record's "GuardUser" value
+ * @method OtherUser           setDepartment()          Sets the current record's "Department" value
+ * @method OtherUser           setTimetableAssignment() Sets the current record's "TimetableAssignment" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -68,6 +71,10 @@ abstract class BaseOtherUser extends sfDoctrineRecord
         $this->hasOne('Department', array(
              'local' => 'dept_id',
              'foreign' => 'id'));
+
+        $this->hasMany('TimetableAssignment', array(
+             'local' => 'user_id',
+             'foreign' => 'staff_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

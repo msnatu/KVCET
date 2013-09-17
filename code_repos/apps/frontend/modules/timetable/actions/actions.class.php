@@ -50,4 +50,19 @@ class timetableActions extends sfActions
     $this->redirect($this->generateUrl('timetable_search_classroom', array('department'=>$dept,'batch'=>$batch)));
   }
 
+  public function executeSearchTimetable($request) {
+    $this->course_types = CourseTypesTable::getInstance()->getCourseTypes();
+  }
+
+  public function executeShowTimetable($request) {
+    $section = $request->getParameter('section_no');
+    $dept = $request->getParameter('department');
+    $batch = $request->getParameter('batch');
+    $sem = $request->getParameter('semester');
+
+    $student = new TimetableInteraction();
+    $periods = $student->getClassroomPeriods($dept, $batch, $section, $sem);
+    $this->classroomPeriods = $periods['periods'];
+    $this->assignmentDetails = $periods['assignment_details'];
+  }
 }

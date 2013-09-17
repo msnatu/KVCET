@@ -451,27 +451,35 @@ Department:
   CSE:
     name: CSE
     CourseCategory: BE
+    total_sections: 2
   ECE:
     name: ECE
     CourseCategory: BE
+    total_sections: 2
   IT:
     name: IT
     CourseCategory: BE
+    total_sections: 1
   MECH:
     name: MECH
     CourseCategory: BE
+    total_sections: 2
   EEE:
     name: EEE
     CourseCategory: BE
+    total_sections: 1
   BIO:
     name: BIOTECH
     CourseCategory: BE
+    total_sections: 2
   ME_BIO:
     name: M.E BIOTECH
     CourseCategory: ME
+    total_sections: 1
   MBA_COURSE:
     name: Business Management
     CourseCategory: MBA
+    total_sections: 1
 
 
 FeesTypes:
@@ -969,3 +977,110 @@ OtherUser:
     last_name:       'singh'
     email_address:   usingh@ubicsindia.com
     Department:      CSE
+
+Period:
+  period_1:
+    start_time: 8.30
+    end_time:   9.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_2:
+    start_time: 9.30
+    end_time:   10.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_3:
+    start_time: 10.30
+    end_time:   10.40
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+    is_break_time: true
+
+  period_4:
+    start_time: 10.40
+    end_time:   11.40
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_5:
+    start_time: 11.40
+    end_time:   12.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_6:
+    start_time: 12.30
+    end_time:   13.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+    is_break_time: true
+
+  period_7:
+    start_time: 13.30
+    end_time:   14.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_8:
+    start_time: 14.30
+    end_time:   15.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   7
+    section_no: 1
+
+  period_9:
+    start_time: 9.30
+    end_time:   10.30
+    batch_year: 2010
+    dept_id:    2
+    semester:   6
+    section_no: 1
+
+Subjects:
+  subject_1:
+    batch_year:    2010
+    semester:       7
+    dept_id:        2
+    name:           Data Structures
+    code:          DS1526
+  subject_2:
+    batch_year:    2010
+    semester:       7
+    dept_id:        2
+    name:           Digital Signal Processing
+    code:          DSP589
+  subject_3:
+    batch_year:    2010
+    semester:       7
+    dept_id:        2
+    name:           Electronics Devices and Circuits
+    code:          EDC252
+  subject_4:
+    batch_year:    2010
+    semester:       7
+    dept_id:        2
+    name:           Probability and Queuing Theory
+    code:           MAT589
+  subject_5:
+    batch_year:    2010
+    semester:       7
+    dept_id:        1
+    name:           Cryptography
+    code:           CST588

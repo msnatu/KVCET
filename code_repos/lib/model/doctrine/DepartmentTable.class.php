@@ -28,7 +28,7 @@ class DepartmentTable extends Doctrine_Table {
 
   public function getCourseDepartments($courseType) {
     $departments = Doctrine_Query::create()
-        ->select('d.id as dept_id, d.name, c.id')
+        ->select('d.id as dept_id, d.name, d.total_sections, c.id')
         ->from('Department d')
         ->leftJoin('d.CourseCategory c')
         ->where('d.course_type = ?', $courseType)
@@ -38,6 +38,9 @@ class DepartmentTable extends Doctrine_Table {
     foreach ($departments as $dept) {
       $data['options'][] = $dept['name'];
       $data['values'][] = $dept['dept_id'];
+      for($i = 1; $i <= $dept['total_sections']; $i++){
+        $data['sections'][$dept['dept_id']] = $i;
+      }
     }
 
     $courseData = CourseTypesTable::getInstance()->getTotalYears($courseType);
@@ -46,6 +49,7 @@ class DepartmentTable extends Doctrine_Table {
       $data['batch_years'][] = $helper->getBatchYear($i);
       $data['batch_years_text'][] = $helper->getBatchYearText($i);
     }
+
 
     return $data;
   }

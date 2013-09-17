@@ -13,23 +13,26 @@
  * @property integer $section_no
  * @property boolean $is_break_time
  * @property Department $Department
+ * @property Doctrine_Collection $TimetableAssignment
  * 
- * @method float      getStartTime()     Returns the current record's "start_time" value
- * @method float      getEndTime()       Returns the current record's "end_time" value
- * @method integer    getBatchYear()     Returns the current record's "batch_year" value
- * @method integer    getDeptId()        Returns the current record's "dept_id" value
- * @method integer    getSemester()      Returns the current record's "semester" value
- * @method integer    getSectionNo()     Returns the current record's "section_no" value
- * @method boolean    getIsBreakTime()   Returns the current record's "is_break_time" value
- * @method Department getDepartment()    Returns the current record's "Department" value
- * @method Period     setStartTime()     Sets the current record's "start_time" value
- * @method Period     setEndTime()       Sets the current record's "end_time" value
- * @method Period     setBatchYear()     Sets the current record's "batch_year" value
- * @method Period     setDeptId()        Sets the current record's "dept_id" value
- * @method Period     setSemester()      Sets the current record's "semester" value
- * @method Period     setSectionNo()     Sets the current record's "section_no" value
- * @method Period     setIsBreakTime()   Sets the current record's "is_break_time" value
- * @method Period     setDepartment()    Sets the current record's "Department" value
+ * @method float               getStartTime()           Returns the current record's "start_time" value
+ * @method float               getEndTime()             Returns the current record's "end_time" value
+ * @method integer             getBatchYear()           Returns the current record's "batch_year" value
+ * @method integer             getDeptId()              Returns the current record's "dept_id" value
+ * @method integer             getSemester()            Returns the current record's "semester" value
+ * @method integer             getSectionNo()           Returns the current record's "section_no" value
+ * @method boolean             getIsBreakTime()         Returns the current record's "is_break_time" value
+ * @method Department          getDepartment()          Returns the current record's "Department" value
+ * @method Doctrine_Collection getTimetableAssignment() Returns the current record's "TimetableAssignment" collection
+ * @method Period              setStartTime()           Sets the current record's "start_time" value
+ * @method Period              setEndTime()             Sets the current record's "end_time" value
+ * @method Period              setBatchYear()           Sets the current record's "batch_year" value
+ * @method Period              setDeptId()              Sets the current record's "dept_id" value
+ * @method Period              setSemester()            Sets the current record's "semester" value
+ * @method Period              setSectionNo()           Sets the current record's "section_no" value
+ * @method Period              setIsBreakTime()         Sets the current record's "is_break_time" value
+ * @method Period              setDepartment()          Sets the current record's "Department" value
+ * @method Period              setTimetableAssignment() Sets the current record's "TimetableAssignment" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -71,6 +74,10 @@ abstract class BasePeriod extends sfDoctrineRecord
         $this->hasOne('Department', array(
              'local' => 'dept_id',
              'foreign' => 'id'));
+
+        $this->hasMany('TimetableAssignment', array(
+             'local' => 'id',
+             'foreign' => 'period_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

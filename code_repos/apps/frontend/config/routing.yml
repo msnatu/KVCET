@@ -133,6 +133,13 @@ timetable_assign_classroom:
   url:  /student/assign-classroom
   param: { module: timetable, action: assignStudentsClassroom }
 
+timetable_search:
+  url:  /timetable/search-timetable
+  param: { module: timetable, action: searchTimetable }
+
+show_timetable:
+  url:  /timetable/show-timetable
+  param: { module: timetable, action: showTimetable }
 
 
 

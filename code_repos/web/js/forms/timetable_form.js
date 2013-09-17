@@ -27,6 +27,14 @@ TimetableForm.prototype = {
           course_type: $('#course_type').val()
         },
         success: function (response) {
+          self.sections = response.sections;
+          var section = $('#section_no');
+          section.empty();
+          section.append($('<option>', {
+            text: 'Select Section',
+            value: ''
+          }));
+
           var deptBox = $('#department');
           deptBox.empty();
           deptBox.append($('<option>', {
@@ -59,6 +67,27 @@ TimetableForm.prototype = {
           alert("Can't connect to the server. Please try again!");
         }
       });
+    });
+  },
+
+  bindSearchClassTimetable: function () {
+    var self = this;
+    this.bindCourseTypeDepartments();
+    $('#department').change(function () {
+      var section = $('#section_no');
+      section.empty();
+      section.append($('<option>', {
+        text: 'Select Section',
+        value: ''
+      }));
+
+      for (var i = 1; i <= self.sections[$(this).val()]; i++) {
+        section.append($('<option>', {
+          text: i,
+          value: i
+        }));
+      }
+
     });
   }
 
