@@ -141,6 +141,14 @@ show_timetable:
   url:  /timetable/show-timetable
   param: { module: timetable, action: showTimetable }
 
+get_assigned_period:
+  url:  /timetable/get-assigned-period
+  param: { module: timetable, action: getAssignedPeriod }
+
+assign_period:
+  url:  /timetable/assign-period
+  param: { module: timetable, action: assignPeriod }
+
 
 
 # Keep these two rules at the bottom of the page to avoid overriding

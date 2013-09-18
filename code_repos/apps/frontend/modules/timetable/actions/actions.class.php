@@ -64,5 +64,26 @@ class timetableActions extends sfActions
     $periods = $student->getClassroomPeriods($dept, $batch, $section, $sem);
     $this->classroomPeriods = $periods['periods'];
     $this->assignmentDetails = $periods['assignment_details'];
+    $this->staffs = OtherUserTable::getInstance()->getStaffs($dept);
+    $this->subjects = SubjectsTable::getInstance()->getSubjects($dept, $batch, $sem);
   }
+
+  public function executeGetAssignedPeriod($request) {
+    $period = $request->getParameter('period_id');
+    $dayNo = $request->getParameter('day_no');
+
+    $student = new TimetableInteraction();
+    $data = $student->getPeriodData($dayNo, $period);
+
+    $this->getResponse()->setContentType('application/json');
+    return $this->renderText(json_encode(array('data' => $data)));
+  }
+
+  public function executeAssignPeriod($request) {
+    $values = $request->getPostParameters();
+    $student = new TimetableInteraction();
+    $student->assignPeriod($values);
+    return sfView::NONE;
+  }
+
 }

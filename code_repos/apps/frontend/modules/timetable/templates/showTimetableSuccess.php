@@ -3,7 +3,7 @@
 <table class="kt-table timetable-table">
   <?php
   $totalPeriods = count($classroomPeriods);
-  if($totalPeriods == 1) {
+  if ($totalPeriods == 1) {
     echo "<div class='no-records-found-box'>Periods has not been created for this classroom yet.<br> Please contact the administrator.</div>";
     return;
   }
@@ -21,10 +21,17 @@
     echo "<tr>";
     echo "<th valign='center' class='day-th'>" . $totalDays[$day] . "</th>";
     for ($p = 0; $p < $totalPeriods; $p++) {
-      if($classroomPeriods[$p]['is_break_time']) {
-        echo "<td class='break-time-td' period_id='" . $classroomPeriods[$p]['id'] . "'>" . $breakText[$day] . "</td>";
+      $periodId = $classroomPeriods[$p]['id'];
+      if ($classroomPeriods[$p]['is_break_time']) {
+        echo "<td class='break-time-td' period_id='" . $periodId . "'>" . $breakText[$day] . "</td>";
       } else {
-        echo "<td class='period-td' period_id='" . $classroomPeriods[$p]['id'] . "'>&nbsp;</td>";
+        if (isset($assignmentDetails[$periodId]) && $assignmentDetails[$periodId]['day_no'] == ($day+1)) {
+          $periodDetails = '<div class="subject-name-td">' . $assignmentDetails[$periodId]['Subject']['name'] . '</div>';
+          $periodDetails .= '<div class="staff-name-td">' . ucwords($assignmentDetails[$periodId]['Staff']['first_name']) . '</div>';
+        } else {
+          $periodDetails = '&nbsp;';
+        }
+        echo "<td class='period-td' day_no='" . ($day + 1) . "' period_id='" . $periodId . "'>" . $periodDetails . "</td>";
       }
     }
     echo "</tr>";
@@ -32,9 +39,17 @@
   ?>
 </table>
 
+<?php
+$form = new formHelper();
+$formHtml = $form->printSelectBox('add', "Staff", 'staff', $staffs['options'], $staffs['values'], 'Staff');
+$formHtml .= $form->printSelectBox('add', "Subject", 'subject', $subjects['options'], $subjects['values'], 'Subject');
+$formHtml .= '</form>';
+?>
+
 <script type="text/javascript">
   new TimetableForm({
-    callback: 'bindSearchClassTimetable'
+    callback: 'bindTimetableForm',
+    formHtml: <?php echo json_encode($formHtml); ?>
   });
   $('.page-top-menu-item[item="4"]').addClass('page-top-menu-selected-item');
 </script>

@@ -205,6 +205,6 @@ TimetableAssignment:
     day_no:             { type: integer }
 
   relations:
-    Subject:            { class: Subject, local: subject_id, foreign: id }
+    Subject:            { class: Subjects, local: subject_id, foreign: id }
     Staff:              { class: OtherUser, local: staff_id, foreign: user_id }
     Period:             { class: Period, local: period_id, foreign: id }

@@ -11,19 +11,22 @@
  * @property string $name
  * @property string $code
  * @property Department $Department
+ * @property Doctrine_Collection $TimetableAssignment
  * 
- * @method integer    getBatchYear()  Returns the current record's "batch_year" value
- * @method integer    getSemester()   Returns the current record's "semester" value
- * @method integer    getDeptId()     Returns the current record's "dept_id" value
- * @method string     getName()       Returns the current record's "name" value
- * @method string     getCode()       Returns the current record's "code" value
- * @method Department getDepartment() Returns the current record's "Department" value
- * @method Subjects   setBatchYear()  Sets the current record's "batch_year" value
- * @method Subjects   setSemester()   Sets the current record's "semester" value
- * @method Subjects   setDeptId()     Sets the current record's "dept_id" value
- * @method Subjects   setName()       Sets the current record's "name" value
- * @method Subjects   setCode()       Sets the current record's "code" value
- * @method Subjects   setDepartment() Sets the current record's "Department" value
+ * @method integer             getBatchYear()           Returns the current record's "batch_year" value
+ * @method integer             getSemester()            Returns the current record's "semester" value
+ * @method integer             getDeptId()              Returns the current record's "dept_id" value
+ * @method string              getName()                Returns the current record's "name" value
+ * @method string              getCode()                Returns the current record's "code" value
+ * @method Department          getDepartment()          Returns the current record's "Department" value
+ * @method Doctrine_Collection getTimetableAssignment() Returns the current record's "TimetableAssignment" collection
+ * @method Subjects            setBatchYear()           Sets the current record's "batch_year" value
+ * @method Subjects            setSemester()            Sets the current record's "semester" value
+ * @method Subjects            setDeptId()              Sets the current record's "dept_id" value
+ * @method Subjects            setName()                Sets the current record's "name" value
+ * @method Subjects            setCode()                Sets the current record's "code" value
+ * @method Subjects            setDepartment()          Sets the current record's "Department" value
+ * @method Subjects            setTimetableAssignment() Sets the current record's "TimetableAssignment" collection
  * 
  * @package    KVCET
  * @subpackage model
@@ -60,6 +63,10 @@ abstract class BaseSubjects extends sfDoctrineRecord
         $this->hasOne('Department', array(
              'local' => 'dept_id',
              'foreign' => 'id'));
+
+        $this->hasMany('TimetableAssignment', array(
+             'local' => 'id',
+             'foreign' => 'subject_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

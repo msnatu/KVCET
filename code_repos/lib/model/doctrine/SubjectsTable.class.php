@@ -25,4 +25,21 @@ class SubjectsTable extends Doctrine_Table {
     $sub->save();
   }
 
+  public function getSubjects($dept, $batchYear, $sem) {
+    $subjects = Doctrine_Query::create()
+        ->from('Subjects')
+        ->where('dept_id = ?', $dept)
+        ->andWhere('batch_year = ?', $batchYear)
+        ->andWhere('semester = ?', $sem)
+        ->fetchArray();
+
+    $data = array();
+    foreach ($subjects as $subject) {
+      $data['options'][] = $subject['name'] . " - " . $subject['code'];
+      $data['values'][] = $subject['id'];
+    }
+
+    return $data;
+  }
+
 }

@@ -89,6 +89,64 @@ TimetableForm.prototype = {
       }
 
     });
+  },
+
+  bindTimetableForm: function () {
+    var self = this;
+    this.pageHelper = new PageHelper();
+    $('.period-td').colorbox({
+      html: '<div class="timetable-form-body"></div>',
+      width: '50%',
+      height: '50%',
+      opacity: 0.5,
+      cbox_open: function () {
+        self.period_id = $(this).attr('period_id');
+        self.day_no = $(this).attr('day_no');
+        $.ajax({
+          url: self.pageHelper.routeFor("timetable/get-assigned-period"),
+          type: 'POST',
+          data: {
+            period_id: self.period_id,
+            day_no: self.day_no
+          },
+          success: function (response) {
+            self.assignmentFormData = response.data;
+            self.renderTimetableForm();
+          }
+        });
+      }
+    });
+  },
+
+  renderTimetableForm: function () {
+    var bodyContainer = $('.timetable-form-body');
+    bodyContainer.append('<div class="kt-page-sub-header">Period Assignment</div>');
+    bodyContainer.append(this.formHtml);
+    bodyContainer.append('<div class="form-submit-button small-btn">Save</div>');
+    if(this.assignmentFormData) {
+      $('#staff').val(Number(this.assignmentFormData.staff_id));
+      $('#subject').val(Number(this.assignmentFormData.subject_id));
+    }
+    this.bindSaveTimetable();
+  },
+
+  bindSaveTimetable: function() {
+    var self = this;
+    $('.form-submit-button').unbind('click').bind('click', function() {
+      $.ajax({
+        url: self.pageHelper.routeFor("timetable/assign-period"),
+        type: 'POST',
+        data: {
+          period_id: self.period_id,
+          day_no: self.day_no,
+          staff_id: $('#staff').val(),
+          subject_id: $('#subject').val()
+        },
+        success: function () {
+          window.location.reload();
+        }
+      });
+    });
   }
 
 };

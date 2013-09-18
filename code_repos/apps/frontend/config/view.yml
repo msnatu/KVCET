@@ -26,6 +26,7 @@ default:
     - lib/jquery.ui.datepicker.js
     - lib/jquery.ui.autocomplete.js
     - lib/jquery.ui.position.js
+    - lib/lightbox.js
     - lib/underscore-min.js
     - forms/page_helper.js
     - forms/admission_form.js

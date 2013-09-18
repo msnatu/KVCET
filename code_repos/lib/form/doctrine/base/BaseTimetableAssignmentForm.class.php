@@ -16,7 +16,7 @@ abstract class BaseTimetableAssignmentForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
-      'subject_id' => new sfWidgetFormInputText(),
+      'subject_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'), 'add_empty' => true)),
       'staff_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Staff'), 'add_empty' => true)),
       'period_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Period'), 'add_empty' => true)),
       'day_no'     => new sfWidgetFormInputText(),
@@ -27,7 +27,7 @@ abstract class BaseTimetableAssignmentForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'subject_id' => new sfValidatorInteger(array('required' => false)),
+      'subject_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'), 'required' => false)),
       'staff_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Staff'), 'required' => false)),
       'period_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Period'), 'required' => false)),
       'day_no'     => new sfValidatorInteger(array('required' => false)),

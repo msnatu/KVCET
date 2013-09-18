@@ -13,7 +13,7 @@ abstract class BaseTimetableAssignmentFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'subject_id' => new sfWidgetFormFilterInput(),
+      'subject_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Subject'), 'add_empty' => true)),
       'staff_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Staff'), 'add_empty' => true)),
       'period_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Period'), 'add_empty' => true)),
       'day_no'     => new sfWidgetFormFilterInput(),
@@ -23,7 +23,7 @@ abstract class BaseTimetableAssignmentFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'subject_id' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'subject_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Subject'), 'column' => 'id')),
       'staff_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Staff'), 'column' => 'id')),
       'period_id'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Period'), 'column' => 'id')),
       'day_no'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -50,7 +50,7 @@ abstract class BaseTimetableAssignmentFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'         => 'Number',
-      'subject_id' => 'Number',
+      'subject_id' => 'ForeignKey',
       'staff_id'   => 'ForeignKey',
       'period_id'  => 'ForeignKey',
       'day_no'     => 'Number',
