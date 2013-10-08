@@ -28,11 +28,14 @@ default:
     - lib/jquery.ui.position.js
     - lib/lightbox.js
     - lib/underscore-min.js
+    - lib/ejs_production.js
+    - lib/template_engine.js
     - forms/page_helper.js
     - forms/admission_form.js
     - forms/fees_form.js
     - forms/exam_form.js
     - forms/timetable_form.js
+    - widgets/timebox.js
 
 
   has_layout:     true

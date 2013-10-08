@@ -30,8 +30,8 @@ abstract class BasePeriodForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'start_time'    => new sfValidatorNumber(array('required' => false)),
-      'end_time'      => new sfValidatorNumber(array('required' => false)),
+      'start_time'    => new sfValidatorString(array('max_length' => 10, 'required' => false)),
+      'end_time'      => new sfValidatorString(array('max_length' => 10, 'required' => false)),
       'batch_year'    => new sfValidatorInteger(array('required' => false)),
       'dept_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Department'), 'required' => false)),
       'semester'      => new sfValidatorInteger(array('required' => false)),

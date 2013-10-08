@@ -78,8 +78,8 @@
        return '2<sup>nd</sup>';
      } else if($yearNo == 3) {
        return '3<sup>rd</sup>';
-     } else if($yearNo == 4) {
-       return '4<sup>th</sup>';
+     } else {
+       return $yearNo . '<sup>th</sup>';
      }
    }
 

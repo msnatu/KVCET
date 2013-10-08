@@ -26,8 +26,8 @@ abstract class BasePeriodFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'start_time'    => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
-      'end_time'      => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'start_time'    => new sfValidatorPass(array('required' => false)),
+      'end_time'      => new sfValidatorPass(array('required' => false)),
       'batch_year'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'dept_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Department'), 'column' => 'id')),
       'semester'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -56,8 +56,8 @@ abstract class BasePeriodFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'            => 'Number',
-      'start_time'    => 'Number',
-      'end_time'      => 'Number',
+      'start_time'    => 'Text',
+      'end_time'      => 'Text',
       'batch_year'    => 'Number',
       'dept_id'       => 'ForeignKey',
       'semester'      => 'Number',

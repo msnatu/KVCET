@@ -171,10 +171,10 @@ sfGuardUser:
 
 <?php for($i = 21; $i <= 40; $i++): ?>
   otherUser_<?php echo $i; ?>:
-    first_name:      'Uday Shankar'
-    last_name:       Singh <?php echo $i; ?>
-    email_address:   usingh<?php echo $i; ?>@ubicsindia.com
-    username:        usingh<?php echo $i; ?>@ubicsindia.com
+    first_name:      'Natu'
+    last_name:        M
+    email_address:   natu<?php echo $i; ?>@gmail.com
+    username:        natu<?php echo $i; ?>@gmail.com
     Groups:          [Group_staff]
     algorithm:       sha1
     password:        Welcome123
@@ -1011,24 +1011,24 @@ OtherUser:
 
 Period:
   period_1:
-    start_time: 8.30
-    end_time:   9.30
+    start_time: 8:30
+    end_time:   9:30
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_2:
-    start_time: 9.30
-    end_time:   10.30
+    start_time: 9:30
+    end_time:   10:30
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_3:
-    start_time: 10.30
-    end_time:   10.40
+    start_time: 10:30
+    end_time:   10:40
     batch_year: 2010
     dept_id:    2
     semester:   7
@@ -1036,24 +1036,24 @@ Period:
     is_break_time: true
 
   period_4:
-    start_time: 10.40
-    end_time:   11.40
+    start_time: 10:40
+    end_time:   11:40
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_5:
-    start_time: 11.40
-    end_time:   12.30
+    start_time: 11:40
+    end_time:   12:30
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_6:
-    start_time: 12.30
-    end_time:   13.30
+    start_time: 12:30
+    end_time:   13:30
     batch_year: 2010
     dept_id:    2
     semester:   7
@@ -1061,24 +1061,24 @@ Period:
     is_break_time: true
 
   period_7:
-    start_time: 13.30
-    end_time:   14.30
+    start_time: 13:30
+    end_time:   14:30
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_8:
-    start_time: 14.30
-    end_time:   15.30
+    start_time: 14:30
+    end_time:   15:30
     batch_year: 2010
     dept_id:    2
     semester:   7
     section_no: 1
 
   period_9:
-    start_time: 9.30
-    end_time:   10.30
+    start_time: 9:30
+    end_time:   10:30
     batch_year: 2010
     dept_id:    2
     semester:   6

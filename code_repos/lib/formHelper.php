@@ -178,7 +178,7 @@ class formHelper
         $hr = "0" . $i;
       else
         $hr = $i;
-      if ($selected_hr == $hr && $type != 'add')
+      if ($type != 'add' && $selected_hr == $hr)
         $html .= "<option value=\"" . $hr . "\" selected=yes>" . $hr . "</option>";
       else
         $html .= "<option value=\"" . $hr . "\">" . $hr . "</option>";
@@ -186,12 +186,12 @@ class formHelper
     $html .= "</select>";
     $html .= "<select name=\"" . $tagName . "_mins\" id=\"mins\" class=\"mins\">";
     $html .= "<option value='' " . $selected . ">-- MIN --</option>";
-    for ($i = 1; $i <= 60; $i++) {
+    for ($i = 0; $i <= 60; $i = $i + 5) {
       if ($i < 10)
         $m = "0" . $i;
       else
         $m = $i;
-      if ($selected_min == $m && $type != 'add')
+      if ($type != 'add' && $selected_min == $m)
         $selected = "selected=yes";
       else
         $selected = '';

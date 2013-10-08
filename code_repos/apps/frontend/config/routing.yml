@@ -149,6 +149,14 @@ assign_period:
   url:  /timetable/assign-period
   param: { module: timetable, action: assignPeriod }
 
+classroom_periods:
+  url:  /timetable/get-classroom-periods
+  param: { module: timetable, action: getClassroomPeriods }
+
+manage_period:
+  url:  /timetable/manage-period
+  param: { module: timetable, action: managePeriod }
+
 
 
 # Keep these two rules at the bottom of the page to avoid overriding

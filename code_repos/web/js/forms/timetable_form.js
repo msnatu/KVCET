@@ -93,6 +93,10 @@ TimetableForm.prototype = {
 
   bindTimetableForm: function () {
     var self = this;
+    this.bindPeriodsForm();
+    if(this.showForm == false) {
+      return false;
+    }
     this.pageHelper = new PageHelper();
     $('.period-td').colorbox({
       html: '<div class="timetable-form-body"></div>',
@@ -146,6 +150,62 @@ TimetableForm.prototype = {
           window.location.reload();
         }
       });
+    });
+  },
+
+  bindPeriodsForm: function () {
+    var self = this;
+    this.pageHelper = new PageHelper();
+    $('.js-manage-period-btn').unbind('click').bind('click', function () {
+      $.ajax({
+        url: self.pageHelper.routeFor("timetable/get-classroom-periods"),
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          section_no: $(this).attr('section_no'),
+          batch: $(this).attr('batch'),
+          semester: $(this).attr('semester'),
+          department: $(this).attr('department')
+        },
+        success: function (response) {
+          self.periods = response.data;
+          self.renderPeriodForm();
+        }
+      });
+    });
+  },
+
+  renderPeriodForm: function () {
+    var self = this;
+    $('.no-records-found-box').hide();
+    $('.js-manage-period-btn').hide();
+    var table = $('.timetable-table');
+    table.hide();
+    var periodFormContainer = $('.period-form-container');
+    periodFormContainer.show();
+    TemplateEngine.paint(periodFormContainer, '<table class="period-form kt-table">\n  <th>No</th>\n  <th>Start Time</th>\n  <th>End Time</th>\n  <th>Is Break Time</th>\n  <th>Remove</th>\n</table> ');
+
+    var formContainer = $('.period-form');
+    var counter = 1;
+    _.each(this.periods, function (period) {
+      TemplateEngine.paint(formContainer, '<tr class="period-row" period_id="<%=p.id%>">\n  <td><%=counter%></td>\n  <td class="start-time-container"></td>\n  <td class="end-time-container"></td>\n  <td></td>\n  <td></td>\n</tr>', {
+        p: period,
+        counter: counter
+      });
+      counter++;
+
+      self['start_time_' + period.id] = new TimeBox({
+        container: $('.period-row[period_id="' + period.id + '"] .start-time-container'),
+        id: 'start_time_' + period.id,
+        value: period.start_time
+      });
+
+      self['end_time_' + period.id] = new TimeBox({
+        container: $('.period-row[period_id="' + period.id + '"] .end-time-container'),
+        id: 'end_time_' + period.id,
+        value: period.end_time
+      });
+
     });
   }
 

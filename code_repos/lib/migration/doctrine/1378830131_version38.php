@@ -16,13 +16,13 @@ class Version38 extends Doctrine_Migration_Base
              ),
              'start_time' => 
              array(
-              'type' => 'float',
-              'length' => '',
+              'type' => 'string',
+              'length' => '256',
              ),
              'end_time' => 
              array(
-              'type' => 'float',
-              'length' => '',
+              'type' => 'string',
+              'length' => '256',
              ),
              'batch_year' => 
              array(

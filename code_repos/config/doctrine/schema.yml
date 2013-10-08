@@ -185,8 +185,8 @@ StudentClassroom:
 Period:
   actAs:           [Timestampable, SoftDelete]
   columns:
-    start_time:            { type: float } #save just the hour in 24 hr format like 11,12,13
-    end_time:              { type: float }
+    start_time:            { type: string(10) } #save just the hour in 24 hr format like 11,12,13
+    end_time:              { type: string(10) }
     batch_year:           { type: integer }
     dept_id:              { type: integer }
     semester:             { type: integer }

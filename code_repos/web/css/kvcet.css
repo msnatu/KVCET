@@ -1059,6 +1059,7 @@ select option {
     margin: 5px;
     padding: 0 22px;
     text-decoration: none;
+  cursor: pointer;
 }
 
 .add-new-btn:hover {
@@ -1166,6 +1167,7 @@ select option {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+  margin-top: 3px;
 }
 
 /*FOR USER MANAGEMENT SMALL ICON*/ 
@@ -1226,6 +1228,7 @@ select option {
 .timetable-table td {
   padding: 10px;
   text-align: center;
+  vertical-align: middle;
 }
 
 .day-th {
@@ -1281,4 +1284,13 @@ select option {
 .staff-name-td {
   color: #006EAC;
   margin-top: 3px;
+}
+
+.no-records-found-box-link {
+  text-decoration: none;
+}
+
+.no-records-found-box-link:hover div {
+  font-weight: bold;
+  border-width: 2px;
 }

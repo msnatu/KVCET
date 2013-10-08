@@ -46,6 +46,7 @@ class TimetableInteraction {
         ->andWhere('semester = ?', $sem)
         ->fetchArray();
 
+    $periodIds = array();
     foreach ($periods as $p) {
       $periodIds[] = $p['id'];
     }

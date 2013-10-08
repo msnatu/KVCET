@@ -55,17 +55,22 @@ class timetableActions extends sfActions
   }
 
   public function executeShowTimetable($request) {
-    $section = $request->getParameter('section_no');
-    $dept = $request->getParameter('department');
-    $batch = $request->getParameter('batch');
-    $sem = $request->getParameter('semester');
+    $this->section = $request->getParameter('section_no');
+    $this->batch = $request->getParameter('batch');
+    $this->semester = $request->getParameter('semester');
+    $this->department = $request->getParameter('department');
 
     $student = new TimetableInteraction();
-    $periods = $student->getClassroomPeriods($dept, $batch, $section, $sem);
+    $periods = $student->getClassroomPeriods($this->department, $this->batch, $this->section, $this->semester);
     $this->classroomPeriods = $periods['periods'];
     $this->assignmentDetails = $periods['assignment_details'];
-    $this->staffs = OtherUserTable::getInstance()->getStaffs($dept);
-    $this->subjects = SubjectsTable::getInstance()->getSubjects($dept, $batch, $sem);
+    $this->staffs = OtherUserTable::getInstance()->getStaffs($this->department);
+    $this->subjects = SubjectsTable::getInstance()->getSubjects($this->department, $this->batch, $this->semester);
+
+    $academicHelper = new academicHelper();
+    $department = DepartmentTable::getInstance()->find($this->department);
+    $this->dept = $department->getName();
+    $this->sem = $academicHelper->getYearSuffix($this->semester);
   }
 
   public function executeGetAssignedPeriod($request) {
@@ -84,6 +89,29 @@ class timetableActions extends sfActions
     $student = new TimetableInteraction();
     $student->assignPeriod($values);
     return sfView::NONE;
+  }
+
+  public function executeGetClassroomPeriods($request) {
+    $section = $request->getParameter('section_no');
+    $batch = $request->getParameter('batch');
+    $sem = $request->getParameter('semester');
+    $dept = $request->getParameter('department');
+
+    $student = new TimetableInteraction();
+    $periods = $student->getClassroomPeriods($dept, $batch, $section, $sem);
+    return $this->renderText(json_encode(array('data' => $periods['periods'])));
+  }
+
+
+  public function executeManagePeriod($request) {
+    $this->section = $request->getParameter('section_no');
+    $this->batch = $request->getParameter('batch');
+    $sem = $request->getParameter('semester');
+    $dept = $request->getParameter('department');
+
+    $student = new TimetableInteraction();
+    $periods = $student->getClassroomPeriods($dept, $this->batch, $this->section, $sem);
+    $this->classroomPeriods = $periods['periods'];
   }
 
 }
