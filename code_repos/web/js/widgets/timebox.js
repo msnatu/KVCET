@@ -29,6 +29,7 @@ TimeBox.prototype = {
     var values = this.value.split(':');
     this.hourValue = values[0] > 12 ? values[0] - 12 : values[0];
     this.minValue = values[1];
+    this.meridiemValue = values[0] > 12 ? 2 : 1;
   },
 
   renderHour: function () {
@@ -77,16 +78,17 @@ TimeBox.prototype = {
     meridiemBox.className = 'min-box';
 
     var am = document.createElement('option');
-    am.value = 'AM';
+    am.value = 1;
     am.innerHTML = 'AM';
     meridiemBox.appendChild(am);
 
     var pm = document.createElement('option');
-    pm.value = 'PM';
+    pm.value = 2;
     pm.innerHTML = 'PM';
     meridiemBox.appendChild(pm);
 
     this.container.append(meridiemBox);
+    meridiemBox.value = this.meridiemValue;
   }
 
 };

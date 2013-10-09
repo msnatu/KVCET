@@ -1294,3 +1294,112 @@ select option {
   font-weight: bold;
   border-width: 2px;
 }
+
+
+.delete-icon {
+  background: url("images/trash.png") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.period-form {
+  width: 600px;
+}
+
+.period-form td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.period-submit-btn {
+  width: 70px;
+}
+
+.cancel-btn {
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+  border: 1px solid #a0a0a0;
+  padding: 4px;
+  color: #595959;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin: 15px auto;
+  display: block;
+  min-width: 55px;
+}
+
+.cancel-btn:hover {
+
+  background: #cccccc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #cccccc 0%, #eeeeee 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #cccccc 0%,#eeeeee 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #cccccc 0%,#eeeeee 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+
+}
+
+.blue-btn {
+  background: #006AB2;
+  background: -moz-linear-gradient(top,  #006AB2 0%, #4D94C5 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006AB2), color-stop(100%,#4D94C5)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #006AB2 0%,#4D94C5 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #006AB2 0%,#4D94C5 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #006AB2 0%,#4D94C5 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #006AB2 0%,#4D94C5 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006AB2', endColorstr='#4D94C5',GradientType=0 ) !important; /* IE6-9 */
+
+  border: 1px solid #a0a0a0;
+  padding: 4px 5px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin: 15px auto;
+  display: block;
+  min-width: 55px;
+}
+
+.blue-btn:hover {
+  background: -moz-linear-gradient(top,  #4d94c5 0%, #006AB2 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4d94c5), color-stop(100%,#006AB2)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4d94c5 0%,#006AB2 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #4d94c5 0%,#006AB2 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #4d94c5 0%,#006AB2 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  #4d94c5 0%,#006AB2 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d94c5', endColorstr='#006AB2',GradientType=0 ) !important; /* IE6-9 */
+}
+
+.period-btn-container {
+  width: 275px;
+  margin: 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+
+.clr {
+  clear: both;
+}
+
+.period-cancel-btn {
+  margin-left: 20px;
+  margin-right: 20px;
+}
